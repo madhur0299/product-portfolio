@@ -124,12 +124,12 @@ export default async function WorkDetailPage({ params }: CasePageProps) {
         <section className="border-b border-line bg-surface py-12 sm:py-16">
           <div className="mx-auto grid max-w-7xl gap-8 px-5 sm:px-8 lg:grid-cols-[minmax(16rem,0.7fr)_minmax(18rem,0.5fr)] lg:items-center lg:gap-16 lg:px-10">
             <div>
-              <p className="text-sm font-semibold text-accent">iOS product evidence</p>
-              <h2 className="mt-4 max-w-xl text-3xl font-semibold leading-tight text-balance sm:text-4xl">The active workout stays visible beyond the app.</h2>
-              <p className="mt-5 max-w-xl text-base leading-7 text-muted">Coach uses iOS Live Activities and the Dynamic Island to surface the current exercise, set progress, and a quick return to the logger. This is a simulator capture from the iOS build.</p>
+              <p className="text-sm font-semibold text-accent">Fresh iOS build</p>
+              <h2 className="mt-4 max-w-xl text-3xl font-semibold leading-tight text-balance sm:text-4xl">A training product for the moments before, during, and after a session.</h2>
+              <p className="mt-5 max-w-xl text-base leading-7 text-muted">This native-resolution simulator capture shows the active-training surface: the current plan, exercise, set progress, and recovery timer. It comes directly from a fresh Debug build of Coach.</p>
             </div>
             <figure className="mx-auto w-full max-w-sm overflow-hidden rounded-lg border border-line bg-foreground shadow-card">
-              <Image src={coachScreens[0].src} alt={coachScreens[0].alt} width={1206} height={2622} priority sizes="(min-width: 1024px) 380px, (min-width: 640px) 45vw, 86vw" className="h-auto w-full" />
+              <Image src={coachScreens[0].src} alt={coachScreens[0].alt} width={1206} height={2622} quality={90} priority sizes="(min-width: 1024px) 380px, (min-width: 640px) 45vw, 86vw" className="h-auto w-full" />
               <figcaption className="on-dark dark-divider border-t px-4 py-3 text-sm font-semibold">{coachScreens[0].label} <span className="on-dark-muted font-normal">· {coachScreens[0].detail}</span></figcaption>
             </figure>
           </div>
@@ -183,12 +183,12 @@ export default async function WorkDetailPage({ params }: CasePageProps) {
       {isCoach ? (
         <section className="bg-surface py-16 sm:py-24">
           <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
-            <h2 className="text-3xl font-semibold leading-tight sm:text-4xl">More iOS product states.</h2>
-            <p className="mt-4 max-w-2xl text-base leading-7 text-muted">Full-resolution simulator captures of the Live Activity and Dynamic Island during an active workout.</p>
-            <div className="mt-8 grid grid-cols-2 gap-4 xl:grid-cols-3">
+            <h2 className="text-3xl font-semibold leading-tight sm:text-4xl">The product across three customer moments.</h2>
+            <p className="mt-4 max-w-2xl text-base leading-7 text-muted">Fresh iOS simulator captures of active training, health insights, and trainer collaboration. Each is a working product surface from the current build.</p>
+            <div className="mt-8 grid grid-cols-2 gap-4 xl:grid-cols-2">
               {coachScreens.slice(1).map((screen) => (
                 <figure key={screen.src} className="overflow-hidden rounded-lg border border-line bg-foreground">
-                  <Image src={screen.src} alt={screen.alt} width={1206} height={2622} sizes="(min-width: 1280px) 26vw, (min-width: 640px) 44vw, 46vw" className="h-auto w-full" />
+                  <Image src={screen.src} alt={screen.alt} width={1206} height={2622} quality={90} sizes="(min-width: 1280px) 26vw, (min-width: 640px) 44vw, 46vw" className="h-auto w-full" />
                   <figcaption className="on-dark dark-divider border-t px-4 py-3 text-sm font-semibold">{screen.label}<span className="on-dark-muted mt-1 block text-xs font-normal">{screen.detail}</span></figcaption>
                 </figure>
               ))}

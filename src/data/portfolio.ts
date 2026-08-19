@@ -297,28 +297,22 @@ export const professionalExperience: ProfessionalExperience[] = [
 
 export const coachScreens: CoachScreen[] = [
   {
-    src: "/images/coach/ios/lock-screen-live-activity.png",
-    alt: "Coach iOS Lock Screen Live Activity showing a Bench Press set ready to log",
-    label: "Set-ready logging",
-    detail: "iOS Live Activity",
+    src: "/images/coach/ios/active-training.png",
+    alt: "Coach iOS app showing an active Push Day session with Bench Press set progress and a rest timer",
+    label: "Active training",
+    detail: "Workout session",
   },
   {
-    src: "/images/coach/ios/dynamic-island-logger.png",
-    alt: "Coach iOS Dynamic Island showing a Bench Press workout with quick logging controls",
-    label: "Quick logging",
-    detail: "iOS Dynamic Island",
+    src: "/images/coach/ios/health-insights.png",
+    alt: "Coach iOS app showing Health insights with steps, active calories, sleep, recovery, and body data",
+    label: "Health insights",
+    detail: "Health data",
   },
   {
-    src: "/images/coach/ios/dynamic-island-controls.png",
-    alt: "Coach iOS Dynamic Island expanded into weight and rep controls for a Bench Press set",
-    label: "Set controls",
-    detail: "iOS Dynamic Island",
-  },
-  {
-    src: "/images/coach/ios/live-activity-progress.png",
-    alt: "Coach iOS Lock Screen Live Activity showing Bench Press progress and a workout timer",
-    label: "In-progress session",
-    detail: "iOS Live Activity",
+    src: "/images/coach/ios/personal-training.png",
+    alt: "Coach iOS app showing the personal training experience with live sessions, private chat, and approved plans",
+    label: "Personal training",
+    detail: "Trainer workflows",
   },
 ];
 

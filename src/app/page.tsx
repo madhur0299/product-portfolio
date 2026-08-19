@@ -121,8 +121,8 @@ export default function Home() {
             <div className="mt-10 grid gap-10 lg:grid-cols-[minmax(15rem,0.55fr)_minmax(0,1.45fr)] lg:gap-14">
               <div className="border-t-2 border-foreground pt-5">
                 <p className="text-sm font-semibold text-accent">Product evidence</p>
-                <h3 className="mt-4 max-w-sm text-2xl font-semibold leading-tight">Fitness logging that remains useful when the app is not open.</h3>
-                <p className="mt-4 max-w-md text-sm leading-6 text-muted">These simulator captures show the iOS Live Activity and Dynamic Island interactions for an active workout, including set progress, timers, and a route back to logging.</p>
+                <h3 className="mt-4 max-w-sm text-2xl font-semibold leading-tight">Three core product moments from a fresh iOS build.</h3>
+                <p className="mt-4 max-w-md text-sm leading-6 text-muted">The product moves from active training to health context and personal coaching. These are native-resolution simulator captures of the current iOS build, not concept screens.</p>
                 <dl className="mt-8 border-y border-line text-sm">
                   <div className="grid grid-cols-[5.5rem_minmax(0,1fr)] gap-3 border-b border-line py-4"><dt className="font-semibold">Web</dt><dd className="text-muted">Planning, calendars, training templates, and progress review.</dd></div>
                   <div className="grid grid-cols-[5.5rem_minmax(0,1fr)] gap-3 border-b border-line py-4"><dt className="font-semibold">iOS</dt><dd className="text-muted">Native workout logging, HealthKit, widgets, and Live Activities.</dd></div>
@@ -130,10 +130,10 @@ export default function Home() {
                 </dl>
                 <Link href="/work/coach-cross-platform" className="mt-7 inline-flex min-h-11 items-center gap-2 text-sm font-semibold underline decoration-accent decoration-2 underline-offset-4 transition-colors hover:text-accent">Read the Coach build story<ArrowRight className="h-4 w-4" aria-hidden="true" /></Link>
               </div>
-              <div className="grid grid-cols-2 gap-3 sm:gap-5 xl:grid-cols-4">
+              <div className="grid grid-cols-2 gap-3 sm:gap-5 xl:grid-cols-3">
                 {coachScreens.map((screen) => (
-                  <figure key={screen.src} className="overflow-hidden rounded-lg border border-line bg-foreground shadow-card">
-                    <Image src={screen.src} alt={screen.alt} width={1206} height={2622} sizes="(min-width: 1280px) 18vw, (min-width: 640px) 36vw, 46vw" className="h-auto w-full transition duration-300 hover:scale-[1.015]" />
+                  <figure key={screen.src} className="last:col-span-2 overflow-hidden rounded-lg border border-line bg-foreground shadow-card sm:last:col-span-1">
+                    <Image src={screen.src} alt={screen.alt} width={1206} height={2622} quality={90} sizes="(min-width: 1280px) 20vw, (min-width: 640px) 36vw, 100vw" className="h-auto w-full transition duration-300 hover:scale-[1.015]" />
                     <figcaption className="on-dark dark-divider border-t px-3 py-3"><p className="text-xs font-semibold">{screen.label}</p><p className="on-dark-muted mt-1 text-xs">{screen.detail}</p></figcaption>
                   </figure>
                 ))}

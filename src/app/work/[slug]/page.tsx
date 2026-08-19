@@ -17,9 +17,37 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: CasePageProps): Promise<Metadata> {
   const { slug } = await params;
   const caseStudy = getCaseStudy(slug);
-  return caseStudy
-    ? { title: `${caseStudy.title} | ${profile.name}`, description: caseStudy.summary }
-    : { title: "Work detail not found" };
+
+  if (!caseStudy) return { title: "Work detail not found" };
+
+  const title = `${caseStudy.title} | ${profile.name}`;
+  const path = `/work/${caseStudy.slug}`;
+
+  return {
+    title,
+    description: caseStudy.summary,
+    alternates: { canonical: path },
+    openGraph: {
+      type: "article",
+      url: `https://www.madhurjain.in${path}`,
+      title,
+      description: caseStudy.summary,
+      images: [
+        {
+          url: "/opengraph-image",
+          width: 1200,
+          height: 630,
+          alt: `${caseStudy.title} case study by ${profile.name}`,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description: caseStudy.summary,
+      images: ["/opengraph-image"],
+    },
+  };
 }
 
 export default async function WorkDetailPage({ params }: CasePageProps) {

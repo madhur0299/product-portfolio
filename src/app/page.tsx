@@ -121,8 +121,8 @@ export default function Home() {
             <div className="mt-10 grid gap-10 lg:grid-cols-[minmax(15rem,0.55fr)_minmax(0,1.45fr)] lg:gap-14">
               <div className="border-t-2 border-foreground pt-5">
                 <p className="text-sm font-semibold text-accent">Product evidence</p>
-                <h3 className="mt-4 max-w-sm text-2xl font-semibold leading-tight">Three core product moments from a fresh iOS build.</h3>
-                <p className="mt-4 max-w-md text-sm leading-6 text-muted">The product moves from active training to health context and personal coaching. These are native-resolution simulator captures of the current iOS build, not concept screens.</p>
+                <h3 className="mt-4 max-w-sm text-2xl font-semibold leading-tight">A home screen that brings the next workout and health context together.</h3>
+                <p className="mt-4 max-w-md text-sm leading-6 text-muted">The product moves from a daily training plan to health context and personal coaching. These are native-resolution simulator captures of the current iOS build, not concept screens.</p>
                 <dl className="mt-8 border-y border-line text-sm">
                   <div className="grid grid-cols-[5.5rem_minmax(0,1fr)] gap-3 border-b border-line py-4"><dt className="font-semibold">Web</dt><dd className="text-muted">Planning, calendars, training templates, and progress review.</dd></div>
                   <div className="grid grid-cols-[5.5rem_minmax(0,1fr)] gap-3 border-b border-line py-4"><dt className="font-semibold">iOS</dt><dd className="text-muted">Native workout logging, HealthKit, widgets, and Live Activities.</dd></div>

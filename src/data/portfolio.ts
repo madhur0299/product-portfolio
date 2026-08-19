@@ -297,10 +297,10 @@ export const professionalExperience: ProfessionalExperience[] = [
 
 export const coachScreens: CoachScreen[] = [
   {
-    src: "/images/coach/ios/active-training.png",
-    alt: "Coach iOS app showing an active Push Day session with Bench Press set progress and a rest timer",
-    label: "Active training",
-    detail: "Workout session",
+    src: "/images/coach/ios/home-dashboard.png",
+    alt: "Coach iOS home dashboard showing a Tuesday Back workout, steps, streak, weekly progress, and five primary navigation areas",
+    label: "Home dashboard",
+    detail: "Daily training plan",
   },
   {
     src: "/images/coach/ios/health-insights.png",

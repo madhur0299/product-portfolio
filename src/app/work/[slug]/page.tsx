@@ -125,8 +125,8 @@ export default async function WorkDetailPage({ params }: CasePageProps) {
           <div className="mx-auto grid max-w-7xl gap-8 px-5 sm:px-8 lg:grid-cols-[minmax(16rem,0.7fr)_minmax(18rem,0.5fr)] lg:items-center lg:gap-16 lg:px-10">
             <div>
               <p className="text-sm font-semibold text-accent">Fresh iOS build</p>
-              <h2 className="mt-4 max-w-xl text-3xl font-semibold leading-tight text-balance sm:text-4xl">A training product for the moments before, during, and after a session.</h2>
-              <p className="mt-5 max-w-xl text-base leading-7 text-muted">This native-resolution simulator capture shows the active-training surface: the current plan, exercise, set progress, and recovery timer. It comes directly from a fresh Debug build of Coach.</p>
+              <h2 className="mt-4 max-w-xl text-3xl font-semibold leading-tight text-balance sm:text-4xl">A training product that begins with the next useful action.</h2>
+              <p className="mt-5 max-w-xl text-base leading-7 text-muted">This native-resolution home screen brings a daily workout, steps, streak, weekly progress, and the core product areas into one decision point. It comes directly from the current Coach iOS build.</p>
             </div>
             <figure className="mx-auto w-full max-w-sm overflow-hidden rounded-lg border border-line bg-foreground shadow-card">
               <Image src={coachScreens[0].src} alt={coachScreens[0].alt} width={1206} height={2622} quality={90} priority sizes="(min-width: 1024px) 380px, (min-width: 640px) 45vw, 86vw" className="h-auto w-full" />

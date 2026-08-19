@@ -165,9 +165,9 @@ export const profile: Profile = {
   githubUrl: "https://github.com/madhur0299",
   resumePath: "/resume.pdf",
   headline:
-    "AI, growth, and product systems PM who can also build cross-platform products from scratch.",
+    "AI, growth, and product systems PM who turns ambiguous problems into useful, measurable products.",
   summary:
-    "5+ years across consumer growth, monetization, ecommerce, and data-led product initiatives, with recent work in AI analytics, LLM automation, cross-platform fitness products, conversion recovery, and app subscriber growth.",
+    "5+ years across AI and data products, consumer growth, monetization, and ecommerce, with recent work in LLM workflows, AI analytics, cross-platform fitness products, conversion recovery, and app subscriber growth.",
   availability:
     "Open to Senior Product Manager, PM3, AI/Data PM, Growth PM, and product-builder roles.",
 };
@@ -179,6 +179,11 @@ export const resumeSkills = [
   "SQL Validation",
   "LLM Evaluation",
   "Prompt Evaluation",
+  "LangChain",
+  "LangGraph",
+  "Retrieval-Augmented Generation (RAG)",
+  "Vector Databases",
+  "Agentic Workflows",
   "Python",
   "Data Visualization",
   "Funnel Analytics",
@@ -195,8 +200,8 @@ export const skillGroups: SkillGroup[] = [
   },
   {
     title: "AI and data products",
-    description: "Designs useful AI workflows with evaluation, data quality, and user trust built into the loop.",
-    skills: ["AI Product Management", "AI Workflow Automation", "LLM Evaluation", "Prompt Evaluation", "SQL Validation", "Python"],
+    description: "Designs useful LLM and data workflows with retrieval, evaluation, data quality, and user trust built into the loop.",
+    skills: ["AI Product Management", "LangChain", "LangGraph", "RAG", "LLM Evaluation", "Prompt Evaluation", "SQL Validation", "Python"],
   },
   {
     title: "Growth and execution",

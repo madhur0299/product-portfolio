@@ -21,10 +21,10 @@ export default function Home() {
             <div className="min-w-0">
               <p className="text-base font-semibold text-accent">Madhur Jain, Product Manager III</p>
               <h1 className="mt-5 max-w-4xl text-4xl font-semibold leading-[1.06] text-balance sm:text-5xl lg:text-6xl">
-                Product Manager III with 5+ years across consumer growth, monetization, ecommerce, and data-led products.
+                Product Manager III building AI, data, and growth products that turn ambiguous problems into measurable outcomes.
               </h1>
               <p className="mt-6 max-w-2xl text-base leading-8 text-muted sm:text-lg">
-                I turn ambiguous product problems into launches and measurable commercial outcomes. My recent work includes AI analytics and LLM automation at PRISM, after leading mobile growth at SplashLearn and D2C product work at Honasa.
+                I use product judgment, LLM workflows, and data to turn unclear customer and business problems into launches that move the metric. At PRISM, I build AI analytics and automation; before that, I led mobile growth at SplashLearn and D2C product work at Honasa.
               </p>
               <div className="mt-9 flex flex-col gap-3 sm:flex-row">
                 <a href={profile.resumePath} className="on-dark inline-flex min-h-12 items-center justify-center gap-2 rounded-md bg-accent px-5 text-sm font-semibold transition-colors hover:bg-accent-strong">

@@ -118,11 +118,24 @@ export default function Home() {
         <section id="personal-projects" className="scroll-mt-28 bg-surface py-16 sm:py-24">
           <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
             <div className="grid gap-6 border-b border-line pb-9 lg:grid-cols-[minmax(0,0.9fr)_minmax(20rem,0.6fr)] lg:items-end"><h2 className="max-w-3xl text-3xl font-semibold leading-tight text-balance sm:text-4xl">Coach, a cross-platform fitness product I am building from scratch.</h2><p className="max-w-xl text-base leading-7 text-muted">A personal build where I own the product thinking and implementation across web, iOS, and Android. It is builder proof, not a claim of market traction.</p></div>
-            <div className="mt-8 grid gap-5 lg:grid-cols-12">
-              <Link href="/work/coach-cross-platform" className="group overflow-hidden rounded-lg border border-line bg-foreground lg:col-span-7"><div className="relative aspect-[16/10]"><Image src={coachScreens[0].src} alt={coachScreens[0].alt} fill priority sizes="(min-width: 1024px) 58vw, 100vw" className="object-cover transition duration-300 group-hover:scale-[1.01]" /></div><div className="on-dark dark-divider border-t p-5 sm:p-6"><p className="accent-soft text-sm font-semibold">Web · Training dashboard</p><div className="mt-3 flex items-end justify-between gap-4"><p className="text-xl font-semibold sm:text-2xl">Planning, logging, progress, and health context in one fitness product.</p><ArrowRight className="h-5 w-5 shrink-0" aria-hidden="true" /></div></div></Link>
-              <div className="grid gap-5 sm:grid-cols-3 lg:col-span-5 lg:grid-cols-1">
-                {coachScreens.slice(1).map((screen) => (
-                  <Link key={screen.src} href="/work/coach-cross-platform" className="group overflow-hidden rounded-lg border border-line bg-surface-muted sm:grid sm:grid-rows-[1fr_auto] lg:grid-cols-[8.5rem_minmax(0,1fr)] lg:grid-rows-1"><div className="relative aspect-[4/5] overflow-hidden bg-foreground lg:aspect-auto"><Image src={screen.src} alt={screen.alt} fill sizes="(min-width: 1024px) 150px, 33vw" className="object-cover object-top transition duration-300 group-hover:scale-[1.03]" /></div><div className="p-4 lg:flex lg:items-center"><p className="text-sm font-semibold">Mobile · {screen.label}</p></div></Link>
+            <div className="mt-10 grid gap-10 lg:grid-cols-[minmax(15rem,0.55fr)_minmax(0,1.45fr)] lg:gap-14">
+              <div className="border-t-2 border-foreground pt-5">
+                <p className="text-sm font-semibold text-accent">Product evidence</p>
+                <h3 className="mt-4 max-w-sm text-2xl font-semibold leading-tight">Fitness logging that remains useful when the app is not open.</h3>
+                <p className="mt-4 max-w-md text-sm leading-6 text-muted">These simulator captures show the iOS Live Activity and Dynamic Island interactions for an active workout, including set progress, timers, and a route back to logging.</p>
+                <dl className="mt-8 border-y border-line text-sm">
+                  <div className="grid grid-cols-[5.5rem_minmax(0,1fr)] gap-3 border-b border-line py-4"><dt className="font-semibold">Web</dt><dd className="text-muted">Planning, calendars, training templates, and progress review.</dd></div>
+                  <div className="grid grid-cols-[5.5rem_minmax(0,1fr)] gap-3 border-b border-line py-4"><dt className="font-semibold">iOS</dt><dd className="text-muted">Native workout logging, HealthKit, widgets, and Live Activities.</dd></div>
+                  <div className="grid grid-cols-[5.5rem_minmax(0,1fr)] gap-3 py-4"><dt className="font-semibold">Android</dt><dd className="text-muted">Kotlin and Compose flows with local persistence and Health Connect.</dd></div>
+                </dl>
+                <Link href="/work/coach-cross-platform" className="mt-7 inline-flex min-h-11 items-center gap-2 text-sm font-semibold underline decoration-accent decoration-2 underline-offset-4 transition-colors hover:text-accent">Read the Coach build story<ArrowRight className="h-4 w-4" aria-hidden="true" /></Link>
+              </div>
+              <div className="grid grid-cols-2 gap-3 sm:gap-5 xl:grid-cols-4">
+                {coachScreens.map((screen) => (
+                  <figure key={screen.src} className="overflow-hidden rounded-lg border border-line bg-foreground shadow-card">
+                    <Image src={screen.src} alt={screen.alt} width={1206} height={2622} sizes="(min-width: 1280px) 18vw, (min-width: 640px) 36vw, 46vw" className="h-auto w-full transition duration-300 hover:scale-[1.015]" />
+                    <figcaption className="on-dark dark-divider border-t px-3 py-3"><p className="text-xs font-semibold">{screen.label}</p><p className="on-dark-muted mt-1 text-xs">{screen.detail}</p></figcaption>
+                  </figure>
                 ))}
               </div>
             </div>

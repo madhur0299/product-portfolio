@@ -152,6 +152,7 @@ export type CoachScreen = {
   src: string;
   alt: string;
   label: string;
+  detail: string;
 };
 
 export const profile: Profile = {
@@ -296,24 +297,28 @@ export const professionalExperience: ProfessionalExperience[] = [
 
 export const coachScreens: CoachScreen[] = [
   {
-    src: "/images/coach/dashboard.png",
-    alt: "Coach desktop dashboard showing a workout plan, weekly schedule, and recovery insight",
-    label: "Desktop dashboard",
+    src: "/images/coach/ios/lock-screen-live-activity.png",
+    alt: "Coach iOS Lock Screen Live Activity showing a Bench Press set ready to log",
+    label: "Set-ready logging",
+    detail: "iOS Live Activity",
   },
   {
-    src: "/images/coach/workout-logger.png",
-    alt: "Coach mobile active workout logger showing sets, reps, rest timer, and RPE",
-    label: "Workout logging",
+    src: "/images/coach/ios/dynamic-island-logger.png",
+    alt: "Coach iOS Dynamic Island showing a Bench Press workout with quick logging controls",
+    label: "Quick logging",
+    detail: "iOS Dynamic Island",
   },
   {
-    src: "/images/coach/progress.png",
-    alt: "Coach mobile progress screen showing best weight, volume trend, and workout history",
-    label: "Progress tracking",
+    src: "/images/coach/ios/dynamic-island-controls.png",
+    alt: "Coach iOS Dynamic Island expanded into weight and rep controls for a Bench Press set",
+    label: "Set controls",
+    detail: "iOS Dynamic Island",
   },
   {
-    src: "/images/coach/library.png",
-    alt: "Coach mobile workout library screen",
-    label: "Workout library",
+    src: "/images/coach/ios/live-activity-progress.png",
+    alt: "Coach iOS Lock Screen Live Activity showing Bench Press progress and a workout timer",
+    label: "In-progress session",
+    detail: "iOS Live Activity",
   },
 ];
 

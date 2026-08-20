@@ -1,6 +1,7 @@
 import { ArrowRight, Code2, Download, ExternalLink, Mail } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { ProfessionalExperience } from "@/components/professional-experience";
 import { SiteHeader } from "@/components/site-header";
 import {
   coachScreens,
@@ -53,45 +54,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="experience" className="scroll-mt-28 border-y border-line bg-surface-muted py-16 sm:py-24">
-          <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
-            <div className="grid gap-8 lg:grid-cols-[minmax(0,0.9fr)_minmax(20rem,0.6fr)] lg:items-end">
-              <div>
-                <h2 className="max-w-3xl text-3xl font-semibold leading-tight text-balance sm:text-4xl">How my product scope has grown.</h2>
-                <p className="mt-5 max-w-3xl text-base leading-7 text-muted">I started by fixing the operational details that shape an ecommerce customer journey. At Honasa, that became acquisition, conversion, launches, and platform scale. At SplashLearn, I owned mobile subscription growth. At PRISM, I now apply the same product discipline to AI, pricing, and decision-making systems.</p>
-              </div>
-              <p className="max-w-xl text-base leading-7 text-muted">This is the professional work behind the portfolio. Each story names the product context, the decision I owned, and the change it created.</p>
-            </div>
-
-            <div className="mt-12 space-y-14">
-              {professionalExperience.map((experience, index) => (
-                <article key={experience.company} className="grid gap-7 border-t border-line pt-7 lg:grid-cols-[minmax(14rem,0.5fr)_minmax(0,1fr)_minmax(16rem,0.5fr)] lg:gap-10">
-                  <div>
-                    <p className="font-mono text-xs font-semibold text-accent">{String(index + 1).padStart(2, "0")}</p>
-                    <h3 className="mt-3 text-xl font-semibold">{experience.company}</h3>
-                    <p className="mt-1 text-sm text-muted">{experience.timeframe}</p>
-                    <p className="mt-5 text-sm leading-6 text-muted">{experience.overview}</p>
-                  </div>
-                  <div className="space-y-8">
-                    {experience.stages.map((stage) => (
-                      <section key={stage.role}>
-                        <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1"><h4 className="text-base font-semibold">{stage.role}</h4><p className="text-xs text-muted">{stage.timeframe}</p></div>
-                        <p className="mt-2 text-sm leading-6 text-muted">{stage.summary}</p>
-                        <ul className="mt-4 space-y-2.5 text-sm leading-6 text-foreground">
-                          {stage.achievements.map((achievement) => <li key={achievement} className="flex gap-2"><span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" aria-hidden="true" />{achievement}</li>)}
-                        </ul>
-                      </section>
-                    ))}
-                  </div>
-                  <div className="flex flex-col gap-5 lg:pt-1">
-                    <ul className="space-y-3 text-sm font-medium">{experience.outcomes.map((outcome) => <li key={outcome} className="border-l border-accent pl-3 leading-6">{outcome}</li>)}</ul>
-                    <Link href={experience.storyHref} className="inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-foreground underline decoration-accent decoration-2 underline-offset-4 transition-colors hover:text-accent">{experience.storyLabel}<ArrowRight className="h-4 w-4" aria-hidden="true" /></Link>
-                  </div>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
+        <ProfessionalExperience experiences={professionalExperience} />
 
         <section id="highlights" className="scroll-mt-28 bg-surface py-16 sm:py-24">
           <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">

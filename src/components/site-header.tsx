@@ -1,14 +1,18 @@
 import { Download } from "lucide-react";
 import Link from "next/link";
+import { BrandMark } from "@/components/brand-mark";
 import { profile } from "@/data/portfolio";
 
 export function SiteHeader() {
   return (
     <header className="sticky top-0 z-40 border-b border-line bg-surface/95 backdrop-blur">
       <div className="mx-auto flex min-h-16 max-w-7xl items-center justify-between gap-4 px-5 sm:px-8 lg:px-10">
-        <Link href="/" className="min-w-0 py-3">
-          <span className="block truncate text-sm font-semibold text-foreground">{profile.name}</span>
-          <span className="block truncate text-xs text-muted">Product Manager III</span>
+        <Link href="/" className="flex min-w-0 items-center gap-3 py-3">
+          <BrandMark className="h-9 w-9 shrink-0 text-foreground" />
+          <span className="min-w-0">
+            <span className="block truncate text-sm font-semibold text-foreground">{profile.name}</span>
+            <span className="block truncate text-xs text-muted">Product Manager III</span>
+          </span>
         </Link>
         <nav aria-label="Primary navigation" className="hidden items-center gap-6 text-sm font-medium text-muted md:flex">
           <Link href="/#skills" className="transition-colors hover:text-foreground">Skills</Link>

@@ -20,15 +20,15 @@ export default function Home() {
         <section className="bg-surface">
           <div className="mx-auto grid max-w-7xl gap-12 px-5 py-16 sm:px-8 sm:py-20 lg:grid-cols-[minmax(0,1.3fr)_minmax(18rem,0.58fr)] lg:gap-20 lg:px-10 lg:py-28">
             <div className="min-w-0">
-              <p className="text-base font-semibold text-accent">Madhur Jain, Product Manager III</p>
+              <p className="text-base font-semibold text-accent">Madhur Jain</p>
               <h1 className="mt-5 max-w-4xl text-4xl font-semibold leading-[1.06] text-balance sm:text-5xl lg:text-6xl">
-                Product Manager III building AI, data, and growth products that turn ambiguous problems into measurable outcomes.
+                {profile.headline}
               </h1>
               <p className="mt-6 max-w-2xl text-base leading-8 text-muted sm:text-lg">
-                I use product judgment, LLM workflows, and data to turn unclear customer and business problems into launches that move the metric. At PRISM, I build AI analytics and automation; before that, I led mobile growth at SplashLearn and D2C product work at Honasa.
+                {profile.summary}
               </p>
               <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-                <a href={profile.resumePath} className="on-dark inline-flex min-h-12 items-center justify-center gap-2 rounded-md bg-accent px-5 text-sm font-semibold transition-colors hover:bg-accent-strong">
+                <a href={profile.resumePath} download className="on-dark inline-flex min-h-12 items-center justify-center gap-2 rounded-md bg-accent px-5 text-sm font-semibold transition-colors hover:bg-accent-strong">
                   <Download className="h-4 w-4" aria-hidden="true" />
                   Download resume
                 </a>
@@ -40,11 +40,12 @@ export default function Home() {
             </div>
 
             <aside className="border-t-2 border-foreground pt-5 lg:self-end">
-              <h2 className="text-xl font-semibold leading-8">Now: Product Manager III at PRISM, formerly OYO.</h2>
-              <p className="mt-3 text-sm leading-6 text-muted">Building AI and data workflows alongside pricing and conversion products for consumer and operational teams.</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.12em] text-accent">Current focus</p>
+              <h2 className="mt-3 text-xl font-semibold leading-8">US consumer products and AI product management at PRISM, Parent Company of OYO.</h2>
+              <p className="mt-3 text-sm leading-6 text-muted">I own pricing and conversion work for consumer-facing products, while leading AI PM initiatives that improve team efficiency, run autonomous operational workflows, and improve conversion.</p>
               <dl className="mt-8 space-y-5 border-t border-line pt-6 text-sm">
+                <div><dt className="text-muted">Experience across</dt><dd className="mt-1 font-medium">US consumer products · AI product management · Mobile growth · D2C conversion</dd></div>
                 <div><dt className="text-muted">Based in</dt><dd className="mt-1 font-medium">{profile.location}</dd></div>
-                <div><dt className="text-muted">Open to</dt><dd className="mt-1 font-medium">Senior PM, PM3, AI/Data PM, and Growth PM roles</dd></div>
               </dl>
               <div className="mt-7 flex flex-wrap gap-x-5 gap-y-3 text-sm font-medium">
                 <a href={profile.linkedinUrl} className="inline-flex min-h-11 items-center gap-2 transition-colors hover:text-accent"><ExternalLink className="h-4 w-4" aria-hidden="true" />LinkedIn</a>
@@ -56,20 +57,20 @@ export default function Home() {
 
         <ProfessionalExperience experiences={professionalExperience} />
 
-        <section id="highlights" className="scroll-mt-28 bg-surface py-16 sm:py-24">
+        <section id="highlights" className="bg-surface py-16 sm:py-24">
           <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
-            <div className="grid gap-6 lg:grid-cols-[minmax(0,0.85fr)_minmax(20rem,0.55fr)] lg:items-end"><h2 className="max-w-3xl text-3xl font-semibold leading-tight text-balance sm:text-4xl">A few measurable changes I have helped drive.</h2><p className="max-w-xl text-base leading-7 text-muted">Every number is attributed to the product and business context where it was measured.</p></div>
-            <div className="mt-10 grid gap-x-10 border-t border-line md:grid-cols-2">
+            <div className="grid gap-6 lg:grid-cols-[minmax(0,0.85fr)_minmax(20rem,0.55fr)] lg:items-end"><h2 className="max-w-3xl text-3xl font-semibold leading-tight text-balance sm:text-4xl">Metrics I have owned across each product context.</h2><p className="max-w-xl text-base leading-7 text-muted">The metric mix changes with the product: conversion, revenue, cost margin, subscriber growth, and AOV where they were the right measures of progress.</p></div>
+            <div className="mt-10 divide-y divide-line border-t border-line">
               {impactHighlights.map((item) => (
-                <article key={item.company} className="grid grid-cols-[minmax(7.5rem,0.42fr)_minmax(0,1fr)] gap-5 border-b border-line py-6 sm:gap-7"><div><p className="font-mono text-2xl font-semibold sm:text-3xl">{item.value}</p><p className="mt-2 text-xs font-semibold text-accent">{item.company}</p></div><p className="self-center text-sm leading-6 text-muted">{item.label}</p></article>
+                <article key={item.company} className="py-8 sm:py-10"><div className="grid gap-4 lg:grid-cols-[minmax(13rem,0.34fr)_minmax(0,1fr)] lg:gap-10"><div><p className="text-xs font-semibold uppercase tracking-[0.12em] text-accent">{item.company}</p><p className="mt-3 max-w-xs text-sm leading-6 text-muted">{item.description}</p></div><dl className="grid gap-x-8 gap-y-5 sm:grid-cols-2 xl:grid-cols-3">{item.metrics.map((metric) => <div key={metric.metric} className="border-l-2 border-accent pl-3"><dt className="text-xs font-semibold uppercase text-muted">{metric.metric}</dt><dd className="mt-1 font-mono text-xl font-semibold">{metric.value}</dd><dd className="mt-2 text-sm leading-6 text-muted">{metric.context}</dd></div>)}</dl></div></article>
               ))}
             </div>
           </div>
         </section>
 
-        <section id="skills" className="scroll-mt-28 bg-background py-16 sm:py-24">
+        <section id="skills" className="bg-background py-16 sm:py-24">
           <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
-            <div className="grid gap-6 border-b border-line pb-9 lg:grid-cols-[minmax(0,0.9fr)_minmax(20rem,0.6fr)] lg:items-end"><h2 className="max-w-2xl text-3xl font-semibold leading-tight text-balance sm:text-4xl">How I work, with proof in shipped products.</h2><p className="max-w-xl text-base leading-7 text-muted">These are skills I have used in LLM evaluation at PRISM, subscription and funnel growth at SplashLearn, and multi-brand ecommerce systems at Honasa.</p></div>
+            <div className="grid gap-6 border-b border-line pb-9 lg:grid-cols-[minmax(0,0.9fr)_minmax(20rem,0.6fr)] lg:items-end"><h2 className="max-w-2xl text-3xl font-semibold leading-tight text-balance sm:text-4xl">How I work, with proof in shipped products.</h2><p className="max-w-xl text-base leading-7 text-muted">These are skills I have used in US consumer products and AI PM initiatives at PRISM, subscription and funnel growth at SplashLearn, and multi-brand ecommerce systems at Honasa.</p></div>
             <div className="grid md:grid-cols-3">
               {skillGroups.map((group) => (
                 <article key={group.title} className="border-b border-line py-7 md:border-b-0 md:px-7 md:first:pl-0 md:not-last:border-r md:last:pr-0"><h3 className="text-xl font-semibold">{group.title}</h3><p className="mt-3 text-sm leading-6 text-muted">{group.description}</p><ul className="mt-6 space-y-2 text-sm font-medium">{group.skills.map((skill) => <li key={skill} className="flex items-center gap-2"><span className="h-1.5 w-1.5 shrink-0 rounded-full bg-accent" aria-hidden="true" />{skill}</li>)}</ul></article>
@@ -78,7 +79,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="personal-projects" className="scroll-mt-28 bg-surface py-16 sm:py-24">
+        <section id="personal-projects" className="bg-surface py-16 sm:py-24">
           <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
             <div className="grid gap-6 border-b border-line pb-9 lg:grid-cols-[minmax(0,0.9fr)_minmax(20rem,0.6fr)] lg:items-end"><h2 className="max-w-3xl text-3xl font-semibold leading-tight text-balance sm:text-4xl">Coach, a cross-platform fitness product I am building from scratch.</h2><p className="max-w-xl text-base leading-7 text-muted">A personal build where I own the product thinking and implementation across web, iOS, and Android. It is builder proof, not a claim of market traction.</p></div>
             <div className="mt-10 grid gap-10 lg:grid-cols-[minmax(15rem,0.55fr)_minmax(0,1.45fr)] lg:gap-14">
@@ -105,10 +106,10 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="contact" className="on-dark scroll-mt-28 bg-foreground py-16 sm:py-20">
+        <section id="contact" className="on-dark bg-foreground py-16 sm:py-20">
           <div className="mx-auto grid max-w-7xl gap-10 px-5 sm:px-8 lg:grid-cols-[minmax(0,1fr)_minmax(20rem,0.8fr)] lg:items-end lg:px-10">
             <div><h2 className="max-w-3xl text-3xl font-semibold leading-tight text-balance sm:text-5xl">Let&apos;s talk about the work.</h2></div>
-            <div className="lg:justify-self-end"><p className="on-dark-muted max-w-lg text-base leading-7">I&apos;m open to conversations about AI and data products, consumer growth, product strategy, and senior product roles.</p><div className="mt-7 flex flex-col gap-3 sm:flex-row"><a href={`mailto:${profile.email}`} className="on-light inline-flex min-h-12 items-center justify-center gap-2 rounded-md bg-surface px-5 text-sm font-semibold transition-colors hover:bg-accent-surface"><Mail className="h-4 w-4" aria-hidden="true" />{profile.email}</a><a href={profile.linkedinUrl} className="dark-outline inline-flex min-h-12 items-center justify-center gap-2 rounded-md border px-5 text-sm font-semibold transition-colors"><ExternalLink className="h-4 w-4" aria-hidden="true" />LinkedIn</a></div><p className="on-dark-muted mt-4 text-sm">{profile.phone}</p></div>
+            <div className="lg:justify-self-end"><p className="on-dark-muted max-w-lg text-base leading-7">I&apos;m open to conversations about AI and data products, consumer growth, product strategy, and senior product roles.</p><div className="mt-7 flex flex-col gap-3 sm:flex-row"><a href={`mailto:${profile.email}`} className="on-light inline-flex min-h-12 items-center justify-center gap-2 rounded-md bg-surface px-5 text-sm font-semibold transition-colors hover:bg-accent-surface"><Mail className="h-4 w-4" aria-hidden="true" />{profile.email}</a><a href={profile.linkedinUrl} className="dark-outline inline-flex min-h-12 items-center justify-center gap-2 rounded-md border px-5 text-sm font-semibold transition-colors"><ExternalLink className="h-4 w-4" aria-hidden="true" />LinkedIn</a></div></div>
           </div>
         </section>
       </main>

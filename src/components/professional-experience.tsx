@@ -17,7 +17,7 @@ export function ProfessionalExperience({
   return (
     <section
       id="experience"
-      className="scroll-mt-28 border-y border-line bg-surface-muted py-16 sm:py-24"
+      className="border-y border-line bg-surface-muted py-16 sm:py-24"
     >
       <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
         <div className="grid gap-8 lg:grid-cols-[minmax(0,0.9fr)_minmax(20rem,0.6fr)] lg:items-end">
@@ -30,9 +30,9 @@ export function ProfessionalExperience({
             </h2>
           </div>
           <p className="max-w-xl text-base leading-7 text-muted">
-            From ecommerce operations to consumer growth and now AI product
-            systems. Open any point in the timeline for the role, product
-            context, and outcomes.
+            From ecommerce operations to consumer growth and now US consumer
+            products with AI PM initiatives. Open any point in the
+            timeline for the role, product context, and outcomes.
           </p>
         </div>
 
@@ -57,7 +57,7 @@ export function ProfessionalExperience({
                   aria-expanded={isOpen}
                   aria-controls={panelId}
                   onClick={() => setOpenIndex(isOpen ? null : index)}
-                  className="timeline-trigger flex min-h-28 w-full items-start justify-between gap-5 py-6 text-left sm:py-7"
+                  className="timeline-trigger flex min-h-28 w-full items-start justify-between gap-5 rounded-lg px-3 py-6 text-left -mx-3 sm:px-4 sm:py-7 sm:-mx-4"
                 >
                   <span className="min-w-0">
                     <span className="font-mono text-xs font-semibold text-accent">
@@ -70,13 +70,16 @@ export function ProfessionalExperience({
                       {experience.overview}
                     </span>
                   </span>
-                  <span
-                    className={`mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-line bg-surface text-foreground ${
-                      isOpen ? "rotate-180 border-foreground" : ""
-                    }`}
-                    aria-hidden="true"
-                  >
-                    <ChevronDown className="h-4 w-4" />
+                  <span className="mt-1 flex shrink-0 items-center gap-2 text-xs font-semibold text-muted">
+                    <span>{isOpen ? "Hide" : "View"}</span>
+                    <span
+                      className={`timeline-chevron flex h-10 w-10 items-center justify-center rounded-full border border-line bg-surface text-foreground ${
+                        isOpen ? "rotate-180 border-foreground" : ""
+                      }`}
+                      aria-hidden="true"
+                    >
+                      <ChevronDown className="h-4 w-4" />
+                    </span>
                   </span>
                 </button>
 
@@ -128,18 +131,26 @@ export function ProfessionalExperience({
 
                         <div className="lg:border-l lg:border-line lg:pl-8">
                           <p className="text-xs font-semibold uppercase text-muted">
-                            Selected outcomes
+                            Metrics owned
                           </p>
-                          <ul className="mt-4 space-y-3">
+                          <dl className="mt-4 space-y-4">
                             {experience.outcomes.map((outcome) => (
-                              <li
-                                key={outcome}
-                                className="border-l-2 border-accent pl-3 text-sm font-medium leading-6"
+                              <div
+                                key={outcome.metric}
+                                className="border-l-2 border-accent pl-3"
                               >
-                                {outcome}
-                              </li>
+                                <dt className="text-xs font-semibold uppercase text-muted">
+                                  {outcome.metric}
+                                </dt>
+                                <dd className="mt-1 text-sm font-semibold leading-6">
+                                  {outcome.value}
+                                </dd>
+                                <dd className="mt-1 text-sm leading-6 text-muted">
+                                  {outcome.context}
+                                </dd>
+                              </div>
                             ))}
-                          </ul>
+                          </dl>
                           <Link
                             href={experience.storyHref}
                             tabIndex={isOpen ? 0 : -1}

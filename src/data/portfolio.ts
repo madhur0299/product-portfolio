@@ -50,6 +50,12 @@ export type CaseMetric = {
   context: string;
 };
 
+export type OutcomeMetric = {
+  metric: string;
+  value: string;
+  context: string;
+};
+
 export type Artifact = {
   title: string;
   type:
@@ -139,7 +145,7 @@ export type ProfessionalExperience = {
     summary: string;
     achievements: string[];
   }>;
-  outcomes: string[];
+  outcomes: OutcomeMetric[];
 };
 
 export type SkillGroup = {
@@ -155,9 +161,15 @@ export type CoachScreen = {
   detail: string;
 };
 
+export type ImpactHighlight = {
+  company: string;
+  description: string;
+  metrics: OutcomeMetric[];
+};
+
 export const profile: Profile = {
   name: "Madhur Jain",
-  role: "Product Manager III",
+  role: "AI, data & growth products",
   location: "Gurugram, India",
   email: "madhur.jain02@gmail.com",
   phone: "+91 95301 74692",
@@ -165,9 +177,9 @@ export const profile: Profile = {
   githubUrl: "https://github.com/madhur0299",
   resumePath: "/resume.pdf",
   headline:
-    "AI, growth, and product systems PM who turns ambiguous problems into useful, measurable products.",
+    "I build AI, consumer, and growth products that solve real customer problems and move the business.",
   summary:
-    "5+ years across AI and data products, consumer growth, monetization, and ecommerce, with recent work in LLM workflows, AI analytics, cross-platform fitness products, conversion recovery, and app subscriber growth.",
+    "At PRISM (Parent Company of OYO), I own US consumer products across pricing and conversion while working as an AI PM on initiatives that improve efficiency, run autonomous operational workflows, and lift conversion. Previously, I led mobile subscriber growth at SplashLearn and D2C product growth at Honasa; I also build Coach from scratch.",
   availability:
     "Open to Senior Product Manager, PM3, AI/Data PM, Growth PM, and product-builder roles.",
 };
@@ -212,26 +224,42 @@ export const skillGroups: SkillGroup[] = [
 
 export const professionalExperience: ProfessionalExperience[] = [
   {
-    company: "PRISM (formerly OYO)",
+    company: "PRISM (Parent Company of OYO)",
     timeframe: "November 2025 - Present",
-    overview: "Product work for the OYO US consumer platform, call centre, and G6 platform across AI analytics, pricing, conversion, and operations.",
+    overview: "Own consumer-facing products for OYO US and G6 across pricing, conversion, and operational journeys, while working as an AI PM on efficiency and autonomous operational workflows.",
     storyHref: "/work/ai-analytics-nl-to-sql",
     storyLabel: "Read the AI analytics work story",
     stages: [
       {
         role: "Product Manager III",
         timeframe: "November 2025 - Present",
-        summary: "Own AI and data product initiatives alongside conversion and revenue work for consumer and operational teams.",
+        summary: "Own US consumer-product initiatives across pricing and conversion, alongside AI PM work for team efficiency, autonomous operational workflows, and conversion improvement.",
         achievements: [
-          "Built a two-agent natural-language-to-SQL workflow with 85% accuracy on gold-standard business queries.",
-          "Made product and operational data easier for business teams to query without analyst translation.",
-          "Automated research, marketing benchmarks, daily Teams reporting, and PRD workflows with Cowork to reduce manual synthesis.",
           "Built a dynamic fee module for OYO and G6 brands, increasing cost margin by up to $2M annually.",
           "Led FTC pricing-transparency implementation with a 28% reduction in prepaid-page views, 10% better Google HAC price accuracy, and 10% higher HDP-to-booking success.",
+          "Lead AI PM initiatives that automate research, marketing benchmarks, daily Teams reporting, and PRD workflows with Cowork to reduce manual synthesis.",
+          "Built a two-agent natural-language-to-SQL workflow with 85% accuracy on gold-standard business queries.",
+          "Made product and operational data easier for business teams to query without analyst translation.",
         ],
       },
     ],
-    outcomes: ["85% accuracy against a gold-standard set of business queries", "Up to $2M annualized cost-margin upside from a dynamic fee module", "+10% HDP-to-booking success"],
+    outcomes: [
+      {
+        metric: "Conversion",
+        value: "+10%",
+        context: "HDP-to-booking success after FTC pricing-transparency work.",
+      },
+      {
+        metric: "Revenue",
+        value: "Pricing & fee revenue",
+        context: "Owned pricing and fee levers for OYO and G6; the direct revenue figure is confidential.",
+      },
+      {
+        metric: "Cost margin",
+        value: "Up to $2M",
+        context: "Annualized cost-margin upside modelled from the dynamic fee module.",
+      },
+    ],
   },
   {
     company: "SplashLearn",
@@ -254,7 +282,23 @@ export const professionalExperience: ProfessionalExperience[] = [
         ],
       },
     ],
-    outcomes: ["1,000 monthly subscribers", "+15% trial-to-paid", "6 weeks to 2 weeks"],
+    outcomes: [
+      {
+        metric: "Trial-to-paid",
+        value: "+15%",
+        context: "Lift from the web-to-app migration flow.",
+      },
+      {
+        metric: "Subscribers",
+        value: "1,000 monthly",
+        context: "Paying Android subscribers within six months of launch.",
+      },
+      {
+        metric: "Revenue",
+        value: "+$5K recurring",
+        context: "Recurring revenue growth associated with the Android app launch.",
+      },
+    ],
   },
   {
     company: "Honasa Consumer Limited (Mamaearth)",
@@ -296,7 +340,28 @@ export const professionalExperience: ProfessionalExperience[] = [
         ],
       },
     ],
-    outcomes: ["Rs 175 Cr Aqualogica run rate", "+15% homepage conversion", "1M transactions per day"],
+    outcomes: [
+      {
+        metric: "Conversion",
+        value: "+15% / +17%",
+        context: "Homepage and search conversion improvements through funnel iteration.",
+      },
+      {
+        metric: "Revenue",
+        value: "Rs 175 Cr",
+        context: "Aqualogica revenue run rate during the growth and website work.",
+      },
+      {
+        metric: "Cost margin",
+        value: "-25% discount",
+        context: "Lower first-order discount for Yotobox-acquired users, improving unit economics.",
+      },
+      {
+        metric: "AOV",
+        value: "> Rs 2,500",
+        context: "Average order value on the BBlunt devices Shopify launch.",
+      },
+    ],
   },
 ];
 
@@ -365,7 +430,7 @@ export const profileSignals: ProfileSignal[] = [
     label: "Commercial PM range",
     title: "Growth, monetization, ecommerce, subscriptions, and analytics",
     description:
-      "Your professional work spans PRISM/OYO data products and pricing, SplashLearn app subscriptions, and Mamaearth/Aqualogica D2C growth.",
+      "Your professional work spans US consumer products and AI PM initiatives at PRISM, OYO pricing and conversion, SplashLearn app subscriptions, and Mamaearth/Aqualogica D2C growth.",
   },
   {
     label: "Operating style",
@@ -560,7 +625,7 @@ export const caseStudies: CaseStudy[] = [
     slug: "ai-analytics-nl-to-sql",
     eyebrow: "AI analytics product",
     title: "Natural-language analytics model for business users",
-    company: "PRISM, formerly OYO",
+    company: "PRISM (Parent Company of OYO)",
     timeframe: "November 2025 - Present",
     role: "Product Manager III",
     mandate:
@@ -571,7 +636,7 @@ export const caseStudies: CaseStudy[] = [
       "Accuracy was evaluated against known-good answers for a gold-standard set of business queries. Query examples, benchmark size, adoption data, and internal dashboards are confidential.",
     image: "/images/ai-analytics-case.png",
     summary:
-      "As Product Manager III for the OYO US consumer platform, call centre, and G6 platform, built a two-agent natural-language-to-SQL workflow that generates SQL, executes queries, and visualizes outputs for business teams.",
+      "Alongside owning consumer products for the OYO US and G6 platforms, founded a two-agent natural-language-to-SQL workflow that generates SQL, executes queries, and visualizes outputs for business teams.",
     tags: ["AI PM", "Data Products", "SQL", "Automation", "Dashboards"],
     metrics: [
       {
@@ -894,26 +959,74 @@ export const proofItems: ProofItem[] = [
   },
 ];
 
-export const impactHighlights = [
+export const impactHighlights: ImpactHighlight[] = [
   {
-    company: "PRISM / OYO",
-    value: "85%",
-    label: "accuracy on a gold-standard set of natural-language business queries",
-  },
-  {
-    company: "OYO and G6",
-    value: "Up to $2M",
-    label: "annualized cost-margin upside modelled from a dynamic fee module",
+    company: "PRISM (Parent Company of OYO)",
+    description: "US consumer products: conversion, revenue, and cost margin.",
+    metrics: [
+      {
+        metric: "Conversion",
+        value: "+10%",
+        context: "HDP-to-booking success after FTC pricing-transparency work.",
+      },
+      {
+        metric: "Revenue",
+        value: "Pricing & fee revenue",
+        context: "Owned pricing and fee levers for OYO and G6; the direct revenue figure is confidential.",
+      },
+      {
+        metric: "Cost margin",
+        value: "Up to $2M",
+        context: "Annualized upside modelled from a dynamic fee module at observed volumes.",
+      },
+    ],
   },
   {
     company: "SplashLearn",
-    value: "1,000",
-    label: "monthly Android subscribers within six months of launch",
+    description: "Android subscriber growth: trial-to-paid, subscribers, and revenue.",
+    metrics: [
+      {
+        metric: "Trial-to-paid",
+        value: "+15%",
+        context: "Lift from the web-to-app migration flow.",
+      },
+      {
+        metric: "Subscribers",
+        value: "1,000 monthly",
+        context: "Paying Android subscribers within six months of launch.",
+      },
+      {
+        metric: "Revenue",
+        value: "+$5K recurring",
+        context: "Recurring revenue growth associated with the Android app launch.",
+      },
+    ],
   },
   {
     company: "Honasa / Aqualogica",
-    value: "+15% / +17%",
-    label: "homepage and search conversion improvement through funnel analysis and iteration",
+    description: "Role-specific metrics across conversion, revenue, cost margin, and AOV.",
+    metrics: [
+      {
+        metric: "Conversion",
+        value: "+15% / +17%",
+        context: "Homepage and search conversion improvements through funnel iteration.",
+      },
+      {
+        metric: "Revenue",
+        value: "Rs 175 Cr",
+        context: "Aqualogica revenue run rate during the growth and website work.",
+      },
+      {
+        metric: "Cost margin",
+        value: "-25% discount",
+        context: "Lower first-order discount for Yotobox-acquired users, improving unit economics.",
+      },
+      {
+        metric: "AOV",
+        value: "> Rs 2,500",
+        context: "Average order value on the BBlunt devices Shopify launch.",
+      },
+    ],
   },
 ];
 

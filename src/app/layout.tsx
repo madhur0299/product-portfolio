@@ -4,12 +4,12 @@ import { profile } from "@/data/portfolio";
 
 const siteUrl = "https://www.madhurjain.in";
 const description =
-  "Portfolio of Madhur Jain, Product Manager III with 5+ years across AI and data products, consumer growth, monetization, and ecommerce.";
+  "Portfolio of Madhur Jain, a product manager with 5+ years across AI and data products, consumer growth, monetization, and ecommerce.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: `${profile.name} | Product Manager III`,
+    default: `${profile.name} | AI, Data & Growth Product Manager`,
     template: `%s | ${profile.name}`,
   },
   description,
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   },
   keywords: [
     "Madhur Jain",
-    "Product Manager III",
+    "Product Manager",
     "Senior Product Manager",
     "AI Product Manager",
     "Growth Product Manager",
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: siteUrl,
-    title: `${profile.name} | Product Manager III`,
+    title: `${profile.name} | AI, Data & Growth Product Manager`,
     description,
     siteName: `${profile.name} Portfolio`,
     images: [
@@ -49,13 +49,13 @@ export const metadata: Metadata = {
         url: "/opengraph-image",
         width: 1200,
         height: 630,
-        alt: "Madhur Jain, Product Manager III",
+        alt: "Madhur Jain, AI, data, and growth product manager",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: `${profile.name} | Product Manager III`,
+    title: `${profile.name} | AI, Data & Growth Product Manager`,
     description,
     images: ["/opengraph-image"],
   },
@@ -78,7 +78,7 @@ export default function RootLayout({
               "@type": "Person",
               name: profile.name,
               url: siteUrl,
-              jobTitle: "Product Manager III",
+              jobTitle: "Product Manager",
               description,
               sameAs: [profile.linkedinUrl, profile.githubUrl],
               knowsAbout: [

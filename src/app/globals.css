@@ -37,7 +37,7 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 7.5rem;
+  scroll-padding-top: 4.5rem;
   background: var(--background);
 }
 
@@ -120,36 +120,57 @@ a {
 .timeline-trigger {
   cursor: pointer;
   transition:
+    background-color 180ms ease-out,
     color 180ms ease-out,
-    opacity 180ms ease-out;
+    transform 160ms ease-out;
   touch-action: manipulation;
 }
 
 .timeline-trigger:hover {
-  opacity: 0.78;
+  background: rgba(37, 99, 235, 0.06);
 }
 
-.timeline-trigger > span:last-child {
+.timeline-trigger:active {
+  transform: scale(0.995);
+}
+
+.timeline-chevron {
   transition:
     transform 240ms cubic-bezier(0.22, 1, 0.36, 1),
-    border-color 180ms ease-out;
+    border-color 180ms ease-out,
+    background-color 180ms ease-out;
+}
+
+.timeline-trigger:hover .timeline-chevron {
+  border-color: var(--foreground);
+  background: var(--surface-muted);
 }
 
 .timeline-detail {
   display: grid;
   grid-template-rows: 0fr;
   opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
   transform: translateY(-0.35rem);
   transition:
     grid-template-rows 340ms cubic-bezier(0.22, 1, 0.36, 1),
     opacity 180ms ease-out,
-    transform 280ms cubic-bezier(0.22, 1, 0.36, 1);
+    transform 280ms cubic-bezier(0.22, 1, 0.36, 1),
+    visibility 0s linear 340ms;
 }
 
 .timeline-detail[data-open="true"] {
   grid-template-rows: 1fr;
   opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
   transform: translateY(0);
+  transition:
+    grid-template-rows 340ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 220ms ease-out,
+    transform 280ms cubic-bezier(0.22, 1, 0.36, 1),
+    visibility 0s linear 0s;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -162,5 +183,11 @@ a {
   *::after {
     animation: none !important;
     transition-duration: 0.001ms !important;
+  }
+}
+
+@media (max-width: 767px) {
+  html {
+    scroll-padding-top: 7rem;
   }
 }

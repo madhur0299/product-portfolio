@@ -211,10 +211,10 @@ export default async function WorkDetailPage({ params }: CasePageProps) {
               <Mail className="h-4 w-4" aria-hidden="true" />
               Contact
             </a>
-            <a href={profile.resumePath} className="dark-outline inline-flex min-h-11 items-center justify-center gap-2 rounded-md border px-4 text-sm font-semibold transition-colors">
+            <Link href="/resume" className="dark-outline inline-flex min-h-11 items-center justify-center gap-2 rounded-md border px-4 text-sm font-semibold transition-colors">
               <Download className="h-4 w-4" aria-hidden="true" />
               Resume
-            </a>
+            </Link>
           </div>
         </div>
       </section>

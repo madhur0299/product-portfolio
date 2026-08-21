@@ -5,7 +5,7 @@ type CoachDemoVideoProps = {
 export function CoachDemoVideo({ className }: CoachDemoVideoProps) {
   return (
     <video
-      className={className}
+      className={`block aspect-[9/16] w-full bg-black object-cover ${className ?? ""}`}
       controls
       playsInline
       preload="metadata"

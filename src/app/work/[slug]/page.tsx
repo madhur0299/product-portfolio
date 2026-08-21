@@ -123,14 +123,27 @@ export default async function WorkDetailPage({ params }: CasePageProps) {
 
       {isCoach ? (
         <section className="border-b border-line bg-surface py-12 sm:py-16">
-          <div className="mx-auto grid max-w-7xl gap-8 px-5 sm:px-8 lg:grid-cols-[minmax(16rem,0.7fr)_minmax(18rem,0.5fr)] lg:items-center lg:gap-16 lg:px-10">
-            <div>
-              <p className="text-sm font-semibold text-accent">Product walkthrough</p>
-              <h2 className="mt-4 max-w-xl text-3xl font-semibold leading-tight text-balance sm:text-4xl">A training product designed around the next useful action.</h2>
+          <div className="mx-auto grid max-w-7xl gap-8 px-5 sm:px-8 lg:grid-cols-[minmax(16rem,0.7fr)_minmax(18rem,0.5fr)] lg:items-start lg:gap-16 lg:px-10">
+            <div className="border-t-2 border-foreground pt-5">
+              <h2 className="max-w-xl text-3xl font-semibold leading-tight text-balance sm:text-4xl">A training product designed around the next useful action.</h2>
               <p className="mt-5 max-w-xl text-base leading-7 text-muted">Start with the active workout, log the set in the moment, then move into health context, progress, and coaching. This walkthrough puts the interaction model ahead of static concept screens.</p>
+              <ol className="mt-8 max-w-xl divide-y divide-line border-y border-line text-sm">
+                <li className="grid gap-2 py-4 sm:grid-cols-[6rem_minmax(0,1fr)] sm:gap-5">
+                  <span className="font-semibold text-accent">Plan</span>
+                  <p className="leading-6 text-muted">Bring today&apos;s workout and the next meaningful action into a single starting point.</p>
+                </li>
+                <li className="grid gap-2 py-4 sm:grid-cols-[6rem_minmax(0,1fr)] sm:gap-5">
+                  <span className="font-semibold text-accent">Train</span>
+                  <p className="leading-6 text-muted">Log weight, reps, effort, and sets without losing focus on the exercise in front of you.</p>
+                </li>
+                <li className="grid gap-2 py-4 sm:grid-cols-[6rem_minmax(0,1fr)] sm:gap-5">
+                  <span className="font-semibold text-accent">Review</span>
+                  <p className="leading-6 text-muted">Connect workout history with health, progress, and trainer context once the session is complete.</p>
+                </li>
+              </ol>
             </div>
-            <figure className="mx-auto w-full max-w-sm overflow-hidden rounded-lg border border-line bg-foreground shadow-card">
-              <CoachDemoVideo className="block h-auto w-full bg-black" />
+            <figure className="mx-auto w-full max-w-sm self-start overflow-hidden rounded-lg border border-line bg-foreground shadow-card lg:justify-self-end">
+              <CoachDemoVideo />
               <figcaption className="on-dark dark-divider border-t px-4 py-3 text-sm font-semibold">Coach product walkthrough <span className="on-dark-muted font-normal">· active workout logging in the current product experience.</span></figcaption>
             </figure>
           </div>
@@ -188,7 +201,7 @@ export default async function WorkDetailPage({ params }: CasePageProps) {
             <p className="mt-4 max-w-2xl text-base leading-7 text-muted">Fresh iOS simulator captures of active training, health insights, and trainer collaboration. Each is a working product surface from the current build.</p>
             <div className="mt-8 grid grid-cols-2 gap-4 xl:grid-cols-2">
               {coachScreens.slice(1).map((screen) => (
-                <figure key={screen.src} className="overflow-hidden rounded-lg border border-line bg-foreground">
+                <figure key={screen.src} className="self-start overflow-hidden rounded-lg border border-line bg-foreground">
                   <Image src={screen.src} alt={screen.alt} width={1206} height={2622} quality={90} sizes="(min-width: 1280px) 26vw, (min-width: 640px) 44vw, 46vw" className="h-auto w-full" />
                   <figcaption className="on-dark dark-divider border-t px-4 py-3 text-sm font-semibold">{screen.label}<span className="on-dark-muted mt-1 block text-xs font-normal">{screen.detail}</span></figcaption>
                 </figure>

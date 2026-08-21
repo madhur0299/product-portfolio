@@ -85,8 +85,7 @@ export default function Home() {
             <div className="grid gap-6 border-b border-line pb-9 lg:grid-cols-[minmax(0,0.9fr)_minmax(20rem,0.6fr)] lg:items-end"><h2 className="max-w-3xl text-3xl font-semibold leading-tight text-balance sm:text-4xl">Coach, a cross-platform fitness product I am building from scratch.</h2><p className="max-w-xl text-base leading-7 text-muted">A personal build where I own the product thinking and implementation across web, iOS, and Android. It is builder proof, not a claim of market traction.</p></div>
             <div className="mt-10 grid gap-10 lg:grid-cols-[minmax(15rem,0.55fr)_minmax(0,1.45fr)] lg:gap-14">
               <div className="border-t-2 border-foreground pt-5">
-                <p className="text-sm font-semibold text-accent">Product walkthrough</p>
-                <h3 className="mt-4 max-w-sm text-2xl font-semibold leading-tight">Coach in motion: from the next set to a logged workout.</h3>
+                <h3 className="max-w-sm text-2xl font-semibold leading-tight">Coach in motion: from the next set to a logged workout.</h3>
                 <p className="mt-4 max-w-md text-sm leading-6 text-muted">The walkthrough shows the active logging experience, while the supporting captures show health context and trainer collaboration from the current iOS build.</p>
                 <dl className="mt-8 border-y border-line text-sm">
                   <div className="grid grid-cols-[5.5rem_minmax(0,1fr)] gap-3 border-b border-line py-4"><dt className="font-semibold">Web</dt><dd className="text-muted">Planning, calendars, training templates, and progress review.</dd></div>
@@ -96,13 +95,13 @@ export default function Home() {
                 <Link href="/work/coach-cross-platform" className="mt-7 inline-flex min-h-11 items-center gap-2 text-sm font-semibold underline decoration-accent decoration-2 underline-offset-4 transition-colors hover:text-accent">Read the Coach build story<ArrowRight className="h-4 w-4" aria-hidden="true" /></Link>
               </div>
               <div className="grid gap-5 xl:grid-cols-[minmax(14rem,0.7fr)_minmax(0,1fr)]">
-                <figure className="mx-auto w-full max-w-sm overflow-hidden rounded-lg border border-line bg-foreground shadow-card xl:max-w-none">
-                  <CoachDemoVideo className="block h-auto w-full bg-black" />
+                <figure className="mx-auto w-full max-w-sm self-start overflow-hidden rounded-lg border border-line bg-foreground shadow-card xl:max-w-none">
+                  <CoachDemoVideo />
                   <figcaption className="on-dark dark-divider border-t px-3 py-3"><p className="text-xs font-semibold">Coach product walkthrough</p><p className="on-dark-muted mt-1 text-xs">Active workout logging in the current product experience.</p></figcaption>
                 </figure>
                 <div className="grid grid-cols-2 gap-3 sm:gap-5">
                   {coachScreens.slice(1).map((screen) => (
-                    <figure key={screen.src} className="overflow-hidden rounded-lg border border-line bg-foreground shadow-card">
+                    <figure key={screen.src} className="self-start overflow-hidden rounded-lg border border-line bg-foreground shadow-card">
                       <Image src={screen.src} alt={screen.alt} width={1206} height={2622} quality={90} sizes="(min-width: 1280px) 16vw, (min-width: 640px) 25vw, 48vw" className="h-auto w-full transition duration-300 hover:scale-[1.015]" />
                       <figcaption className="on-dark dark-divider border-t px-3 py-3"><p className="text-xs font-semibold">{screen.label}</p><p className="on-dark-muted mt-1 text-xs">{screen.detail}</p></figcaption>
                     </figure>

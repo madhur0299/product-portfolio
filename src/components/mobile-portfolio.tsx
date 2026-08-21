@@ -41,6 +41,24 @@ const proofRail = [
   { company: "Honasa", detail: "+15% homepage conversion · Rs 175 Cr run rate" },
 ];
 
+const operatingRhythm = [
+  {
+    title: "Find the constraint",
+    description: "Get close to the behavior, economics, and operational friction before turning a symptom into a roadmap item.",
+    evidence: "At Honasa, funnel and cohort analysis showed where homepage, search, and referral journeys were leaking customer value.",
+  },
+  {
+    title: "Choose the bet",
+    description: "Make the product choice explicit: the customer tradeoff, business lever, and measure of success all have to agree.",
+    evidence: "At PRISM, the bet was transparent pricing paired with dynamic fees, balancing booking confidence with margin upside.",
+  },
+  {
+    title: "Ship the system",
+    description: "Carry the work through interaction design, instrumentation, delivery, and the operating workflow around the product.",
+    evidence: "At SplashLearn, web-to-app migration became a measurable subscription system, lifting trial-to-paid by 15%.",
+  },
+];
+
 function shortTimeframe(timeframe: string) {
   return timeframe
     .replaceAll("January", "Jan")
@@ -174,7 +192,7 @@ export function MobilePortfolio() {
               <span className="mt-1 shrink-0 rounded-full bg-accent-surface px-3 py-1.5 text-xs font-semibold text-accent">{selectedExperience.stages[0].role}</span>
             </div>
             <p className="mt-5 text-base leading-7 text-muted">{selectedExperience.overview}</p>
-            <p className="mt-5 border-t border-line pt-5 text-sm leading-6 text-foreground"><span className="font-semibold">Decision I made: </span>{workDecisions[activeExperience]}</p>
+            <p className="mt-5 border-t border-line pt-5 text-base leading-7 text-foreground"><span className="font-semibold">The decision: </span>{workDecisions[activeExperience]}</p>
             <div className="mt-7 space-y-5">
               {selectedExperience.outcomes.map((outcome) => (
                 <div key={outcome.metric}>
@@ -191,7 +209,7 @@ export function MobilePortfolio() {
               </ul>
             </div>
             <Link href={selectedExperience.storyHref} className="mt-7 inline-flex min-h-11 items-center gap-2 text-sm font-semibold underline decoration-accent decoration-2 underline-offset-4">
-              {selectedExperience.storyLabel}
+              {activeExperience === 0 ? "Explore the focused AI workflow case" : selectedExperience.storyLabel}
               <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </Link>
           </article>
@@ -217,18 +235,32 @@ export function MobilePortfolio() {
 
       <section id="mobile-approach" className="border-y border-line bg-surface-muted px-5 py-12">
         <div className="mx-auto max-w-md">
-          <h2 className="max-w-[15ch] text-3xl font-semibold leading-[1.04] tracking-[-0.035em]">Find the constraint. Choose the bet. Ship and measure.</h2>
+          <h2 className="max-w-[14ch] text-3xl font-semibold leading-[1.04] tracking-[-0.035em]">How I work when the problem is still unclear.</h2>
           <div className="mt-8 divide-y divide-line border-y border-line">
-            {skillGroups.map((group) => (
-              <article key={group.title} className="py-6">
-                <h3 className="text-xl font-semibold leading-tight tracking-[-0.02em]">{group.title}</h3>
-                <p className="mt-3 text-sm leading-6 text-muted">{group.outcome}</p>
-                <p className="mt-5 border-l border-accent pl-4 text-sm leading-6 text-foreground">{group.evidence}</p>
-                <ul aria-label={`${group.title} skills`} className="mt-5 flex flex-wrap gap-2">
-                  {group.skills.map((skill) => <li key={skill} className="rounded-full border border-line bg-surface px-3 py-1.5 text-xs font-semibold text-muted">{skill}</li>)}
-                </ul>
+            {operatingRhythm.map((step, index) => (
+              <article key={step.title} className="grid grid-cols-[2rem_minmax(0,1fr)] gap-3 py-7">
+                <p className="font-mono text-sm font-semibold text-accent">0{index + 1}</p>
+                <div>
+                  <h3 className="text-xl font-semibold leading-tight tracking-[-0.02em]">{step.title}</h3>
+                  <p className="mt-3 text-sm leading-6 text-muted">{step.description}</p>
+                  <p className="mt-4 text-sm leading-6 text-foreground">{step.evidence}</p>
+                </div>
               </article>
             ))}
+          </div>
+          <div className="mt-10">
+            <h3 className="text-xl font-semibold tracking-[-0.02em]">Tools behind the work.</h3>
+            <p className="mt-3 text-sm leading-6 text-muted">The methods and technical fluency I bring into discovery, delivery, and iteration.</p>
+            <div className="mt-6 divide-y divide-line border-y border-line">
+              {skillGroups.map((group) => (
+                <article key={group.title} className="py-5">
+                  <h4 className="text-sm font-semibold">{group.title}</h4>
+                  <ul aria-label={`${group.title} skills`} className="mt-4 flex flex-wrap gap-2">
+                    {group.skills.map((skill) => <li key={skill} className="rounded-full border border-line bg-surface px-3 py-1.5 text-xs font-semibold text-muted">{skill}</li>)}
+                  </ul>
+                </article>
+              ))}
+            </div>
           </div>
         </div>
       </section>

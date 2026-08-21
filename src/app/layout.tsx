@@ -4,15 +4,16 @@ import { profile } from "@/data/portfolio";
 
 const siteUrl = "https://www.madhurjain.in";
 const description =
-  "Portfolio of Madhur Jain, a product manager with 5+ years across AI and data products, consumer growth, monetization, and ecommerce.";
+  "Madhur Jain is a product manager building AI, US consumer, and growth products: pricing and conversion at PRISM, subscriber growth at SplashLearn, and D2C growth at Honasa.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: `${profile.name} | AI, Data & Growth Product Manager`,
+    default: `${profile.name} | AI, Consumer & Growth Product Manager`,
     template: `%s | ${profile.name}`,
   },
   description,
+  applicationName: `${profile.name} Portfolio`,
   alternates: {
     canonical: "/",
   },
@@ -44,7 +45,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: siteUrl,
-    title: `${profile.name} | AI, Data & Growth Product Manager`,
+    title: `${profile.name} | AI, Consumer & Growth Product Manager`,
     description,
     siteName: `${profile.name} Portfolio`,
     images: [
@@ -58,7 +59,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `${profile.name} | AI, Data & Growth Product Manager`,
+    title: `${profile.name} | AI, Consumer & Growth Product Manager`,
     description,
     images: ["/opengraph-image"],
   },
@@ -81,15 +82,17 @@ export default function RootLayout({
               "@type": "Person",
               name: profile.name,
               url: siteUrl,
-              jobTitle: "Product Manager",
+              jobTitle: "AI, Consumer & Growth Product Manager",
               description,
               sameAs: [profile.linkedinUrl, profile.githubUrl],
               knowsAbout: [
                 "AI product management",
+                "Consumer products",
                 "Data products",
                 "Consumer growth",
                 "Monetization",
                 "Ecommerce",
+                "Product strategy",
               ],
             }),
           }}

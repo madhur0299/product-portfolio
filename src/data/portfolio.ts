@@ -178,7 +178,7 @@ export const profile: Profile = {
   githubUrl: "https://github.com/madhur0299",
   resumePath: "/resume.pdf",
   headline:
-    "I build AI, consumer, and growth products that solve real customer problems and move the business.",
+    "AI product management for consumer growth and smarter operations.",
   summary:
     "At PRISM (Parent Company of OYO), I own US consumer products across pricing and conversion while working as an AI PM on initiatives that improve efficiency, run autonomous operational workflows, and lift conversion. Previously, I led mobile subscriber growth at SplashLearn and D2C product growth at Honasa; I also build Coach from scratch.",
   availability:

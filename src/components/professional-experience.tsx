@@ -9,6 +9,28 @@ type ProfessionalExperienceProps = {
   experiences: ProfessionalExperienceItem[];
 };
 
+const abbreviatedMonths: Record<string, string> = {
+  January: "Jan",
+  February: "Feb",
+  March: "Mar",
+  April: "Apr",
+  May: "May",
+  June: "Jun",
+  July: "Jul",
+  August: "Aug",
+  September: "Sep",
+  October: "Oct",
+  November: "Nov",
+  December: "Dec",
+};
+
+function compactTimeframe(timeframe: string) {
+  return Object.entries(abbreviatedMonths).reduce(
+    (formatted, [fullMonth, shortMonth]) => formatted.replaceAll(fullMonth, shortMonth),
+    timeframe,
+  );
+}
+
 export function ProfessionalExperience({
   experiences,
 }: ProfessionalExperienceProps) {
@@ -17,7 +39,7 @@ export function ProfessionalExperience({
   return (
     <section
       id="experience"
-      className="border-y border-line bg-surface-muted py-16 sm:py-24"
+      className="border-y border-line bg-surface-muted py-12 sm:py-24"
     >
       <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
         <div className="grid gap-8 lg:grid-cols-[minmax(0,0.9fr)_minmax(20rem,0.6fr)] lg:items-end">
@@ -29,14 +51,14 @@ export function ProfessionalExperience({
               How my product scope has grown.
             </h2>
           </div>
-          <p className="max-w-xl text-base leading-7 text-muted">
+          <p className="max-w-xl text-sm leading-6 text-muted sm:text-base sm:leading-7">
             From ecommerce operations to consumer growth and now US consumer
             products with AI PM initiatives. Open any point in the
             timeline for the role, product context, and outcomes.
           </p>
         </div>
 
-        <div className="relative mt-12 border-l border-line pl-6 sm:pl-9">
+        <div className="relative mt-8 border-l border-line pl-6 sm:mt-12 sm:pl-9">
           {experiences.map((experience, index) => {
             const isOpen = openIndex === index;
             const panelId = `experience-detail-${index}`;
@@ -57,11 +79,11 @@ export function ProfessionalExperience({
                   aria-expanded={isOpen}
                   aria-controls={panelId}
                   onClick={() => setOpenIndex(isOpen ? null : index)}
-                  className="timeline-trigger flex min-h-28 w-full items-start justify-between gap-5 rounded-lg px-3 py-6 text-left -mx-3 sm:px-4 sm:py-7 sm:-mx-4"
+                  className="timeline-trigger flex w-full items-start justify-between gap-4 rounded-lg px-3 py-5 text-left -mx-3 sm:min-h-28 sm:gap-5 sm:px-4 sm:py-7 sm:-mx-4"
                 >
                   <span className="min-w-0">
                     <span className="font-mono text-xs font-semibold text-accent">
-                      {String(index + 1).padStart(2, "0")} / {experience.timeframe}
+                      {compactTimeframe(experience.timeframe)}
                     </span>
                     <span className="mt-3 block text-xl font-semibold leading-7 sm:text-2xl">
                       {experience.company}
@@ -107,7 +129,7 @@ export function ProfessionalExperience({
                                     {stage.role}
                                   </h3>
                                   <p className="font-mono text-xs font-semibold text-accent">
-                                    {stage.timeframe}
+                                    {compactTimeframe(stage.timeframe)}
                                   </p>
                                 </div>
                                 <p className="mt-2 text-sm leading-6 text-muted">

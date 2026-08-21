@@ -12,8 +12,9 @@ export default function AppleIcon() {
     (
       <svg viewBox="0 0 48 48" width="180" height="180" xmlns="http://www.w3.org/2000/svg">
         <rect width="48" height="48" rx="12" fill="#F8FAFC" />
-        <path fill="#2563EB" d="M29 7h9v25c0 7-4.9 12-12 12-5.6 0-10.1-3.2-11.7-8.1l6.7-2.8c.8 2.4 2.8 3.9 5.1 3.9 2.9 0 4.9-2.1 4.9-5V7Z" />
-        <path fill="#111827" d="M6 36V10l18 14 18-14v26l-7-5V23l-11 8-11-8v8l-7-5Z" />
+        <rect x="2" y="2" width="44" height="44" rx="11" fill="#EFF6FF" />
+        <path fill="#111827" d="M8 35V12h7l9 9 9-9h7v23h-7V23l-9 9-9-9v12H8Z" />
+        <path fill="#2563EB" d="M31 10h7v20c0 5.8-4 10-10 10-4.8 0-8.4-2.7-9.8-6.8l5.5-2.3c.7 1.8 2 2.9 3.8 2.9 2.1 0 3.5-1.4 3.5-3.8V10Z" />
       </svg>
     ),
     size,

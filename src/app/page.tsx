@@ -2,6 +2,7 @@ import { ArrowRight, Code2, Download, ExternalLink, Mail } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { CoachDemoVideo } from "@/components/coach-demo-video";
+import { MobilePortfolio } from "@/components/mobile-portfolio";
 import { ProfessionalExperience } from "@/components/professional-experience";
 import { SiteHeader } from "@/components/site-header";
 import {
@@ -15,7 +16,9 @@ import {
 export default function Home() {
   return (
     <>
-      <a className="skip-link" href="#content">Skip to content</a>
+      <a className="skip-link hidden md:block" href="#content">Skip to content</a>
+      <div className="md:hidden"><MobilePortfolio /></div>
+      <div className="hidden md:block">
       <SiteHeader />
       <main id="content" className="min-h-screen bg-background text-foreground">
         <section className="bg-surface">
@@ -144,6 +147,7 @@ export default function Home() {
           </div>
         </section>
       </main>
+      </div>
     </>
   );
 }

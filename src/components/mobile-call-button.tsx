@@ -37,7 +37,9 @@ export function MobileCallButton() {
     };
   }, [phone]);
 
-  if (!phone) return null;
+  if (!phone) {
+    return <span aria-hidden="true" className="inline-flex min-h-11 min-w-11 sm:hidden" />;
+  }
 
   return (
     <a

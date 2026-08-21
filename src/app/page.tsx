@@ -28,7 +28,7 @@ export default function Home() {
                 {profile.headline}
               </h1>
               <p className="mt-4 max-w-xl text-base leading-7 text-muted sm:hidden">
-                I lead pricing and conversion for US consumer products at PRISM, while building AI workflows that improve efficiency and customer outcomes.
+                Product Manager at PRISM, leading pricing and conversion for OYO US and G6. I also build AI systems that reduce operating effort and improve decisions.
               </p>
               <p className="mt-6 hidden max-w-2xl text-base leading-8 text-muted sm:block sm:text-lg">
                 {profile.summary}

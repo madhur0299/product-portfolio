@@ -178,9 +178,9 @@ export const profile: Profile = {
   githubUrl: "https://github.com/madhur0299",
   resumePath: "/resume.pdf",
   headline:
-    "AI product management for consumer growth and smarter operations.",
+    "I turn consumer growth problems into measurable outcomes.",
   summary:
-    "At PRISM (Parent Company of OYO), I own US consumer products across pricing and conversion while working as an AI PM on initiatives that improve efficiency, run autonomous operational workflows, and lift conversion. Previously, I led mobile subscriber growth at SplashLearn and D2C product growth at Honasa; I also build Coach from scratch.",
+    "Product Manager at PRISM, leading pricing and conversion for OYO US and G6. I also build AI systems that reduce operating effort and improve decisions. Previously, I grew mobile subscriptions at SplashLearn and D2C journeys at Honasa.",
   availability:
     "Open to Senior Product Manager, PM3, AI/Data PM, Growth PM, and product-builder roles.",
 };
@@ -250,14 +250,14 @@ export const professionalExperience: ProfessionalExperience[] = [
   {
     company: "PRISM (Parent Company of OYO)",
     timeframe: "November 2025 - Present",
-    overview: "Own consumer-facing products for OYO US and G6 across pricing, conversion, and operational journeys, while working as an AI PM on efficiency and autonomous operational workflows.",
+    overview: "Own consumer-facing products for OYO US and G6 across pricing and conversion. I also lead AI initiatives that reduce operating effort and improve how teams make decisions.",
     storyHref: "/work/ai-analytics-nl-to-sql",
     storyLabel: "Open the AI workflow case study",
     stages: [
       {
         role: "Product Manager III",
         timeframe: "November 2025 - Present",
-        summary: "Own US consumer-product initiatives across pricing and conversion, alongside AI PM work for team efficiency, autonomous operational workflows, and conversion improvement.",
+        summary: "Lead pricing and conversion initiatives for OYO US and G6, alongside AI product work that improves team efficiency and operational decision-making.",
         achievements: [
           "Built a dynamic fee module for OYO and G6 brands, increasing cost margin by up to $2M annually.",
           "Led FTC pricing-transparency implementation with a 28% reduction in prepaid-page views, 10% better Google HAC price accuracy, and 10% higher HDP-to-booking success.",
@@ -275,8 +275,8 @@ export const professionalExperience: ProfessionalExperience[] = [
       },
       {
         metric: "Revenue",
-        value: "Pricing & fee revenue",
-        context: "Owned pricing and fee levers for OYO and G6; the direct revenue figure is confidential.",
+        value: "Confidential",
+        context: "Owned pricing and fee levers for OYO and G6; the direct revenue figure is not public.",
       },
       {
         metric: "Cost margin",
@@ -544,7 +544,7 @@ export const caseStudies: CaseStudy[] = [
     image: "/images/coach-product-system.png",
     featured: true,
     summary:
-      "Built Coach, a cross-platform fitness product for planning workouts, logging sessions, tracking progress, connecting health data, and supporting personal training workflows.",
+      "Built Coach from scratch: a cross-platform fitness product for planning workouts, logging sessions, tracking progress, connecting health data, and supporting personal training workflows.",
     tags: ["Cross-platform", "Next.js", "SwiftUI", "Kotlin", "Supabase", "Health data"],
     metrics: [
       {
@@ -660,7 +660,7 @@ export const caseStudies: CaseStudy[] = [
       "Accuracy was evaluated against known-good answers for a gold-standard set of business queries. Query examples, benchmark size, adoption data, and internal dashboards are confidential.",
     image: "/images/ai-analytics-case.png",
     summary:
-      "Alongside owning consumer products for the OYO US and G6 platforms, founded a two-agent natural-language-to-SQL workflow that generates SQL, executes queries, and visualizes outputs for business teams.",
+      "Built a two-agent natural-language-to-SQL workflow that helps product and operations teams query business data, execute SQL, and inspect visual outputs without analyst translation.",
     tags: ["AI PM", "Data Products", "SQL", "Automation", "Dashboards"],
     metrics: [
       {
@@ -669,8 +669,8 @@ export const caseStudies: CaseStudy[] = [
         context: "Accuracy against gold-standard natural-language business queries",
       },
       {
-        label: "Product decision",
-        value: "2-agent",
+        label: "Workflow design",
+        value: "Two-agent system",
         context: "Separated SQL generation from query execution and visualization",
       },
       {
@@ -995,8 +995,8 @@ export const impactHighlights: ImpactHighlight[] = [
       },
       {
         metric: "Revenue",
-        value: "Pricing & fee revenue",
-        context: "Owned pricing and fee levers for OYO and G6; the direct revenue figure is confidential.",
+        value: "Confidential",
+        context: "Owned pricing and fee levers for OYO and G6; the direct revenue figure is not public.",
       },
       {
         metric: "Cost margin",

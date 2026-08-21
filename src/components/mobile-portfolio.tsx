@@ -157,7 +157,7 @@ export function MobilePortfolio() {
             I turn consumer growth problems into measurable outcomes.
           </h1>
           <p className="mt-6 max-w-[34rem] text-[1.05rem] leading-7 text-muted">
-            Product Manager at PRISM, leading pricing and conversion for OYO US and G6, and building AI workflows that reduce operating effort.
+            Product Manager at PRISM, leading pricing and conversion for OYO US and G6. I also build AI systems that reduce operating effort and improve decisions.
           </p>
           <div className="mt-8 grid gap-3">
             <button type="button" onClick={() => navigateTo("mobile-work")} className="inline-flex min-h-14 items-center justify-between rounded-md bg-accent px-5 text-left text-base font-semibold text-on-dark transition-transform active:scale-[0.985]">
@@ -183,8 +183,8 @@ export function MobilePortfolio() {
       <section id="mobile-work" className="px-5 py-12">
         <div className="mx-auto max-w-md">
           <p className="font-mono text-xs font-semibold uppercase text-accent">Professional experience</p>
-          <h2 className="mt-3 max-w-[14ch] text-3xl font-semibold leading-[1.04] tracking-[-0.035em]">The roles, decisions, and outcomes behind my product work.</h2>
-          <p className="mt-5 max-w-md text-base leading-7 text-muted">Choose a company to see what I owned and the results. Each role also links to a focused case study.</p>
+          <h2 className="mt-3 max-w-[14ch] text-3xl font-semibold leading-[1.04] tracking-[-0.035em]">How I&apos;ve driven growth, monetization, and AI adoption.</h2>
+          <p className="mt-5 max-w-md text-base leading-7 text-muted">Select a role to see the context, decision, and outcome. Each also links to a focused case study.</p>
           <fieldset className="mt-7 min-w-0 border-0 p-0">
             <legend className="sr-only">Choose a company story</legend>
             <div className="grid grid-cols-3 gap-2">
@@ -229,7 +229,7 @@ export function MobilePortfolio() {
 
       <section id="mobile-build" className="px-5 py-12">
         <div className="mx-auto max-w-md">
-          <h2 className="max-w-[13ch] text-3xl font-semibold leading-[1.04] tracking-[-0.035em]">I build to keep my product judgment honest.</h2>
+          <h2 className="max-w-[13ch] text-3xl font-semibold leading-[1.04] tracking-[-0.035em]">I build products to test my product judgment in the real world.</h2>
           <p className="mt-5 text-base leading-7 text-muted">Coach is my cross-platform fitness product. I own the product model and the build across web, iOS, and Android.</p>
           <figure className="mt-8 overflow-hidden rounded-xl bg-foreground shadow-card">
             <CoachDemoVideo />
@@ -278,8 +278,8 @@ export function MobilePortfolio() {
 
       <section id="mobile-contact" className="bg-foreground px-5 pb-[calc(5.5rem+env(safe-area-inset-bottom))] pt-12 text-on-dark">
         <div className="mx-auto max-w-md">
-          <h2 className="max-w-[13ch] text-3xl font-semibold leading-[1.04] tracking-[-0.035em]">Have a product problem worth solving?</h2>
-          <p className="mt-5 max-w-sm text-base leading-7 text-white/70">Bring me a conversion, pricing, AI workflow, or product-delivery constraint.</p>
+          <h2 className="max-w-[13ch] text-3xl font-semibold leading-[1.04] tracking-[-0.035em]">Let&apos;s talk about the work.</h2>
+          <p className="mt-5 max-w-sm text-base leading-7 text-white/70">Open to senior product roles and conversations around growth, pricing, and AI product systems.</p>
           <div className="mt-8 grid gap-3">
             <a data-contact-action href={`mailto:${profile.email}?subject=Product%20conversation`} className="on-light inline-flex min-h-14 items-center justify-between rounded-md bg-surface px-5 text-base font-semibold transition-transform active:scale-[0.985]">Email Madhur<Mail className="h-5 w-5" aria-hidden="true" /></a>
             <div className="grid grid-cols-2 gap-3">

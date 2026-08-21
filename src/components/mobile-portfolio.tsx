@@ -149,14 +149,14 @@ export function MobilePortfolio() {
         </div>
       </header>
 
-      <main id="mobile-content" tabIndex={-1} className="mobile-portfolio min-h-screen bg-surface pb-24 text-foreground">
+      <main id="mobile-content" tabIndex={-1} className="mobile-portfolio min-h-screen bg-surface text-foreground">
       <section className="border-b border-line px-5 pb-10 pt-10">
         <div className="mx-auto max-w-md">
-          <h1 className="max-w-[11ch] text-[2.6rem] font-semibold leading-[0.98] tracking-[-0.045em] text-pretty">
-            I make consumer products move.
+          <h1 className="max-w-[12ch] text-[2.6rem] font-semibold leading-[0.98] tracking-[-0.045em] text-pretty">
+            Consumer product manager for growth and AI.
           </h1>
           <p className="mt-6 max-w-[34rem] text-[1.05rem] leading-7 text-muted">
-            At PRISM, I lead pricing and conversion for US consumer products and build AI workflows that reduce operational drag. Before that, I grew mobile subscriptions at SplashLearn and D2C journeys at Honasa.
+            I lead pricing and conversion for OYO US and G6 at PRISM, while building AI workflows that improve operational decisions. Previously, I grew mobile subscriptions at SplashLearn and D2C journeys at Honasa.
           </p>
           <div className="mt-8 grid gap-3">
             <button type="button" onClick={() => navigateTo("mobile-work")} className="inline-flex min-h-14 items-center justify-between rounded-md bg-accent px-5 text-left text-base font-semibold text-on-dark transition-transform active:scale-[0.985]">
@@ -272,7 +272,7 @@ export function MobilePortfolio() {
         </div>
       </section>
 
-      <section id="mobile-contact" className="bg-foreground px-5 py-12 text-on-dark">
+      <section id="mobile-contact" className="bg-foreground px-5 pb-[calc(5.5rem+env(safe-area-inset-bottom))] pt-12 text-on-dark">
         <div className="mx-auto max-w-md">
           <h2 className="max-w-[13ch] text-3xl font-semibold leading-[1.04] tracking-[-0.035em]">Have a product problem worth solving?</h2>
           <p className="mt-5 max-w-sm text-base leading-7 text-white/70">Bring me a conversion, pricing, AI workflow, or product-delivery constraint.</p>

@@ -1,10 +1,10 @@
-import { ArrowRight, Code2, Download, ExternalLink, Mail } from "lucide-react";
+import { Code2, Download, ExternalLink, Mail } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
 import { CoachDemoVideo } from "@/components/coach-demo-video";
 import { MobilePortfolio } from "@/components/mobile-portfolio";
 import { ProfessionalExperience } from "@/components/professional-experience";
 import { SiteHeader } from "@/components/site-header";
+import { WorkStoryLink } from "@/components/work-story-link";
 import {
   coachScreens,
   impactHighlights,
@@ -120,7 +120,7 @@ export default function Home() {
                   <div className="grid grid-cols-[5.5rem_minmax(0,1fr)] gap-3 border-b border-line py-4"><dt className="font-semibold">iOS</dt><dd className="text-muted">Native workout logging, HealthKit, widgets, and Live Activities.</dd></div>
                   <div className="grid grid-cols-[5.5rem_minmax(0,1fr)] gap-3 py-4"><dt className="font-semibold">Android</dt><dd className="text-muted">Kotlin and Compose flows with local persistence and Health Connect.</dd></div>
                 </dl>
-                <Link href="/work/coach-cross-platform" className="mt-7 inline-flex min-h-11 items-center gap-2 text-sm font-semibold underline decoration-accent decoration-2 underline-offset-4 transition-colors hover:text-accent">Read the Coach build story<ArrowRight className="h-4 w-4" aria-hidden="true" /></Link>
+                <WorkStoryLink href="/work/coach-cross-platform" title="Coach cross-platform build case study" className="mt-7 inline-flex min-h-11 items-center gap-2 text-sm font-semibold underline decoration-accent decoration-2 underline-offset-4 transition-colors hover:text-accent">Open the Coach build case study</WorkStoryLink>
               </div>
               <div className="grid gap-5 xl:grid-cols-[minmax(14rem,0.7fr)_minmax(0,1fr)]">
                 <figure className="mx-auto w-full max-w-sm self-start overflow-hidden rounded-lg border border-line bg-foreground shadow-card xl:max-w-none">

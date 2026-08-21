@@ -1,9 +1,9 @@
 "use client";
 
-import { ArrowRight, ChevronDown } from "lucide-react";
-import Link from "next/link";
+import { ChevronDown } from "lucide-react";
 import { useState } from "react";
 import type { ProfessionalExperience as ProfessionalExperienceItem } from "@/data/portfolio";
+import { WorkStoryLink } from "@/components/work-story-link";
 
 type ProfessionalExperienceProps = {
   experiences: ProfessionalExperienceItem[];
@@ -53,8 +53,8 @@ export function ProfessionalExperience({
           </div>
           <p className="max-w-xl text-sm leading-6 text-muted sm:text-base sm:leading-7">
             From ecommerce operations to consumer growth and now US consumer
-            products with AI PM initiatives. Open any point in the
-            timeline for the role, product context, and outcomes.
+            products with AI PM initiatives. Open a role to see the context,
+            decisions, and outcomes, then open its focused case study.
           </p>
         </div>
 
@@ -173,14 +173,14 @@ export function ProfessionalExperience({
                               </div>
                             ))}
                           </dl>
-                          <Link
+                          <WorkStoryLink
                             href={experience.storyHref}
+                            title={`${experience.company} case study`}
                             tabIndex={isOpen ? 0 : -1}
                             className="mt-7 inline-flex min-h-11 items-center gap-2 text-sm font-semibold underline decoration-accent decoration-2 underline-offset-4 transition-colors hover:text-accent"
                           >
                             {experience.storyLabel}
-                            <ArrowRight className="h-4 w-4" aria-hidden="true" />
-                          </Link>
+                          </WorkStoryLink>
                         </div>
                       </div>
                     </div>

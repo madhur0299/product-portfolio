@@ -252,7 +252,7 @@ export const professionalExperience: ProfessionalExperience[] = [
     timeframe: "November 2025 - Present",
     overview: "Own consumer-facing products for OYO US and G6 across pricing, conversion, and operational journeys, while working as an AI PM on efficiency and autonomous operational workflows.",
     storyHref: "/work/ai-analytics-nl-to-sql",
-    storyLabel: "Read the AI analytics work story",
+    storyLabel: "Open the AI workflow case study",
     stages: [
       {
         role: "Product Manager III",
@@ -290,7 +290,7 @@ export const professionalExperience: ProfessionalExperience[] = [
     timeframe: "May 2024 - November 2025",
     overview: "Owned subscriber growth and retention work for the Android app and app-to-web journeys at an elementary-learning platform.",
     storyHref: "/work/android-subscriber-growth",
-    storyLabel: "Read the mobile growth work story",
+    storyLabel: "Open the mobile growth case study",
     stages: [
       {
         role: "Product Manager",
@@ -329,7 +329,7 @@ export const professionalExperience: ProfessionalExperience[] = [
     timeframe: "March 2021 - May 2024",
     overview: "Progressed from Product Management Intern to Product Manager across Mamaearth, Aqualogica, BBlunt, Yotobox, referral systems, and house-of-brands product infrastructure.",
     storyHref: "/work/d2c-referral-conversion",
-    storyLabel: "Read the Honasa product journey",
+    storyLabel: "Open the D2C conversion case study",
     stages: [
       {
         role: "Product Manager",

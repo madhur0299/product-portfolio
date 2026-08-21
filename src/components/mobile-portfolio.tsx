@@ -10,10 +10,10 @@ import {
   UserRound,
   Wrench,
 } from "lucide-react";
-import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { CoachDemoVideo } from "@/components/coach-demo-video";
 import { MobileCallButton } from "@/components/mobile-call-button";
+import { WorkStoryLink } from "@/components/work-story-link";
 import {
   professionalExperience,
   profile,
@@ -39,6 +39,12 @@ const proofRail = [
   { company: "PRISM", detail: "+10% booking conversion · up to $2M margin upside" },
   { company: "SplashLearn", detail: "+15% trial-to-paid · 1,000 monthly subscribers" },
   { company: "Honasa", detail: "+15% homepage conversion · Rs 175 Cr run rate" },
+];
+
+const caseStudyTitles = [
+  "AI workflow case study",
+  "Mobile subscription growth case study",
+  "D2C conversion case study",
 ];
 
 const operatingRhythm = [
@@ -154,7 +160,7 @@ export function MobilePortfolio() {
           </p>
           <div className="mt-8 grid gap-3">
             <button type="button" onClick={() => navigateTo("mobile-work")} className="inline-flex min-h-14 items-center justify-between rounded-md bg-accent px-5 text-left text-base font-semibold text-on-dark transition-transform active:scale-[0.985]">
-              Explore selected work
+              Explore experience and case studies
               <ArrowRight className="h-5 w-5" aria-hidden="true" />
             </button>
             <a href={profile.resumePath} download="Madhur-Jain-Resume.pdf" className="inline-flex min-h-12 items-center justify-center gap-2 rounded-md border border-line px-5 text-sm font-semibold transition-colors active:scale-[0.985]">
@@ -175,7 +181,9 @@ export function MobilePortfolio() {
 
       <section id="mobile-work" className="px-5 py-12">
         <div className="mx-auto max-w-md">
-          <h2 className="max-w-[14ch] text-3xl font-semibold leading-[1.04] tracking-[-0.035em]">Selected work, with the business context attached.</h2>
+          <p className="font-mono text-xs font-semibold uppercase text-accent">Professional experience</p>
+          <h2 className="mt-3 max-w-[14ch] text-3xl font-semibold leading-[1.04] tracking-[-0.035em]">The roles, decisions, and outcomes behind my product work.</h2>
+          <p className="mt-5 max-w-md text-base leading-7 text-muted">Choose a company to see what I owned and the results. Each role also links to a focused case study.</p>
           <div aria-label="Choose a company story" className="mt-7 grid grid-cols-3 gap-2">
             {professionalExperience.map((experience, index) => (
               <button key={experience.company} type="button" aria-pressed={activeExperience === index} onClick={() => setActiveExperience(index)} className={`min-h-11 min-w-0 rounded-full border px-2 py-2.5 text-sm font-semibold transition-colors ${activeExperience === index ? "border-foreground bg-foreground text-on-dark" : "border-line bg-surface text-muted"}`}>
@@ -208,10 +216,9 @@ export function MobilePortfolio() {
                 {selectedExperience.stages.flatMap((stage) => stage.achievements).slice(0, 3).map((achievement) => <li key={achievement} className="flex gap-3"><span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" aria-hidden="true" />{achievement}</li>)}
               </ul>
             </div>
-            <Link href={selectedExperience.storyHref} className="mt-7 inline-flex min-h-11 items-center gap-2 text-sm font-semibold underline decoration-accent decoration-2 underline-offset-4">
-              {activeExperience === 0 ? "Explore the focused AI workflow case" : selectedExperience.storyLabel}
-              <ArrowRight className="h-4 w-4" aria-hidden="true" />
-            </Link>
+            <WorkStoryLink href={selectedExperience.storyHref} title={caseStudyTitles[activeExperience]} className="mt-7 inline-flex min-h-11 items-center gap-2 text-sm font-semibold underline decoration-accent decoration-2 underline-offset-4">
+              {activeExperience === 0 ? "Open the AI workflow case study" : selectedExperience.storyLabel}
+            </WorkStoryLink>
           </article>
         </div>
       </section>
@@ -229,7 +236,7 @@ export function MobilePortfolio() {
             <div className="grid grid-cols-[5rem_minmax(0,1fr)] gap-4 py-4"><p className="font-semibold">iOS</p><p className="text-sm leading-6 text-muted">Workout logging, HealthKit, widgets, and Live Activities.</p></div>
             <div className="grid grid-cols-[5rem_minmax(0,1fr)] gap-4 py-4"><p className="font-semibold">Android</p><p className="text-sm leading-6 text-muted">Compose flows, local persistence, and Health Connect.</p></div>
           </div>
-          <Link href="/work/coach-cross-platform" className="mt-7 inline-flex min-h-11 items-center gap-2 text-sm font-semibold underline decoration-accent decoration-2 underline-offset-4">Read the Coach build story<ArrowRight className="h-4 w-4" aria-hidden="true" /></Link>
+          <WorkStoryLink href="/work/coach-cross-platform" title="Coach cross-platform build case study" className="mt-7 inline-flex min-h-11 items-center gap-2 text-sm font-semibold underline decoration-accent decoration-2 underline-offset-4">Open the Coach build case study</WorkStoryLink>
         </div>
       </section>
 

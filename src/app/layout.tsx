@@ -16,6 +16,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/",
   },
+  icons: {
+    icon: [{ url: "/icon.svg", type: "image/svg+xml" }],
+  },
   keywords: [
     "Madhur Jain",
     "Product Manager",

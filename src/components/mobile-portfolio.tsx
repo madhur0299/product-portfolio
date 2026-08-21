@@ -23,8 +23,8 @@ import {
 type MobileSection = "mobile-work" | "mobile-approach" | "mobile-build" | "mobile-contact";
 
 const navigation = [
-  { id: "mobile-work", label: "Work", icon: BriefcaseBusiness },
-  { id: "mobile-build", label: "Build", icon: Wrench },
+  { id: "mobile-work", label: "Experience", icon: BriefcaseBusiness },
+  { id: "mobile-build", label: "Coach", icon: Wrench },
   { id: "mobile-approach", label: "How I work", icon: Sparkles },
   { id: "mobile-contact", label: "Contact", icon: UserRound },
 ] as const;
@@ -86,6 +86,7 @@ export function MobilePortfolio() {
   const isProgrammaticNavigation = useRef(false);
   const navigationTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
   const selectedExperience = professionalExperience[activeExperience];
+  const isContactActive = activeSection === "mobile-contact";
 
   useEffect(() => {
     const observers = navigation.map(({ id }) => {
@@ -135,7 +136,7 @@ export function MobilePortfolio() {
       <a className="skip-link md:hidden" href="#mobile-content">Skip to content</a>
       <header className="sticky top-0 z-40 border-b border-line bg-surface/95 px-5 py-3 backdrop-blur">
         <div className="mx-auto flex max-w-md items-center justify-between">
-          <button type="button" onClick={() => window.scrollTo({ top: 0, behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" })} className="text-left text-base font-semibold tracking-[-0.02em]">Madhur Jain</button>
+          <button type="button" onClick={() => window.scrollTo({ top: 0, behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" })} className="inline-flex min-h-11 items-center text-left text-base font-semibold tracking-[-0.02em]">Madhur Jain</button>
           <div className="flex items-center gap-2">
             <MobileCallButton />
             <a href={`mailto:${profile.email}`} className="inline-flex min-h-11 items-center gap-2 rounded-md border border-line px-3 text-sm font-semibold transition-colors active:scale-[0.98]">
@@ -152,11 +153,11 @@ export function MobilePortfolio() {
       <main id="mobile-content" tabIndex={-1} className="mobile-portfolio min-h-screen bg-surface text-foreground">
       <section className="border-b border-line px-5 pb-10 pt-10">
         <div className="mx-auto max-w-md">
-          <h1 className="max-w-[12ch] text-[2.6rem] font-semibold leading-[0.98] tracking-[-0.045em] text-pretty">
-            Consumer product manager for growth and AI.
+          <h1 className="max-w-[13ch] text-[2.6rem] font-semibold leading-[0.98] tracking-[-0.045em] text-pretty">
+            I turn consumer growth problems into measurable outcomes.
           </h1>
           <p className="mt-6 max-w-[34rem] text-[1.05rem] leading-7 text-muted">
-            I lead pricing and conversion for OYO US and G6 at PRISM, while building AI workflows that improve operational decisions. Previously, I grew mobile subscriptions at SplashLearn and D2C journeys at Honasa.
+            Product Manager at PRISM, leading pricing and conversion for OYO US and G6, and building AI workflows that reduce operating effort.
           </p>
           <div className="mt-8 grid gap-3">
             <button type="button" onClick={() => navigateTo("mobile-work")} className="inline-flex min-h-14 items-center justify-between rounded-md bg-accent px-5 text-left text-base font-semibold text-on-dark transition-transform active:scale-[0.985]">
@@ -184,13 +185,16 @@ export function MobilePortfolio() {
           <p className="font-mono text-xs font-semibold uppercase text-accent">Professional experience</p>
           <h2 className="mt-3 max-w-[14ch] text-3xl font-semibold leading-[1.04] tracking-[-0.035em]">The roles, decisions, and outcomes behind my product work.</h2>
           <p className="mt-5 max-w-md text-base leading-7 text-muted">Choose a company to see what I owned and the results. Each role also links to a focused case study.</p>
-          <div aria-label="Choose a company story" className="mt-7 grid grid-cols-3 gap-2">
+          <fieldset className="mt-7 min-w-0 border-0 p-0">
+            <legend className="sr-only">Choose a company story</legend>
+            <div className="grid grid-cols-3 gap-2">
             {professionalExperience.map((experience, index) => (
               <button key={experience.company} type="button" aria-pressed={activeExperience === index} onClick={() => setActiveExperience(index)} className={`min-h-11 min-w-0 rounded-full border px-2 py-2.5 text-sm font-semibold transition-colors ${activeExperience === index ? "border-foreground bg-foreground text-on-dark" : "border-line bg-surface text-muted"}`}>
                 <span className="block truncate">{index === 2 ? "Honasa" : experience.company.split(" (")[0]}</span>
               </button>
             ))}
-          </div>
+            </div>
+          </fieldset>
           <article className="mobile-story-panel mt-6 border-y border-line py-6" key={selectedExperience.company}>
             <div className="flex items-start justify-between gap-5">
               <div>
@@ -287,10 +291,10 @@ export function MobilePortfolio() {
       </section>
       </main>
 
-      <nav aria-label="Portfolio sections" className="mobile-dock fixed inset-x-0 bottom-0 z-50 border-t border-line bg-surface/95 px-3 pb-[max(0.55rem,env(safe-area-inset-bottom))] pt-2 backdrop-blur">
+      <nav aria-label="Portfolio sections" className={`mobile-dock fixed inset-x-0 bottom-0 z-50 border-t px-3 pb-[max(0.55rem,env(safe-area-inset-bottom))] pt-2 backdrop-blur ${isContactActive ? "mobile-dock-dark border-white/15 bg-foreground/95" : "border-line bg-surface/95"}`}>
         <div className="mx-auto grid max-w-md grid-cols-4 gap-1">
           {navigation.map(({ id, label, icon: Icon }) => (
-            <button key={id} type="button" onClick={() => navigateTo(id)} className={`flex min-h-12 flex-col items-center justify-center gap-1 rounded-md text-[0.6875rem] font-semibold transition-colors ${activeSection === id ? "bg-accent-surface text-accent" : "text-muted"}`}>
+            <button key={id} type="button" onClick={() => navigateTo(id)} className={`flex min-h-12 flex-col items-center justify-center gap-1 rounded-md text-[0.6875rem] font-semibold transition-colors ${isContactActive ? (activeSection === id ? "bg-white/15 text-white" : "text-white/65") : (activeSection === id ? "bg-accent-surface text-accent" : "text-muted")}`}>
               <Icon className="h-4 w-4" aria-hidden="true" />
               {label}
             </button>

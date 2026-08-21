@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { CoachDemoVideo } from "@/components/coach-demo-video";
 import { SiteHeader } from "@/components/site-header";
 import { caseStudies, coachScreens, getCaseStudy, profile } from "@/data/portfolio";
 
@@ -124,13 +125,13 @@ export default async function WorkDetailPage({ params }: CasePageProps) {
         <section className="border-b border-line bg-surface py-12 sm:py-16">
           <div className="mx-auto grid max-w-7xl gap-8 px-5 sm:px-8 lg:grid-cols-[minmax(16rem,0.7fr)_minmax(18rem,0.5fr)] lg:items-center lg:gap-16 lg:px-10">
             <div>
-              <p className="text-sm font-semibold text-accent">Fresh iOS build</p>
-              <h2 className="mt-4 max-w-xl text-3xl font-semibold leading-tight text-balance sm:text-4xl">A training product that begins with the next useful action.</h2>
-              <p className="mt-5 max-w-xl text-base leading-7 text-muted">This native-resolution home screen brings a daily workout, steps, streak, weekly progress, and the core product areas into one decision point. It comes directly from the current Coach iOS build.</p>
+              <p className="text-sm font-semibold text-accent">Product walkthrough</p>
+              <h2 className="mt-4 max-w-xl text-3xl font-semibold leading-tight text-balance sm:text-4xl">A training product designed around the next useful action.</h2>
+              <p className="mt-5 max-w-xl text-base leading-7 text-muted">Start with the active workout, log the set in the moment, then move into health context, progress, and coaching. This walkthrough puts the interaction model ahead of static concept screens.</p>
             </div>
             <figure className="mx-auto w-full max-w-sm overflow-hidden rounded-lg border border-line bg-foreground shadow-card">
-              <Image src={coachScreens[0].src} alt={coachScreens[0].alt} width={1206} height={2622} quality={90} priority sizes="(min-width: 1024px) 380px, (min-width: 640px) 45vw, 86vw" className="h-auto w-full" />
-              <figcaption className="on-dark dark-divider border-t px-4 py-3 text-sm font-semibold">{coachScreens[0].label} <span className="on-dark-muted font-normal">· {coachScreens[0].detail}</span></figcaption>
+              <CoachDemoVideo className="block h-auto w-full bg-black" />
+              <figcaption className="on-dark dark-divider border-t px-4 py-3 text-sm font-semibold">Coach product walkthrough <span className="on-dark-muted font-normal">· active workout logging in the current product experience.</span></figcaption>
             </figure>
           </div>
         </section>

@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: CasePageProps): Promise<Metad
 
   if (!caseStudy) return { title: "Work detail not found" };
 
-  const title = `${caseStudy.title} | ${profile.name}`;
+  const title = caseStudy.title;
   const path = `/work/${caseStudy.slug}`;
 
   return {

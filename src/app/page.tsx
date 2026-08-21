@@ -29,7 +29,7 @@ export default function Home() {
                 {profile.summary}
               </p>
               <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-                <a href={profile.resumePath} download className="on-dark inline-flex min-h-12 items-center justify-center gap-2 rounded-md bg-accent px-5 text-sm font-semibold transition-colors hover:bg-accent-strong">
+                <a href={profile.resumePath} download="Madhur-Jain-Resume.pdf" className="on-dark inline-flex min-h-12 items-center justify-center gap-2 rounded-md bg-accent px-5 text-sm font-semibold transition-colors hover:bg-accent-strong">
                   <Download className="h-4 w-4" aria-hidden="true" />
                   Download resume
                 </a>

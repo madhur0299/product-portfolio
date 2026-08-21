@@ -50,7 +50,7 @@ export default function ResumePage() {
               <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap lg:justify-end">
                 <a
                   href={profile.resumePath}
-                  download
+                  download="Madhur-Jain-Resume.pdf"
                   className="on-dark inline-flex min-h-12 items-center justify-center gap-2 rounded-md bg-accent px-5 text-sm font-semibold transition-colors hover:bg-accent-strong"
                 >
                   <Download className="h-4 w-4" aria-hidden="true" />

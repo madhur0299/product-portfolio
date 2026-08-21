@@ -48,6 +48,15 @@ const nextConfig: NextConfig = {
         source: "/:path*",
         headers: securityHeaders,
       },
+      {
+        source: "/resume.pdf",
+        headers: [
+          {
+            key: "Content-Disposition",
+            value: 'attachment; filename="Madhur-Jain-Resume.pdf"',
+          },
+        ],
+      },
     ];
   },
 };

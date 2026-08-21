@@ -150,7 +150,8 @@ export type ProfessionalExperience = {
 
 export type SkillGroup = {
   title: string;
-  description: string;
+  outcome: string;
+  evidence: string;
   skills: string[];
 };
 
@@ -206,19 +207,42 @@ export const resumeSkills = [
 
 export const skillGroups: SkillGroup[] = [
   {
-    title: "Strategy and leadership",
-    description: "Turns ambiguity into product bets, roadmaps, decision criteria, and aligned delivery.",
-    skills: ["Product Roadmapping", "Experimentation", "Stakeholder Leadership", "Product Judgment"],
+    title: "AI product systems",
+    outcome: "Turn fragmented business data and operating work into trusted AI product systems.",
+    evidence:
+      "PRISM: built a two-agent natural-language-to-SQL workflow with 85% accuracy on gold-standard business queries, while leading AI workflow automation for research, reporting, and PRD work.",
+    skills: [
+      "AI Product Management",
+      "AI Workflow Automation",
+      "LangChain",
+      "LangGraph",
+      "RAG",
+      "Vector Databases",
+      "Agentic Workflows",
+      "LLM Evaluation",
+      "Prompt Evaluation",
+    ],
   },
   {
-    title: "AI and data products",
-    description: "Designs useful LLM and data workflows with retrieval, evaluation, data quality, and user trust built into the loop.",
-    skills: ["AI Product Management", "LangChain", "LangGraph", "RAG", "LLM Evaluation", "Prompt Evaluation", "SQL Validation", "Python"],
+    title: "Growth, monetization, and conversion",
+    outcome: "Find leverage in customer journeys and turn it into conversion, subscribers, and revenue.",
+    evidence:
+      "PRISM, SplashLearn, and Honasa: owned FTC pricing transparency, web-to-app migration, and D2C funnel work that lifted HDP-to-booking success, trial-to-paid, and homepage and search conversion.",
+    skills: ["Funnel Analytics", "Experimentation"],
   },
   {
-    title: "Growth and execution",
-    description: "Uses funnels, instrumentation, APIs, and iterative delivery to improve customer and business outcomes.",
-    skills: ["Funnel Analytics", "Data Visualization", "APIs and Events"],
+    title: "Product strategy and delivery",
+    outcome: "Move ambiguous opportunities from a decision to a launch with teams aligned around the customer and business.",
+    evidence:
+      "Across US consumer pricing and conversion, Android subscriber growth, and multi-brand ecommerce systems, I have set roadmap, tradeoffs, launch conditions, and stakeholder alignment.",
+    skills: ["Product Roadmapping", "Product Judgment", "Stakeholder Leadership"],
+  },
+  {
+    title: "Data fluency and technical collaboration",
+    outcome: "Work fluently with the systems, instrumentation, and analysis that make product decisions defensible.",
+    evidence:
+      "PRISM analytics, growth funnels, and Coach: combine data quality, product telemetry, APIs, and hands-on build collaboration to move from insight to a working experience.",
+    skills: ["SQL and Data Analytics", "SQL Validation", "Python", "Data Visualization", "APIs and Events"],
   },
 ];
 

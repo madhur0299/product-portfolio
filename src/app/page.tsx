@@ -71,10 +71,29 @@ export default function Home() {
 
         <section id="skills" className="bg-background py-16 sm:py-24">
           <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
-            <div className="grid gap-6 border-b border-line pb-9 lg:grid-cols-[minmax(0,0.9fr)_minmax(20rem,0.6fr)] lg:items-end"><h2 className="max-w-2xl text-3xl font-semibold leading-tight text-balance sm:text-4xl">How I work, with proof in shipped products.</h2><p className="max-w-xl text-base leading-7 text-muted">These are skills I have used in US consumer products and AI PM initiatives at PRISM, subscription and funnel growth at SplashLearn, and multi-brand ecommerce systems at Honasa.</p></div>
-            <div className="grid md:grid-cols-3">
+            <div className="grid gap-6 border-b border-line pb-9 lg:grid-cols-[minmax(0,0.9fr)_minmax(20rem,0.6fr)] lg:items-end">
+              <h2 className="max-w-2xl text-3xl font-semibold leading-tight text-balance sm:text-4xl">Capabilities I use to make products move.</h2>
+              <p className="max-w-xl text-base leading-7 text-muted">AI product systems and growth outcomes are the throughline. The methods below are grounded in US consumer products at PRISM, subscriber growth at SplashLearn, D2C work at Honasa, and my own cross-platform build.</p>
+            </div>
+            <div className="mt-3 border-t border-line">
               {skillGroups.map((group) => (
-                <article key={group.title} className="border-b border-line py-7 md:border-b-0 md:px-7 md:first:pl-0 md:not-last:border-r md:last:pr-0"><h3 className="text-xl font-semibold">{group.title}</h3><p className="mt-3 text-sm leading-6 text-muted">{group.description}</p><ul className="mt-6 space-y-2 text-sm font-medium">{group.skills.map((skill) => <li key={skill} className="flex items-center gap-2"><span className="h-1.5 w-1.5 shrink-0 rounded-full bg-accent" aria-hidden="true" />{skill}</li>)}</ul></article>
+                <article key={group.title} className="grid gap-6 border-b border-line py-8 sm:py-10 lg:grid-cols-[minmax(14rem,0.62fr)_minmax(0,1.38fr)] lg:gap-16">
+                  <div>
+                    <h3 className="max-w-sm text-2xl font-semibold leading-tight">{group.title}</h3>
+                    <p className="mt-4 max-w-md text-base leading-7 text-muted">{group.outcome}</p>
+                  </div>
+                  <div className="grid gap-6 xl:grid-cols-[minmax(15rem,0.86fr)_minmax(0,1fr)] xl:gap-10">
+                    <div>
+                      <p className="text-xs font-semibold uppercase tracking-[0.12em] text-accent">In practice</p>
+                      <p className="mt-3 max-w-xl text-sm leading-6 text-muted">{group.evidence}</p>
+                    </div>
+                    <ul aria-label={`${group.title} skills`} className="flex flex-wrap content-start gap-2">
+                      {group.skills.map((skill) => (
+                        <li key={skill} className="rounded-md border border-line bg-surface px-3 py-2 text-sm font-medium text-foreground">{skill}</li>
+                      ))}
+                    </ul>
+                  </div>
+                </article>
               ))}
             </div>
           </div>

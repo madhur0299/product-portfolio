@@ -13,6 +13,7 @@ import {
 import { useEffect, useRef, useState } from "react";
 import { CoachDemoVideo } from "@/components/coach-demo-video";
 import { MobileCallButton } from "@/components/mobile-call-button";
+import { ProfessionalProfileLinks } from "@/components/professional-profile-links";
 import { WorkStoryLink } from "@/components/work-story-link";
 import {
   professionalExperience,
@@ -282,11 +283,11 @@ export function MobilePortfolio() {
           <p className="mt-5 max-w-sm text-base leading-7 text-white/70">Open to senior product roles and conversations around growth, pricing, and AI product systems.</p>
           <div className="mt-8 grid gap-3">
             <a data-contact-action href={`mailto:${profile.email}?subject=Product%20conversation`} className="on-light inline-flex min-h-14 items-center justify-between rounded-md bg-surface px-5 text-base font-semibold transition-transform active:scale-[0.985]">Email Madhur<Mail className="h-5 w-5" aria-hidden="true" /></a>
-            <div className="grid grid-cols-2 gap-3">
-              <a href={profile.linkedinUrl} className="profile-linkedin on-dark inline-flex min-h-12 items-center justify-center rounded-md px-4 text-sm font-semibold transition-transform active:scale-[0.985]">LinkedIn</a>
-              <a href={profile.githubUrl} className="profile-github on-dark inline-flex min-h-12 items-center justify-center rounded-md px-4 text-sm font-semibold transition-transform active:scale-[0.985]">GitHub</a>
-            </div>
           </div>
+          <aside className="mt-10" aria-label="Professional profiles">
+            <p className="mb-4 text-xs font-semibold uppercase tracking-[0.12em] text-white/65">Find me online</p>
+            <ProfessionalProfileLinks />
+          </aside>
         </div>
       </section>
       </main>

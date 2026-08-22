@@ -1,7 +1,9 @@
 import { Code2, Download, ExternalLink, Mail } from "lucide-react";
 import Image from "next/image";
+import { FaGithub, FaLinkedin } from "react-icons/fa6";
 import { CoachDemoVideo } from "@/components/coach-demo-video";
 import { MobilePortfolio } from "@/components/mobile-portfolio";
+import { ProfessionalProfileLinks } from "@/components/professional-profile-links";
 import { ProfessionalExperience } from "@/components/professional-experience";
 import { SiteHeader } from "@/components/site-header";
 import { WorkStoryLink } from "@/components/work-story-link";
@@ -58,8 +60,8 @@ export default function Home() {
                 <div><dt className="text-muted">Based in</dt><dd className="mt-1 font-medium">{profile.location}</dd></div>
               </dl>
               <div className="mt-7 flex flex-wrap gap-x-5 gap-y-3 text-sm font-medium">
-                <a href={profile.linkedinUrl} className="inline-flex min-h-11 items-center gap-2 transition-colors hover:text-accent"><ExternalLink className="h-4 w-4" aria-hidden="true" />LinkedIn</a>
-                <a href={profile.githubUrl} className="inline-flex min-h-11 items-center gap-2 transition-colors hover:text-accent"><Code2 className="h-4 w-4" aria-hidden="true" />GitHub</a>
+                <a href={profile.linkedinUrl} className="inline-flex min-h-11 items-center gap-2 transition-colors hover:text-accent"><FaLinkedin className="h-4 w-4 text-[#0a66c2]" aria-hidden="true" />LinkedIn</a>
+                <a href={profile.githubUrl} className="inline-flex min-h-11 items-center gap-2 transition-colors hover:text-accent"><FaGithub className="h-4 w-4" aria-hidden="true" />GitHub</a>
               </div>
             </aside>
           </div>
@@ -141,9 +143,19 @@ export default function Home() {
         </section>
 
         <section id="contact" className="on-dark bg-foreground py-12 sm:py-20">
-          <div className="mx-auto grid max-w-7xl gap-10 px-5 sm:px-8 lg:grid-cols-[minmax(0,1fr)_minmax(20rem,0.8fr)] lg:items-end lg:px-10">
-            <div><h2 className="max-w-3xl text-3xl font-semibold leading-tight text-balance sm:text-5xl">Let&apos;s talk about the work.</h2></div>
-            <div className="lg:justify-self-end"><p className="on-dark-muted max-w-lg text-base leading-7">I&apos;m open to conversations about AI and data products, consumer growth, product strategy, and senior product roles.</p><div className="mt-7 flex flex-col gap-3 sm:flex-row"><a href={`mailto:${profile.email}`} className="on-light inline-flex min-h-12 items-center justify-center gap-2 rounded-md bg-surface px-5 text-sm font-semibold transition-colors hover:bg-accent-surface"><Mail className="h-4 w-4" aria-hidden="true" />{profile.email}</a><a href={profile.linkedinUrl} className="dark-outline inline-flex min-h-12 items-center justify-center gap-2 rounded-md border px-5 text-sm font-semibold transition-colors"><ExternalLink className="h-4 w-4" aria-hidden="true" />LinkedIn</a></div></div>
+          <div className="mx-auto grid max-w-7xl gap-12 px-5 sm:px-8 lg:grid-cols-[minmax(0,1fr)_21rem] lg:items-center lg:gap-16 lg:px-10">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.12em] text-accent-soft">Contact</p>
+              <h2 className="mt-4 max-w-3xl text-3xl font-semibold leading-tight text-balance sm:text-5xl">Let&apos;s talk about the work.</h2>
+              <p className="on-dark-muted mt-5 max-w-xl text-base leading-7">I&apos;m open to conversations about AI and data products, consumer growth, product strategy, and senior product roles.</p>
+              <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+                <a href={`mailto:${profile.email}`} className="on-light inline-flex min-h-12 items-center justify-center gap-2 rounded-md bg-surface px-5 text-sm font-semibold transition-colors hover:bg-accent-surface"><Mail className="h-4 w-4" aria-hidden="true" />{profile.email}</a>
+              </div>
+            </div>
+            <aside className="lg:border-l lg:border-white/15 lg:pl-10" aria-label="Professional profiles">
+              <p className="mb-4 text-xs font-semibold uppercase tracking-[0.12em] text-white/65">Find me online</p>
+              <ProfessionalProfileLinks />
+            </aside>
           </div>
         </section>
       </main>

@@ -25,5 +25,8 @@ pnpm-debug.log*
 # vercel
 .vercel
 
+# Private career-profile source repository (nested locally until pushed to GitHub)
+/career-profile/
+
 # typescript
 *.tsbuildinfo

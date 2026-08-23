@@ -1,4 +1,4 @@
-name: Portfolio validation and deployment
+name: Portfolio validation
 
 on:
   pull_request:
@@ -24,16 +24,3 @@ jobs:
       - run: pnpm install --frozen-lockfile
       - run: pnpm lint
       - run: pnpm build
-
-  deploy-production:
-    needs: validate
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-    runs-on: ubuntu-latest
-    env:
-      VERCEL_DEPLOY_HOOK_URL: ${{ secrets.VERCEL_DEPLOY_HOOK_URL }}
-    steps:
-      - name: Trigger Vercel production deployment
-        if: env.VERCEL_DEPLOY_HOOK_URL != ''
-        env:
-          DEPLOY_HOOK: ${{ env.VERCEL_DEPLOY_HOOK_URL }}
-        run: curl --fail --show-error --silent --request POST "$DEPLOY_HOOK"

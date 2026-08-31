@@ -1,6 +1,19 @@
 import type { Metadata } from "next";
+import { JetBrains_Mono, Manrope } from "next/font/google";
 import "./globals.css";
 import { profile } from "@/data/portfolio";
+
+const manrope = Manrope({
+  subsets: ["latin"],
+  variable: "--font-manrope",
+  display: "swap",
+});
+
+const jetBrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-jetbrains-mono",
+  display: "swap",
+});
 
 const siteUrl = "https://www.madhurjain.in";
 const description =
@@ -71,7 +84,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${manrope.variable} ${jetBrainsMono.variable}`}>
       <body>
         {children}
         <script

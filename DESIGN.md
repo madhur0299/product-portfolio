@@ -12,6 +12,8 @@ colors:
   accent-soft: "#d4d4d4"
   accent-surface: "#ededed"
   on-dark: "#ffffff"
+  linkedin: "#0a66c2"
+  github: "#111827"
 typography:
   display:
     fontFamily: "Manrope, Avenir Next, Helvetica Neue, Segoe UI, sans-serif"
@@ -19,7 +21,7 @@ typography:
     lineHeight: 1.02
     letterSpacing: "0"
   body:
-    fontFamily: "Manrope, Avenir Next, Helvetica Neue, Segoe UI, sans-serif"
+    fontFamily: "Hanken Grotesk, Helvetica Neue, Segoe UI, sans-serif"
     fontSize: "1rem"
     fontWeight: 400
     lineHeight: 1.75
@@ -73,11 +75,11 @@ Dark bands use `foreground` with `on-dark`; secondary text may use white at 55-7
 
 ## Typography
 
-Manrope is the display and body family; JetBrains Mono is reserved for dates, metrics, phases, platform stacks, and compact technical labels. Both are loaded through `next/font/google` in `src/app/layout.tsx`, exposed as `--font-manrope` and `--font-jetbrains-mono`, and emitted with `display: swap`; keep these variables on `<html>` so Next.js bundles and serves the font assets.
+Manrope is the display family, Hanken Grotesk is the body family, and JetBrains Mono is reserved for dates, metrics, phases, platform stacks, and compact technical labels. All three are loaded through `next/font/google` in `src/app/layout.tsx`, exposed as CSS variables, and emitted with `display: swap`; keep these variables on `<html>` so Next.js bundles and serves the font assets.
 
 - **Display:** Manrope 500-600, tight 1.0-1.02 line height. Home display type scales from 2.7rem to 4.75rem; internal page titles scale from 3rem to 4.5rem.
 - **Section heading:** Manrope 500, generally 2.25rem mobile and 3.75rem desktop, with `text-balance` where wrapping is prominent.
-- **Body:** Manrope 400, normally 1rem/1.75rem; supporting copy may use 0.875rem/1.5rem. Keep prose near 2xl-3xl max widths rather than spanning the container.
+- **Body:** Hanken Grotesk 400, normally 1rem/1.75rem; supporting copy may use 0.875rem/1.5rem. Keep prose near 2xl-3xl max widths rather than spanning the container.
 - **Label:** JetBrains Mono around 0.65-0.7rem, uppercase, with no added letter spacing. Mono is metadata, not paragraph text.
 
 ## Layout
@@ -101,7 +103,7 @@ Content containers and evidence grids are square. Use a 6px radius for compact u
 - **Primary actions:** 48px minimum height, semibold 14px text, high-contrast fill, and 24px horizontal padding. Pill buttons are reserved for prominent narrative CTAs; utility actions may use the 6px control radius.
 - **Secondary actions:** bordered or text-led, never visually heavier than the primary action. On phones they remain at least 44px high; familiar icon-only actions require an accessible name. Resume view uses the Lucide `FileText` document icon; download actions use `Download`.
 - **Evidence grids:** use semantic `dl` for metrics and bordered grid cells for capability or outcome groups. Pair every number with a source context and a plain-language label.
-- **Timeline:** use native `details`/`summary`; reveal content with a short vertical fade and rotate the chevron. Mobile includes a visible "View details" label.
+- **Timeline:** use an accessible controlled accordion with `aria-expanded`, `aria-controls`, and inert closed panels; reveal content with a short vertical fade and rotate the chevron. Mobile includes a visible "View details" label.
 - **Navigation:** active state combines contrast with border or filled treatment, never color alone. Desktop links are uppercase and compact; dock items use stable five-column tracks and 68px minimum height.
 - **Media:** show real, inspectable product captures with accurate alt text and captions. Preserve phone-video aspect ratios and use native playback controls.
 

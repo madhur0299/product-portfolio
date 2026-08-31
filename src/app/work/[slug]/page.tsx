@@ -123,10 +123,12 @@ export default async function WorkDetailPage({ params }: CasePageProps) {
 
       {isCoach ? (
         <section className="border-b border-line bg-surface py-12 sm:py-16">
-          <div className="mx-auto grid max-w-7xl gap-8 px-5 sm:px-8 lg:grid-cols-[minmax(16rem,0.7fr)_minmax(18rem,0.5fr)] lg:items-start lg:gap-16 lg:px-10">
-            <div className="border-t-2 border-foreground pt-5">
+          <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10" data-reveal>
+            <div className="grid gap-8 border-t-2 border-foreground pt-5 lg:grid-cols-[minmax(16rem,0.7fr)_minmax(18rem,0.5fr)] lg:items-start lg:gap-16">
+              <div>
               <h2 className="max-w-xl text-3xl font-semibold leading-tight text-balance sm:text-4xl">A training product designed around the next useful action.</h2>
               <p className="mt-5 max-w-xl text-base leading-7 text-muted">Start with the active workout, log the set in the moment, then move into health context, progress, and coaching. This walkthrough puts the interaction model ahead of static concept screens.</p>
+              </div>
               <ol className="mt-8 max-w-xl divide-y divide-line border-y border-line text-sm">
                 <li className="grid gap-2 py-4 sm:grid-cols-[6rem_minmax(0,1fr)] sm:gap-5">
                   <span className="font-semibold text-accent">Plan</span>
@@ -142,10 +144,20 @@ export default async function WorkDetailPage({ params }: CasePageProps) {
                 </li>
               </ol>
             </div>
-            <figure className="mx-auto w-full max-w-sm self-start overflow-hidden rounded-lg border border-line bg-foreground shadow-card lg:justify-self-end">
-              <CoachDemoVideo />
-              <figcaption className="on-dark dark-divider border-t px-4 py-3 text-sm font-semibold">Coach product walkthrough <span className="on-dark-muted font-normal">· active workout logging in the current product experience.</span></figcaption>
-            </figure>
+            <div className="mt-10 grid gap-5 lg:grid-cols-3">
+              <figure className="flex min-w-0 flex-col border border-line bg-foreground">
+                <div className="aspect-[9/16] bg-black"><CoachDemoVideo className="h-full w-full" /></div>
+                <figcaption className="on-dark dark-divider border-t p-4 text-sm font-semibold">Active workout<span className="on-dark-muted mt-1 block font-normal">Set logging, rest, and in-session progress.</span></figcaption>
+              </figure>
+              {coachScreens.slice(1).map((screen) => (
+                <figure key={screen.src} className="flex min-w-0 flex-col border border-line bg-foreground">
+                  <div className="relative aspect-[9/16] bg-black">
+                    <Image src={screen.src} alt={screen.alt} fill quality={90} sizes="(min-width: 1024px) 30vw, 90vw" className="object-contain" />
+                  </div>
+                  <figcaption className="on-dark dark-divider border-t p-4 text-sm font-semibold">{screen.label}<span className="on-dark-muted mt-1 block font-normal">{screen.detail}</span></figcaption>
+                </figure>
+              ))}
+            </div>
           </div>
         </section>
       ) : null}
@@ -189,23 +201,6 @@ export default async function WorkDetailPage({ params }: CasePageProps) {
                   <p className="mt-3 text-sm leading-6 text-muted">{platform.description}</p>
                 </article>;
               })}
-            </div>
-          </div>
-        </section>
-      ) : null}
-
-      {isCoach ? (
-        <section className="bg-surface py-16 sm:py-24">
-          <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
-            <h2 className="text-3xl font-semibold leading-tight sm:text-4xl">The product across three customer moments.</h2>
-            <p className="mt-4 max-w-2xl text-base leading-7 text-muted">Fresh iOS simulator captures of active training, health insights, and trainer collaboration. Each is a working product surface from the current build.</p>
-            <div className="mt-8 grid grid-cols-2 gap-4 xl:grid-cols-2">
-              {coachScreens.slice(1).map((screen) => (
-                <figure key={screen.src} className="self-start overflow-hidden rounded-lg border border-line bg-foreground">
-                  <Image src={screen.src} alt={screen.alt} width={1206} height={2622} quality={90} sizes="(min-width: 1280px) 26vw, (min-width: 640px) 44vw, 46vw" className="h-auto w-full" />
-                  <figcaption className="on-dark dark-divider border-t px-4 py-3 text-sm font-semibold">{screen.label}<span className="on-dark-muted mt-1 block text-xs font-normal">{screen.detail}</span></figcaption>
-                </figure>
-              ))}
             </div>
           </div>
         </section>

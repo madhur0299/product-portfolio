@@ -178,11 +178,11 @@ export const profile: Profile = {
   githubUrl: "https://github.com/madhur0299",
   resumePath: "/resume.pdf",
   headline:
-    "I turn consumer growth problems into measurable outcomes.",
+    "I turn ambiguity into product decisions teams can build and businesses can measure.",
   summary:
-    "Product Manager at PRISM, leading pricing and conversion for OYO US and G6. I also build AI systems that reduce operating effort and improve decisions. Previously, I grew mobile subscriptions at SplashLearn and D2C journeys at Honasa.",
+    "I combine customer insight, commercial judgment, data fluency, and hands-on AI depth to find the right problem, align the tradeoffs, and carry the work through delivery.",
   availability:
-    "Open to Senior Product Manager, PM3, AI/Data PM, Growth PM, and product-builder roles.",
+    "Open to Senior Product Manager roles focused on growth, monetization, or AI and data products.",
 };
 
 export const resumeSkills = [
@@ -193,6 +193,8 @@ export const resumeSkills = [
   "LLM Evaluation",
   "Evaluation Criteria",
   "Prompt Evaluation",
+  "LLM Benchmarking",
+  "LLM Prompt Design",
   "LangChain",
   "LangGraph",
   "Retrieval-Augmented Generation (RAG)",
@@ -204,14 +206,16 @@ export const resumeSkills = [
   "APIs and Events",
   "Experimentation",
   "Product Roadmapping",
+  "Product Analytics",
+  "Data Pipelines",
 ];
 
 export const skillGroups: SkillGroup[] = [
   {
-    title: "AI product systems",
-    outcome: "Turn fragmented business data and operating work into trusted AI product systems.",
+    title: "AI products and workflow automation",
+    outcome: "Turn business questions and repetitive operating work into evaluated AI workflows.",
     evidence:
-      "PRISM: built a two-agent natural-language-to-SQL workflow with 85% accuracy on gold-standard business queries, while leading AI workflow automation for research, reporting, and PRD work.",
+      "At PRISM, I built a two-agent natural-language-to-SQL workflow that reached 85% accuracy against a gold-standard set of business queries. I also lead AI workflow automation for research, reporting, and product documentation.",
     skills: [
       "AI Product Management",
       "AI Workflow Automation",
@@ -221,15 +225,16 @@ export const skillGroups: SkillGroup[] = [
       "Vector Databases",
       "Agentic Workflows",
       "LLM Evaluation",
-      "Evaluation Criteria",
+      "LLM Benchmarking",
       "Prompt Evaluation",
+      "LLM Prompt Design",
     ],
   },
   {
     title: "Growth, monetization, and conversion",
     outcome: "Find leverage in customer journeys and turn it into conversion, subscribers, and revenue.",
     evidence:
-      "PRISM, SplashLearn, and Honasa: owned FTC pricing transparency, web-to-app migration, and D2C funnel work that lifted HDP-to-booking success, trial-to-paid, and homepage and search conversion.",
+      "Across PRISM, SplashLearn, and Honasa, I have used pricing transparency, web-to-app migration, and D2C funnel work to improve hotel-detail-page-to-booking success, trial-to-paid, and ecommerce conversion.",
     skills: ["Funnel Analytics", "Experimentation"],
   },
   {
@@ -243,8 +248,8 @@ export const skillGroups: SkillGroup[] = [
     title: "Data fluency and technical collaboration",
     outcome: "Work fluently with the systems, instrumentation, and analysis that make product decisions defensible.",
     evidence:
-      "PRISM analytics, growth funnels, and Coach: combine data quality, product telemetry, APIs, and hands-on build collaboration to move from insight to a working experience.",
-    skills: ["SQL and Data Analytics", "SQL Validation", "Python", "Data Visualization", "APIs and Events"],
+      "Across PRISM analytics, growth funnels, and Coach, I use SQL, validation, telemetry, APIs, and event architecture to move from a question to a working product decision.",
+    skills: ["SQL and Data Analytics", "SQL Validation", "Product Analytics", "Python", "Data Visualization", "Data Pipelines", "APIs and Events"],
   },
 ];
 
@@ -252,7 +257,7 @@ export const professionalExperience: ProfessionalExperience[] = [
   {
     company: "PRISM (Parent Company of OYO)",
     timeframe: "November 2025 - Present",
-    overview: "Own consumer-facing products for OYO US and G6 across pricing and conversion. I also lead AI initiatives that reduce operating effort and improve how teams make decisions.",
+    overview: "Lead pricing and conversion work for OYO US and G6. I also build AI and data workflows that reduce manual analysis and improve operating decisions.",
     storyHref: "/work/ai-analytics-nl-to-sql",
     storyLabel: "Open the AI workflow case study",
     stages: [
@@ -261,8 +266,8 @@ export const professionalExperience: ProfessionalExperience[] = [
         timeframe: "November 2025 - Present",
         summary: "Lead pricing and conversion initiatives for OYO US and G6, alongside AI product work that improves team efficiency and operational decision-making.",
         achievements: [
-          "Built a dynamic fee module for OYO and G6 brands, increasing cost margin by up to $2M annually.",
-          "Led FTC pricing-transparency implementation with a 28% reduction in prepaid-page views, 10% better Google HAC price accuracy, and 10% higher HDP-to-booking success.",
+          "Built a dynamic fee module for OYO and G6 with up to $2M in annual cost-margin increase.",
+          "Led FTC pricing-transparency implementation with a 28% reduction in prepaid-page views, 10% better Google Hotel Ads Center price accuracy, and 10% higher hotel-detail-page-to-booking success.",
           "Lead AI PM initiatives that automate research, marketing benchmarks, daily Teams reporting, and PRD workflows with Cowork to reduce manual synthesis.",
           "Built a two-agent natural-language-to-SQL workflow with 85% accuracy on gold-standard business queries.",
           "Made product and operational data easier for business teams to query without analyst translation.",
@@ -273,24 +278,24 @@ export const professionalExperience: ProfessionalExperience[] = [
       {
         metric: "Conversion",
         value: "+10%",
-        context: "HDP-to-booking success after FTC pricing-transparency work.",
+        context: "Hotel-detail-page-to-booking success after FTC pricing-transparency work.",
       },
       {
-        metric: "Revenue",
-        value: "Confidential",
-        context: "Owned pricing and fee levers for OYO and G6; the direct revenue figure is not public.",
+        metric: "Commercial scope",
+        value: "Pricing and fees",
+        context: "Led pricing-transparency work and built a dynamic fee module across OYO and G6.",
       },
       {
-        metric: "Cost margin",
+        metric: "Annual cost-margin increase",
         value: "Up to $2M",
-        context: "Annualized cost-margin upside modelled from the dynamic fee module.",
+        context: "Annual cost-margin increase from the dynamic fee module.",
       },
     ],
   },
   {
     company: "SplashLearn",
     timeframe: "May 2024 - November 2025",
-    overview: "Owned subscriber growth and retention work for the Android app and app-to-web journeys at an elementary-learning platform.",
+    overview: "Led subscriber growth and retention for the Android app, including activation and web-to-app migration at an elementary-learning platform.",
     storyHref: "/work/android-subscriber-growth",
     storyLabel: "Open the mobile growth case study",
     stages: [
@@ -303,8 +308,8 @@ export const professionalExperience: ProfessionalExperience[] = [
           "Improved Play Store rating from 2.3 to 4.0, Day-0 engagement by 25%, and playable-start rate by 30%.",
           "Diagnosed a Day-0 engagement gap between iPhone and iPad users and led a dashboard redesign that improved early engagement by 10%.",
           "Launched web-to-app migration that converted 70% of mobile-web users, lifted trial-to-paid by 15%, and added 800 incremental subscribers each month.",
-          "Developed a first-time-user game-download algorithm that reduced Day-1 cancellations by 15%, improved trial-to-paid by 8%, and added 800 subscribers each month at $55 LTV.",
-          "Designed a GPT-4o mini transcript workflow that reduced the content cycle from six weeks to two.",
+          "Developed a first-time-user game-download algorithm that reduced Day-1 cancellations by 15% and improved trial-to-paid by 8%; subscriber LTV was $55.",
+          "Designed a GPT-4o mini transcript workflow that reduced the content cycle from six weeks to two weeks.",
         ],
       },
     ],
@@ -317,7 +322,7 @@ export const professionalExperience: ProfessionalExperience[] = [
       {
         metric: "Subscribers",
         value: "1,000 monthly",
-        context: "Paying Android subscribers within six months of launch.",
+        context: "Android subscribers within six months of launch.",
       },
       {
         metric: "Revenue",
@@ -338,7 +343,7 @@ export const professionalExperience: ProfessionalExperience[] = [
         timeframe: "April 2023 - May 2024",
         summary: "Led Aqualogica growth and website analytics, the end-to-end website lifecycle, and referral and acquisition work across Honasa brands.",
         achievements: [
-          "Spearheaded Aqualogica product initiatives contributing to a Rs 175 Cr revenue run rate.",
+          "Spearheaded Aqualogica product initiatives contributing to an INR 175 Cr revenue run rate.",
           "Led strategy, roadmap, UX, data analysis, QA, copywriting, and operational setup across the website lifecycle.",
           "Improved homepage conversion by 15% and search conversion by 17% through funnel analysis and iteration.",
           "Owned referrals across web, Android, iOS, and Yotobox; targeted cohort visibility lifted referral signups to 8% of organic daily acquisition and referral users converted at 40% versus 20% for signup users.",
@@ -350,9 +355,9 @@ export const professionalExperience: ProfessionalExperience[] = [
         timeframe: "September 2021 - March 2023",
         summary: "Built acquisition systems, supported new brand launches, and partnered on scalable platform foundations.",
         achievements: [
-          "Benchmarked Aqualogica as the fastest Honasa brand to reach a Rs 100 Cr annual run rate.",
+          "Benchmarked Aqualogica as the fastest Honasa brand to reach an INR 100 Cr annual run rate.",
           "Implemented referral systems on the Mamaearth website and app to reduce new-user CPC.",
-          "Launched the Aqualogica platform in under 50 days and the BBlunt devices site on Shopify with an AOV above Rs 2,500.",
+          "Launched the Aqualogica platform in under 50 days and the BBlunt devices site on Shopify with an AOV above INR 2,500.",
           "Partnered with engineering on API contracts and event architecture supporting one million transactions per day.",
         ],
       },
@@ -373,18 +378,18 @@ export const professionalExperience: ProfessionalExperience[] = [
         context: "Homepage and search conversion improvements through funnel iteration.",
       },
       {
-        metric: "Revenue",
-        value: "Rs 175 Cr",
-        context: "Aqualogica revenue run rate during the growth and website work.",
+        metric: "Brand run rate",
+        value: "INR 175 Cr",
+        context: "Aqualogica revenue run rate; product initiatives contributed to the brand's growth.",
       },
       {
-        metric: "Cost margin",
+        metric: "First-order discount",
         value: "-25% discount",
-        context: "Lower first-order discount for Yotobox-acquired users, improving unit economics.",
+        context: "Reduction for Yotobox-acquired users across Honasa brands.",
       },
       {
         metric: "AOV",
-        value: "> Rs 2,500",
+        value: "> INR 2,500",
         context: "Average order value on the BBlunt devices Shopify launch.",
       },
     ],
@@ -469,8 +474,8 @@ export const profileSignals: ProfileSignal[] = [
 export const projectBuilds: ProjectBuild[] = [
   {
     slug: "coach-cross-platform",
-    title: "Coach cross-platform fitness OS",
-    eyebrow: "Flagship product build",
+    title: "Coach across web, iOS, and Android",
+    eyebrow: "Independent product build",
     description:
       "A self-built workout planning, logging, progress, health, and trainer product across web, iOS, and Android.",
     impact:
@@ -490,7 +495,7 @@ export const projectBuilds: ProjectBuild[] = [
     description:
       "A natural-language analytics workflow that generates SQL, executes queries, and visualizes results for business users.",
     impact:
-      "85% SQL accuracy across gold-standard business queries, with evaluation and failure taxonomy ready to redact.",
+      "85% SQL accuracy against a gold-standard set of business queries, with the evaluation method ready to document.",
     stack: ["LLMs", "SQL", "Evaluation", "Dashboards"],
     platforms: ["Internal product"],
     source: "Resume-backed",
@@ -532,11 +537,11 @@ export const projectBuilds: ProjectBuild[] = [
 export const caseStudies: CaseStudy[] = [
   {
     slug: "coach-cross-platform",
-    eyebrow: "Flagship product build",
-    title: "Coach: a cross-platform fitness product built from scratch",
-    company: "Personal product",
+    eyebrow: "Independent product build",
+    title: "Coach: one fitness product across web, iOS, and Android",
+    company: "Personal product build",
     timeframe: "2026",
-    role: "Founder, Product Manager, and Builder",
+    role: "Product Manager and Builder",
     mandate:
       "Create a real workout product that can plan routines, guide active sessions, track progress, connect health data, and support trainer workflows across web, iOS, and Android.",
     keyDecision:
@@ -650,7 +655,7 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "ai-analytics-nl-to-sql",
     eyebrow: "AI analytics product",
-    title: "Natural-language analytics model for business users",
+    title: "An evaluated NL-to-SQL workflow for business teams",
     company: "PRISM (Parent Company of OYO)",
     timeframe: "November 2025 - Present",
     role: "Product Manager III",
@@ -659,7 +664,7 @@ export const caseStudies: CaseStudy[] = [
     keyDecision:
       "Separated SQL generation from execution and visualization so answer quality could be measured, debugged, and trusted.",
     evidence:
-      "Accuracy was evaluated against known-good answers for a gold-standard set of business queries. Query examples, benchmark size, adoption data, and internal dashboards are confidential.",
+      "The resume reports 85% SQL accuracy against a gold-standard set of business queries. It does not disclose benchmark size, usage, or adoption.",
     image: "/images/ai-analytics-case.png",
     summary:
       "Built a two-agent natural-language-to-SQL workflow that helps product and operations teams query business data, execute SQL, and inspect visual outputs without analyst translation.",
@@ -685,9 +690,9 @@ export const caseStudies: CaseStudy[] = [
       {
         title: "NL-to-SQL evaluation brief",
         type: "Research",
-        status: "Needs redaction",
+        status: "Draftable from resume",
         description:
-          "Redacted benchmark queries, accuracy scoring, failure taxonomy, and quality guardrails.",
+          "Document the evaluation method, known-good comparisons, and accuracy result without exposing internal queries.",
       },
       {
         title: "Analytics workflow PRD",
@@ -697,11 +702,11 @@ export const caseStudies: CaseStudy[] = [
           "Document user jobs, data access assumptions, query execution rules, and visualization expectations.",
       },
       {
-        title: "Usage and quality dashboard",
+        title: "Evaluation scorecard",
         type: "Dashboard",
-        status: "Needs redaction",
+        status: "Draftable from resume",
         description:
-          "Track query volume, execution success, answer usefulness, retries, and analyst deflection.",
+          "Show how generated SQL was compared with known-good answers and how the 85% accuracy result was assessed.",
       },
     ],
     sections: [
@@ -780,7 +785,7 @@ export const caseStudies: CaseStudy[] = [
       {
         title: "App growth dashboard",
         type: "Dashboard",
-        status: "Needs redaction",
+        status: "Draftable from resume",
         description:
           "Add anonymized Day-0 engagement, playable start rate, cancellation, and trial-to-paid views.",
       },
@@ -794,7 +799,7 @@ export const caseStudies: CaseStudy[] = [
       {
         title: "Retention experiment log",
         type: "Experiment",
-        status: "Needs redaction",
+        status: "Draftable from resume",
         description:
           "Capture hypotheses, cohorts, release dates, measurement windows, and results.",
       },
@@ -828,7 +833,7 @@ export const caseStudies: CaseStudy[] = [
       {
         title: "What changed",
         body:
-          "The app reached 1,000 monthly subscribers within six months and $5K in recurring revenue growth. The work also lifted Day-0 engagement by 25%, playable-start rate by 30%, web-to-app trial-to-paid by 15%, and reduced Day-1 cancellations by 15%. The first-time-user algorithm added 800 subscribers per month at $55 LTV.",
+          "The app reached 1,000 monthly subscribers within six months and $5K in recurring revenue growth. The work also lifted Day-0 engagement by 25%, playable-start rate by 30%, web-to-app trial-to-paid by 15%, and reduced Day-1 cancellations by 15%. Subscriber LTV was $55.",
       },
       {
         title: "What I would carry forward",
@@ -857,8 +862,8 @@ export const caseStudies: CaseStudy[] = [
     metrics: [
       {
         label: "Aqualogica revenue run rate",
-        value: "Rs 175 Cr",
-        context: "Aqualogica run rate while I owned growth, lifecycle, conversion, and referral initiatives",
+        value: "INR 175 Cr",
+        context: "Aqualogica revenue run rate; product initiatives contributed to the brand's growth",
       },
       {
         label: "Homepage and search conversion",
@@ -875,14 +880,14 @@ export const caseStudies: CaseStudy[] = [
       {
         title: "Referral system PRD",
         type: "PRD",
-        status: "Needs redaction",
+        status: "Draftable from resume",
         description:
           "Add goals, cohort rules, visibility changes, incentive logic, abuse checks, and launch criteria.",
       },
       {
         title: "Funnel diagnostics board",
         type: "Dashboard",
-        status: "Needs redaction",
+        status: "Draftable from resume",
         description:
           "Show homepage, search, signup, referral, acquisition, and discount-rate diagnostics.",
       },
@@ -923,7 +928,7 @@ export const caseStudies: CaseStudy[] = [
       {
         title: "What changed",
         body:
-          "Aqualogica product initiatives contributed to a Rs 175 Cr revenue run rate, while homepage and search conversion improved by 15% and 17%. Referral signups reached 8% of organic daily acquisition, referral users converted at 40% versus 20% for signup users, Yotobox-acquired users required 25% lower first-order discounts, and API/event architecture supported one million daily transactions.",
+          "Aqualogica product initiatives contributed to an INR 175 Cr revenue run rate, while homepage and search conversion improved by 15% and 17%. Referral signups reached 8% of organic daily acquisition, referral users converted at 40% versus 20% for signup users, Yotobox-acquired users required 25% lower first-order discounts, and API/event architecture supported one million daily transactions.",
       },
       {
         title: "What I would carry forward",
@@ -954,7 +959,7 @@ export const proofItems: ProofItem[] = [
   {
     title: "Funnel diagnostics dashboards",
     type: "Dashboard",
-    status: "Needs redaction",
+    status: "Draftable from resume",
     description:
       "Views for conversion, engagement, retention, trial-to-paid, referral quality, and pricing recovery.",
     icon: BarChart3,
@@ -962,7 +967,7 @@ export const proofItems: ProofItem[] = [
   {
     title: "Experiment register",
     type: "Experiment",
-    status: "Needs redaction",
+    status: "Draftable from resume",
     description:
       "Hypotheses, success metrics, cohorts, guardrails, decision logs, and launch learnings.",
     icon: FlaskConical,
@@ -988,22 +993,22 @@ export const proofItems: ProofItem[] = [
 export const impactHighlights: ImpactHighlight[] = [
   {
     company: "PRISM (Parent Company of OYO)",
-    description: "US consumer products: conversion, revenue, and cost margin.",
+    description: "US consumer products: conversion, commercial scope, and cost margin.",
     metrics: [
       {
         metric: "Conversion",
         value: "+10%",
-        context: "HDP-to-booking success after FTC pricing-transparency work.",
+        context: "Hotel-detail-page-to-booking success after FTC pricing-transparency work.",
       },
       {
-        metric: "Revenue",
-        value: "Confidential",
-        context: "Owned pricing and fee levers for OYO and G6; the direct revenue figure is not public.",
+        metric: "Commercial scope",
+        value: "Pricing and fees",
+        context: "Led pricing-transparency work and built a dynamic fee module across OYO and G6.",
       },
       {
-        metric: "Cost margin",
+        metric: "Annual cost-margin increase",
         value: "Up to $2M",
-        context: "Annualized upside modelled from a dynamic fee module at observed volumes.",
+        context: "Annual cost-margin increase from the dynamic fee module.",
       },
     ],
   },
@@ -1019,7 +1024,7 @@ export const impactHighlights: ImpactHighlight[] = [
       {
         metric: "Subscribers",
         value: "1,000 monthly",
-        context: "Paying Android subscribers within six months of launch.",
+        context: "Android subscribers within six months of launch.",
       },
       {
         metric: "Revenue",
@@ -1030,7 +1035,7 @@ export const impactHighlights: ImpactHighlight[] = [
   },
   {
     company: "Honasa / Aqualogica",
-    description: "Role-specific metrics across conversion, revenue, cost margin, and AOV.",
+    description: "Role-specific metrics across conversion, brand growth, acquisition efficiency, and AOV.",
     metrics: [
       {
         metric: "Conversion",
@@ -1038,18 +1043,18 @@ export const impactHighlights: ImpactHighlight[] = [
         context: "Homepage and search conversion improvements through funnel iteration.",
       },
       {
-        metric: "Revenue",
-        value: "Rs 175 Cr",
-        context: "Aqualogica revenue run rate during the growth and website work.",
+        metric: "Brand run rate",
+        value: "INR 175 Cr",
+        context: "Aqualogica revenue run rate; product initiatives contributed to the brand's growth.",
       },
       {
-        metric: "Cost margin",
+        metric: "First-order discount",
         value: "-25% discount",
-        context: "Lower first-order discount for Yotobox-acquired users, improving unit economics.",
+        context: "Reduction for Yotobox-acquired users across Honasa brands.",
       },
       {
         metric: "AOV",
-        value: "> Rs 2,500",
+        value: "> INR 2,500",
         context: "Average order value on the BBlunt devices Shopify launch.",
       },
     ],
@@ -1058,27 +1063,27 @@ export const impactHighlights: ImpactHighlight[] = [
 
 export const operatingSystem = [
   {
-    title: "Discover",
+    title: "Frame the problem",
     description:
-      "Map jobs, constraints, data signals, and switching costs before choosing the product move.",
+      "Map the user journey, business lever, constraints, and available evidence before choosing a feature.",
     icon: Route,
   },
   {
-    title: "Model",
+    title: "Choose the lever",
     description:
-      "Translate ambiguous goals into metrics, architecture, product loops, experiments, and tradeoffs.",
+      "Turn the goal into a decision: the metric to move, the mechanism, the tradeoffs, and the smallest useful test.",
     icon: Workflow,
   },
   {
-    title: "Ship",
+    title: "Ship the whole change",
     description:
-      "Work through UX, QA, launch readiness, instrumentation, and post-launch iteration.",
+      "Stay with the work through UX, instrumentation, QA, launch readiness, and the operating changes around it.",
     icon: Rocket,
   },
   {
-    title: "Prove",
+    title: "Review the evidence",
     description:
-      "Make the evidence inspectable through outcomes, artifacts, architecture, dashboards, and decision logs.",
+      "Agree on success and guardrails before launch, then use outcomes and failure modes to decide whether to scale, revise, or stop.",
     icon: BadgeCheck,
   },
 ];
@@ -1090,7 +1095,7 @@ export const coachCapabilities = [
     icon: Dumbbell,
   },
   {
-    title: "Progress intelligence",
+    title: "Progress tracking",
     description: "Volume, best lifts, recent exercise history, PR signals, and progression suggestions.",
     icon: ChartNoAxesCombined,
   },
@@ -1105,7 +1110,7 @@ export const coachCapabilities = [
     icon: Users,
   },
   {
-    title: "Secure product data",
+    title: "Product architecture",
     description: "Supabase Auth, Postgres, RLS, invite-only flows, local demo mode, and platform configuration.",
     icon: ShieldCheck,
   },
@@ -1118,21 +1123,21 @@ export const coachCapabilities = [
 
 export const workingPrinciples = [
   {
-    title: "Start with the system",
+    title: "Write down the decision",
     description:
-      "Map the user journey, business lever, data signal, and operational dependency before choosing the feature.",
+      "Make the customer behavior, business lever, constraint, tradeoff, and measure of success explicit.",
     icon: Sparkles,
   },
   {
-    title: "Build close to the user",
+    title: "Work at implementation depth",
     description:
       "Use prototypes, platform-native surfaces, logs, and data to keep product judgment honest.",
     icon: TabletSmartphone,
   },
   {
-    title: "Make proof inspectable",
+    title: "Separate signal from attribution",
     description:
-      "Translate product work into artifacts a hiring team can scan: metrics, decisions, architecture, experiments, and tradeoffs.",
+      "Use the evidence to distinguish what changed, what the product likely influenced, and what should not be claimed.",
     icon: ServerCog,
   },
 ];

@@ -39,7 +39,7 @@ const workDecisions = [
 const proofRail = [
   { company: "PRISM", detail: "+10% booking conversion · up to $2M margin upside" },
   { company: "SplashLearn", detail: "+15% trial-to-paid · 1,000 monthly subscribers" },
-  { company: "Honasa", detail: "+15% homepage conversion · Rs 175 Cr run rate" },
+  { company: "Honasa", detail: "+15% homepage conversion · INR 175 Cr brand run rate" },
 ];
 
 const caseStudyTitles = [

@@ -1,13 +1,14 @@
-import type { Metadata } from "next";
 import { Download, ExternalLink, Mail } from "lucide-react";
 import Image from "next/image";
 import { SiteHeader } from "@/components/site-header";
 import { profile } from "@/data/portfolio";
+import { pageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
-  title: "Resume",
-  description: "Resume for Madhur Jain, product manager across AI, consumer, and growth products.",
-};
+export const metadata = pageMetadata(
+  "Product Manager Resume",
+  "Resume for Madhur Jain, with product management experience across AI, consumer growth, pricing, subscriptions, and ecommerce.",
+  "/resume",
+);
 
 export default function ResumePage() {
   return (

@@ -1,165 +1,123 @@
-import { Code2, Download, ExternalLink, Mail } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Download, Mail } from "lucide-react";
 import Image from "next/image";
-import { FaGithub, FaLinkedin } from "react-icons/fa6";
-import { CoachDemoVideo } from "@/components/coach-demo-video";
-import { MobilePortfolio } from "@/components/mobile-portfolio";
-import { ProfessionalProfileLinks } from "@/components/professional-profile-links";
-import { ProfessionalExperience } from "@/components/professional-experience";
+import Link from "next/link";
+import { PortfolioFooter } from "@/components/portfolio-footer";
 import { SiteHeader } from "@/components/site-header";
-import { WorkStoryLink } from "@/components/work-story-link";
-import {
-  coachScreens,
-  impactHighlights,
-  professionalExperience,
-  profile,
-  skillGroups,
-} from "@/data/portfolio";
+import { coachScreens, professionalExperience, profile, skillGroups } from "@/data/portfolio";
+import { pageMetadata } from "@/lib/metadata";
+
+const headlineResults = [
+  { value: "+10%", label: "Hotel-page-to-booking", context: "PRISM" },
+  { value: "+15%", label: "Trial-to-paid", context: "SplashLearn" },
+  { value: "+15%", label: "Homepage conversion", context: "Honasa" },
+];
+
+function experienceHref(company: string) {
+  if (company.startsWith("PRISM")) return "/experience#prism";
+  if (company.startsWith("SplashLearn")) return "/experience#splashlearn";
+  return "/experience#honasa";
+}
+
+const profilePageData = {
+  "@context": "https://schema.org",
+  "@type": "ProfilePage",
+  "@id": "https://www.madhurjain.in/#profile-page",
+  url: "https://www.madhurjain.in",
+  name: "Madhur Jain product portfolio",
+  mainEntity: { "@id": "https://www.madhurjain.in/#person" },
+  isPartOf: { "@id": "https://www.madhurjain.in/#website" },
+};
+
+export const metadata = pageMetadata(
+  "Product Manager for Growth, Pricing and AI",
+  "Madhur Jain combines customer insight, commercial judgment, data fluency, and hands-on AI depth across growth, pricing, subscriptions, and ecommerce products.",
+  "/",
+);
 
 export default function Home() {
   return (
     <>
-      <a className="skip-link hidden md:block" href="#content">Skip to content</a>
-      <div className="md:hidden"><MobilePortfolio /></div>
-      <div className="hidden md:block">
+      <a className="skip-link" href="#content">Skip to content</a>
       <SiteHeader />
-      <main id="content" className="min-h-screen bg-background text-foreground">
-        <section className="bg-surface">
-          <div className="mx-auto grid max-w-7xl gap-8 px-5 py-10 sm:px-8 sm:py-20 lg:grid-cols-[minmax(0,1.3fr)_minmax(18rem,0.58fr)] lg:gap-20 lg:px-10 lg:py-28">
-            <div className="min-w-0">
-              <h1 className="max-w-4xl text-3xl font-semibold leading-[1.1] text-balance sm:text-5xl lg:text-6xl">
-                {profile.headline}
+      <main id="content" className="bg-background text-foreground">
+        <section className="relative overflow-hidden bg-foreground text-on-dark">
+          <div className="portfolio-grid absolute inset-0" aria-hidden="true" />
+          <div className="hero-orbit absolute inset-0" aria-hidden="true" />
+          <div className="relative mx-auto flex min-h-[32rem] max-w-[90rem] flex-col justify-center px-5 py-8 md:min-h-[30rem] md:px-10 md:py-6 xl:px-16">
+            <div className="max-w-6xl">
+              <h1 className="max-w-[19ch] text-5xl font-semibold leading-[1.01] text-balance sm:text-6xl md:text-6xl lg:text-7xl">
+                I turn ambiguity into product decisions <span className="text-white/50">teams can build and businesses can measure.</span>
               </h1>
-              <p className="mt-4 max-w-xl text-base leading-7 text-muted sm:hidden">
-                Product Manager at PRISM, leading pricing and conversion for OYO US and G6. I also build AI systems that reduce operating effort and improve decisions.
-              </p>
-              <p className="mt-6 hidden max-w-2xl text-base leading-8 text-muted sm:block sm:text-lg">
-                {profile.summary}
-              </p>
+              <p className="mt-6 max-w-3xl text-base leading-7 text-white/75 md:mt-7 md:text-lg md:leading-8">{profile.summary}</p>
               <div className="mt-7 flex flex-col gap-3 sm:mt-9 sm:flex-row">
-                <a href={`mailto:${profile.email}`} className="on-dark inline-flex min-h-12 items-center justify-center gap-2 rounded-md bg-accent px-5 text-sm font-semibold transition-colors hover:bg-accent-strong">
-                  <Mail className="h-4 w-4" aria-hidden="true" />
-                  Start a conversation
-                </a>
-                <a href={profile.resumePath} download="Madhur-Jain-Resume.pdf" className="inline-flex min-h-12 items-center justify-center gap-2 rounded-md border border-line bg-surface px-5 text-sm font-semibold text-foreground transition-colors hover:border-foreground">
-                  <Download className="h-4 w-4" aria-hidden="true" />
-                  Download resume
-                </a>
+                <Link href="/experience" className="on-light inline-flex min-h-12 items-center justify-center gap-3 rounded-full bg-surface px-6 text-sm font-semibold transition-colors hover:bg-surface-muted">See decisions and outcomes <ArrowRight className="h-4 w-4" aria-hidden="true" /></Link>
+                <a href={`mailto:${profile.email}?subject=Product%20conversation`} className="hidden min-h-12 items-center justify-center gap-3 rounded-full border border-white/35 px-6 text-sm font-semibold transition-colors hover:bg-white/10 sm:inline-flex">Discuss a role <Mail className="h-4 w-4" aria-hidden="true" /></a>
+                <a href={profile.resumePath} download="Madhur-Jain-Resume.pdf" className="hidden min-h-12 items-center justify-center gap-3 px-4 text-sm font-semibold text-white/75 transition-colors hover:text-white md:inline-flex"><Download className="h-4 w-4" aria-hidden="true" />Download resume</a>
               </div>
-              <div className="mt-5 flex items-center gap-2 sm:hidden">
-                <a href={profile.linkedinUrl} aria-label="Madhur Jain on LinkedIn" className="social-link social-linkedin"><ExternalLink className="h-4 w-4" aria-hidden="true" /></a>
-                <a href={profile.githubUrl} aria-label="Madhur Jain on GitHub" className="social-link social-linkgithub"><Code2 className="h-4 w-4" aria-hidden="true" /></a>
-              </div>
-            </div>
-
-            <aside className="hidden border-t-2 border-foreground pt-5 lg:block lg:self-end">
-              <p className="text-xs font-semibold uppercase tracking-[0.12em] text-accent">Current focus</p>
-              <h2 className="mt-3 text-xl font-semibold leading-8">US consumer products and AI product management at PRISM, Parent Company of OYO.</h2>
-              <p className="mt-3 text-sm leading-6 text-muted">I own pricing and conversion work for consumer-facing products, while leading AI PM initiatives that improve team efficiency, run autonomous operational workflows, and improve conversion.</p>
-              <dl className="mt-8 space-y-5 border-t border-line pt-6 text-sm">
-                <div><dt className="text-muted">Experience across</dt><dd className="mt-1 font-medium">US consumer products · AI product management · Mobile growth · D2C conversion</dd></div>
-                <div><dt className="text-muted">Based in</dt><dd className="mt-1 font-medium">{profile.location}</dd></div>
-              </dl>
-              <div className="mt-7 flex flex-wrap gap-x-5 gap-y-3 text-sm font-medium">
-                <a href={profile.linkedinUrl} className="inline-flex min-h-11 items-center gap-2 transition-colors hover:text-accent"><FaLinkedin className="h-4 w-4 text-[#0a66c2]" aria-hidden="true" />LinkedIn</a>
-                <a href={profile.githubUrl} className="inline-flex min-h-11 items-center gap-2 transition-colors hover:text-accent"><FaGithub className="h-4 w-4" aria-hidden="true" />GitHub</a>
-              </div>
-            </aside>
-          </div>
-        </section>
-
-        <ProfessionalExperience experiences={professionalExperience} />
-
-        <section id="highlights" className="bg-surface py-12 sm:py-24">
-          <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
-            <div className="grid gap-6 lg:grid-cols-[minmax(0,0.85fr)_minmax(20rem,0.55fr)] lg:items-end"><h2 className="max-w-3xl text-2xl font-semibold leading-tight text-balance sm:text-4xl">Metrics I have owned across each product context.</h2><p className="max-w-xl text-base leading-7 text-muted">The metric mix changes with the product: conversion, revenue, cost margin, subscriber growth, and AOV where they were the right measures of progress.</p></div>
-            <div className="mt-10 divide-y divide-line border-t border-line">
-              {impactHighlights.map((item) => (
-                <article key={item.company} className="py-8 sm:py-10"><div className="grid gap-4 lg:grid-cols-[minmax(13rem,0.34fr)_minmax(0,1fr)] lg:gap-10"><div><p className="text-xs font-semibold uppercase tracking-[0.12em] text-accent">{item.company}</p><p className="mt-3 max-w-xs text-sm leading-6 text-muted">{item.description}</p></div><dl className="grid gap-x-8 gap-y-5 sm:grid-cols-2 xl:grid-cols-3">{item.metrics.map((metric) => <div key={metric.metric} className="border-l-2 border-accent pl-3"><dt className="text-xs font-semibold uppercase text-muted">{metric.metric}</dt><dd className="mt-1 font-mono text-xl font-semibold">{metric.value}</dd><dd className="mt-2 text-sm leading-6 text-muted">{metric.context}</dd></div>)}</dl></div></article>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section id="skills" className="bg-background py-12 sm:py-24">
-          <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
-            <div className="grid gap-6 border-b border-line pb-9 lg:grid-cols-[minmax(0,0.9fr)_minmax(20rem,0.6fr)] lg:items-end">
-              <h2 className="max-w-2xl text-2xl font-semibold leading-tight text-balance sm:text-4xl">Capabilities I use to make products move.</h2>
-              <p className="max-w-xl text-base leading-7 text-muted">AI product systems and growth outcomes are the throughline. The methods below are grounded in US consumer products at PRISM, subscriber growth at SplashLearn, D2C work at Honasa, and my own cross-platform build.</p>
-            </div>
-            <div className="mt-3 border-t border-line">
-              {skillGroups.map((group) => (
-                <article key={group.title} className="grid gap-4 border-b border-line py-6 sm:py-10 lg:grid-cols-[minmax(14rem,0.62fr)_minmax(0,1.38fr)] lg:gap-16">
-                  <div>
-                    <h3 className="max-w-sm text-xl font-semibold leading-tight sm:text-2xl">{group.title}</h3>
-                    <p className="mt-3 max-w-md text-sm leading-6 text-muted sm:mt-4 sm:text-base sm:leading-7">{group.outcome}</p>
-                  </div>
-                  <div className="grid gap-4 sm:gap-6 xl:grid-cols-[minmax(15rem,0.86fr)_minmax(0,1fr)] xl:gap-10">
-                    <div>
-                      <p className="text-xs font-semibold uppercase tracking-[0.12em] text-accent">In practice</p>
-                      <p className="mt-2 max-w-xl text-sm leading-6 text-muted sm:mt-3">{group.evidence}</p>
-                    </div>
-                    <ul aria-label={`${group.title} skills`} className="flex flex-wrap content-start gap-2">
-                      {group.skills.map((skill) => (
-                        <li key={skill} className="rounded-md border border-line bg-surface px-3 py-2 text-sm font-medium text-foreground">{skill}</li>
-                      ))}
-                    </ul>
-                  </div>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section id="personal-projects" className="bg-surface py-12 sm:py-24">
-          <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
-            <div className="grid gap-6 border-b border-line pb-9 lg:grid-cols-[minmax(0,0.9fr)_minmax(20rem,0.6fr)] lg:items-end"><h2 className="max-w-3xl text-2xl font-semibold leading-tight text-balance sm:text-4xl">Coach, a cross-platform fitness product I am building from scratch.</h2><p className="max-w-xl text-base leading-7 text-muted">A personal build where I own the product thinking and implementation across web, iOS, and Android. It is builder proof, not a claim of market traction.</p></div>
-            <div className="mt-10 grid gap-10 lg:grid-cols-[minmax(15rem,0.55fr)_minmax(0,1.45fr)] lg:gap-14">
-              <div className="border-t-2 border-foreground pt-5">
-                <h3 className="max-w-sm text-2xl font-semibold leading-tight">Coach in motion: from the next set to a logged workout.</h3>
-                <p className="mt-4 max-w-md text-sm leading-6 text-muted">The walkthrough shows the active logging experience, while the supporting captures show health context and trainer collaboration from the current iOS build.</p>
-                <dl className="mt-8 border-y border-line text-sm">
-                  <div className="grid grid-cols-[5.5rem_minmax(0,1fr)] gap-3 border-b border-line py-4"><dt className="font-semibold">Web</dt><dd className="text-muted">Planning, calendars, training templates, and progress review.</dd></div>
-                  <div className="grid grid-cols-[5.5rem_minmax(0,1fr)] gap-3 border-b border-line py-4"><dt className="font-semibold">iOS</dt><dd className="text-muted">Native workout logging, HealthKit, widgets, and Live Activities.</dd></div>
-                  <div className="grid grid-cols-[5.5rem_minmax(0,1fr)] gap-3 py-4"><dt className="font-semibold">Android</dt><dd className="text-muted">Kotlin and Compose flows with local persistence and Health Connect.</dd></div>
-                </dl>
-                <WorkStoryLink href="/work/coach-cross-platform" title="Coach cross-platform build case study" className="mt-7 inline-flex min-h-11 items-center gap-2 text-sm font-semibold underline decoration-accent decoration-2 underline-offset-4 transition-colors hover:text-accent">Open the Coach build case study</WorkStoryLink>
-              </div>
-              <div className="grid gap-5 xl:grid-cols-[minmax(14rem,0.7fr)_minmax(0,1fr)]">
-                <figure className="mx-auto w-full max-w-sm self-start overflow-hidden rounded-lg border border-line bg-foreground shadow-card xl:max-w-none">
-                  <CoachDemoVideo />
-                  <figcaption className="on-dark dark-divider border-t px-3 py-3"><p className="text-xs font-semibold">Coach product walkthrough</p><p className="on-dark-muted mt-1 text-xs">Active workout logging in the current product experience.</p></figcaption>
-                </figure>
-                <div className="grid grid-cols-2 gap-3 sm:gap-5">
-                  {coachScreens.slice(1).map((screen) => (
-                    <figure key={screen.src} className="self-start overflow-hidden rounded-lg border border-line bg-foreground shadow-card">
-                      <Image src={screen.src} alt={screen.alt} width={1206} height={2622} quality={90} sizes="(min-width: 1280px) 16vw, (min-width: 640px) 25vw, 48vw" className="h-auto w-full transition duration-300 hover:scale-[1.015]" />
-                      <figcaption className="on-dark dark-divider border-t px-3 py-3"><p className="text-xs font-semibold">{screen.label}</p><p className="on-dark-muted mt-1 text-xs">{screen.detail}</p></figcaption>
-                    </figure>
-                  ))}
-                </div>
+              <div className="mt-4 grid grid-cols-2 gap-2 text-xs font-semibold text-white/75 sm:hidden">
+                <a href={`mailto:${profile.email}`} className="inline-flex min-h-11 items-center justify-center rounded-full border border-white/25 px-4 transition-colors active:bg-white/10">Email</a>
+                <a href={profile.resumePath} download="Madhur-Jain-Resume.pdf" className="inline-flex min-h-11 items-center justify-center rounded-full border border-white/25 px-4 transition-colors active:bg-white/10">Resume</a>
               </div>
             </div>
           </div>
+          <dl className="relative mx-auto grid max-w-[90rem] grid-cols-3 border-t border-white/15 bg-white/[0.05] px-5 md:px-10 xl:px-16">
+            {headlineResults.map((result, index) => (
+              <div key={result.label} className={`py-5 md:py-8 ${index > 0 ? "border-l border-white/15 pl-4 md:pl-8" : "pr-4"}`}>
+                <dt className="font-mono text-xs uppercase text-white/55">{result.context}</dt>
+                <dd className="mt-2 text-xl font-semibold md:text-3xl">{result.value}</dd>
+                <dd className="mt-1 text-[0.68rem] leading-4 text-white/65 md:text-sm">{result.label}</dd>
+              </div>
+            ))}
+          </dl>
         </section>
 
-        <section id="contact" className="on-dark bg-foreground py-12 sm:py-20">
-          <div className="mx-auto grid max-w-7xl gap-12 px-5 sm:px-8 lg:grid-cols-[minmax(0,1fr)_21rem] lg:items-center lg:gap-16 lg:px-10">
+        <section className="mx-auto max-w-[90rem] px-5 py-16 md:px-10 md:py-28 xl:px-16" data-reveal>
+          <div className="grid gap-8 border-b border-line pb-10 md:grid-cols-[minmax(0,0.8fr)_minmax(20rem,0.55fr)] md:items-end">
+            <h2 className="max-w-3xl text-4xl font-medium leading-tight text-balance md:text-6xl">From D2C growth to subscriptions, pricing, and AI.</h2>
+            <p className="max-w-xl text-base leading-7 text-muted">My scope has grown from ecommerce operations at Honasa to Android subscriptions at SplashLearn and pricing, conversion, and AI product work at PRISM.</p>
+          </div>
+          <div className="divide-y divide-line">
+            {professionalExperience.map((experience) => (
+              <Link key={experience.company} href={experienceHref(experience.company)} className="group grid gap-5 py-8 transition-colors hover:bg-surface-muted md:grid-cols-[minmax(13rem,0.45fr)_minmax(0,1fr)_auto] md:items-center md:px-4">
+                <div><p className="font-mono text-[0.68rem] uppercase text-muted">{experience.timeframe}</p><h3 className="mt-2 text-xl font-semibold">{experience.company}</h3></div>
+                <p className="max-w-3xl text-sm leading-6 text-muted">{experience.overview}</p>
+                <ArrowUpRight className="h-5 w-5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" aria-hidden="true" />
+              </Link>
+            ))}
+          </div>
+          <Link href="/experience" className="mt-8 inline-flex min-h-11 items-center gap-2 border-b border-foreground text-sm font-semibold">View full professional timeline <ArrowRight className="h-4 w-4" aria-hidden="true" /></Link>
+        </section>
+
+        <section className="bg-foreground text-on-dark">
+          <div className="mx-auto grid max-w-[90rem] gap-12 px-5 py-16 md:px-10 md:py-24 lg:grid-cols-[minmax(0,0.75fr)_minmax(22rem,0.55fr)] lg:items-center xl:px-16" data-reveal>
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.12em] text-accent-soft">Contact</p>
-              <h2 className="mt-4 max-w-3xl text-3xl font-semibold leading-tight text-balance sm:text-5xl">Let&apos;s talk about the work.</h2>
-              <p className="on-dark-muted mt-5 max-w-xl text-base leading-7">I&apos;m open to conversations about AI and data products, consumer growth, product strategy, and senior product roles.</p>
-              <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-                <a href={`mailto:${profile.email}`} className="on-light inline-flex min-h-12 items-center justify-center gap-2 rounded-md bg-surface px-5 text-sm font-semibold transition-colors hover:bg-accent-surface"><Mail className="h-4 w-4" aria-hidden="true" />{profile.email}</a>
-              </div>
+              <h2 className="max-w-3xl text-4xl font-medium leading-tight text-balance md:text-6xl">Coach is my hands-on product build.</h2>
+              <p className="mt-6 max-w-2xl text-base leading-7 text-white/70">A personal fitness product built from scratch across web, iOS, and Android. I own the product model, platform choices, interaction decisions, and implementation.</p>
+              <dl className="mt-9 grid grid-cols-3 border-y border-white/15 py-5 text-sm">
+                {[["Web", "Next.js"], ["iOS", "SwiftUI"], ["Android", "Compose"]].map(([platform, stack]) => <div key={platform}><dt className="font-semibold">{platform}</dt><dd className="mt-1 text-white/55">{stack}</dd></div>)}
+              </dl>
+              <Link href="/coach" className="on-light mt-8 inline-flex min-h-12 items-center gap-3 rounded-full bg-surface px-6 text-sm font-semibold">Explore Coach <ArrowRight className="h-4 w-4" aria-hidden="true" /></Link>
             </div>
-            <aside className="lg:border-l lg:border-white/15 lg:pl-10" aria-label="Professional profiles">
-              <p className="mb-4 text-xs font-semibold uppercase tracking-[0.12em] text-white/65">Find me online</p>
-              <ProfessionalProfileLinks />
-            </aside>
+            <figure className="mx-auto w-full max-w-sm border border-white/20 bg-[#0c0d0d] p-4 md:p-6">
+              <Image src={coachScreens[0].src} alt={coachScreens[0].alt} width={1206} height={2622} quality={90} sizes="(min-width: 1024px) 25rem, 80vw" className="h-auto w-full" />
+              <figcaption className="border-t border-white/15 pt-4 text-sm text-white/65">Current iOS home experience / real product capture</figcaption>
+            </figure>
           </div>
+        </section>
+
+        <section className="mx-auto max-w-[90rem] px-5 py-16 md:px-10 md:py-28 xl:px-16" data-reveal>
+          <div className="grid gap-8 md:grid-cols-[minmax(0,0.75fr)_minmax(20rem,0.5fr)] md:items-end">
+            <h2 className="text-4xl font-medium leading-tight md:text-6xl">Capabilities, with the evidence behind them.</h2>
+            <p className="text-base leading-7 text-muted">Each capability connects to evidence from PRISM, SplashLearn, Honasa, or Coach.</p>
+          </div>
+          <div className="mt-12 grid border-l border-t border-line md:grid-cols-2">
+            {skillGroups.map((group) => <article key={group.title} className="border-b border-r border-line p-6 md:p-9"><h3 className="text-2xl font-medium">{group.title}</h3><p className="mt-5 text-sm leading-6 text-muted">{group.outcome}</p><p className="mt-6 border-t border-line pt-5 text-sm leading-6">{group.evidence}</p></article>)}
+          </div>
+          <Link href="/skills" className="mt-8 inline-flex min-h-11 items-center gap-2 border-b border-foreground text-sm font-semibold">See skills and evidence <ArrowRight className="h-4 w-4" aria-hidden="true" /></Link>
         </section>
       </main>
-      </div>
+      <PortfolioFooter />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(profilePageData) }} />
     </>
   );
 }

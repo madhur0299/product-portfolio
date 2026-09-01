@@ -4,18 +4,17 @@ import { caseStudies } from "@/data/portfolio";
 const siteUrl = "https://www.madhurjain.in";
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  const portfolioRoutes = ["experience", "coach", "skills", "how-i-work", "resume"];
+
   return [
     {
       url: siteUrl,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 1,
     },
+    ...portfolioRoutes.map((route) => ({
+      url: `${siteUrl}/${route}`,
+    })),
     ...caseStudies.map((caseStudy) => ({
       url: `${siteUrl}/work/${caseStudy.slug}`,
-      lastModified: new Date(),
-      changeFrequency: "monthly" as const,
-      priority: 0.8,
     })),
   ];
 }

@@ -1,16 +1,16 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f8fafc;
-  --foreground: #111827;
-  --muted: #52606d;
-  --line: #dce3ea;
+  --background: #f9f9f9;
+  --foreground: #050505;
+  --muted: #52525b;
+  --line: #dedede;
   --surface: #ffffff;
-  --surface-muted: #f1f5f9;
-  --accent: #2563eb;
-  --accent-strong: #1d4ed8;
-  --accent-soft: #bfdbfe;
-  --accent-surface: #eff6ff;
+  --surface-muted: #f0f0f0;
+  --accent: #050505;
+  --accent-strong: #262626;
+  --accent-soft: #d4d4d4;
+  --accent-surface: #ededed;
   --on-dark: #ffffff;
 }
 
@@ -26,9 +26,10 @@
   --color-accent-soft: var(--accent-soft);
   --color-accent-surface: var(--accent-surface);
   --color-on-dark: var(--on-dark);
-  --font-sans: "Avenir Next", "Segoe UI", ui-sans-serif, system-ui, sans-serif;
-  --font-mono: "SFMono-Regular", "Cascadia Code", ui-monospace, monospace;
-  --shadow-card: 0 10px 24px rgba(15, 23, 42, 0.08);
+  --font-sans: var(--font-hanken-grotesk), "Helvetica Neue", "Segoe UI", ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-manrope), "Avenir Next", "Helvetica Neue", "Segoe UI", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), "SFMono-Regular", "Cascadia Code", ui-monospace, monospace;
+  --shadow-card: 0 12px 30px rgba(0, 0, 0, 0.08);
 }
 
 * {
@@ -50,6 +51,52 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+button,
+.font-display {
+  font-family: var(--font-display);
+}
+
+main {
+  animation: page-enter 260ms ease-out both;
+}
+
+@keyframes page-enter {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+html[data-reveal-ready="true"] [data-reveal] {
+  opacity: 0;
+  transform: translateY(0.65rem);
+  transition:
+    opacity 520ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 520ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+html[data-reveal-ready="true"] [data-reveal][data-reveal-visible="true"] {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+html[data-reveal-ready="true"] [data-reveal-delay="1"] {
+  transition-delay: 70ms;
+}
+
+html[data-reveal-ready="true"] [data-reveal-delay="2"] {
+  transition-delay: 140ms;
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -61,8 +108,28 @@ a {
 }
 
 ::selection {
-  background: #dbeafe;
+  background: #d4d4d4;
   color: var(--foreground);
+}
+
+.portfolio-grid {
+  opacity: 0.15;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.32) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.32) 1px, transparent 1px);
+  background-size: min(24vw, 22rem) min(24vw, 22rem);
+}
+
+.hero-orbit::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: min(88vw, 80rem);
+  aspect-ratio: 1;
+  content: "";
+  transform: translate(-50%, -50%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 50%;
 }
 
 .text-balance {
@@ -79,7 +146,6 @@ a {
   background: var(--foreground);
   color: var(--on-dark);
   padding: 0.75rem 1rem;
-  font-size: 0.875rem;
   font-weight: 600;
   transition: transform 160ms ease-out;
 }
@@ -164,11 +230,81 @@ a {
 }
 
 .timeline-trigger:hover {
-  background: rgba(37, 99, 235, 0.06);
+  background: rgba(0, 0, 0, 0.035);
 }
 
 .timeline-trigger:active {
   transform: scale(0.995);
+}
+
+.experience-entry > summary::-webkit-details-marker {
+  display: none;
+}
+
+.experience-entry-content {
+  transform-origin: top;
+  animation: experience-reveal 260ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.experience-accordion-item {
+  scroll-margin-top: 6rem;
+}
+
+.experience-accordion-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transform: translateY(-0.4rem);
+  transition:
+    grid-template-rows 380ms cubic-bezier(0.32, 0.72, 0, 1),
+    opacity 220ms ease-out,
+    transform 320ms cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+.experience-accordion-panel[data-open="true"] {
+  grid-template-rows: 1fr;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.experience-accordion-panel > div {
+  min-height: 0;
+  overflow: hidden;
+}
+
+.experience-accordion-trigger {
+  border-radius: 0.375rem;
+  transition: background-color 180ms ease-out;
+}
+
+.experience-accordion-trigger:hover {
+  background: color-mix(in srgb, var(--surface-muted) 62%, transparent);
+}
+
+.experience-accordion-icon {
+  transition:
+    transform 360ms cubic-bezier(0.32, 0.72, 0, 1),
+    background-color 180ms ease-out,
+    border-color 180ms ease-out;
+}
+
+[data-open="true"] > .experience-accordion-trigger .experience-accordion-icon {
+  transform: rotate(180deg);
+  border-color: var(--foreground);
+  background: var(--foreground);
+  color: var(--on-dark);
+}
+
+@keyframes experience-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(-0.4rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .timeline-chevron {
@@ -255,10 +391,9 @@ a {
 .case-opening-panel {
   width: min(100%, 26rem);
   border: 1px solid var(--line);
-  border-left: 3px solid var(--accent);
   background: var(--surface);
   padding: 1.15rem;
-  box-shadow: 0 14px 42px rgba(15, 23, 42, 0.13);
+  box-shadow: 0 14px 42px rgba(0, 0, 0, 0.13);
   animation: case-opening-panel-enter 220ms cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
@@ -282,22 +417,44 @@ a {
   .case-opening-panel {
     animation: none !important;
   }
+
+  .experience-entry-content {
+    animation: none !important;
+  }
+
+  main,
+  [data-reveal],
+  .experience-accordion-panel,
+  .experience-accordion-trigger,
+  .experience-accordion-icon {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+  }
+
+  html[data-reveal-ready="true"] [data-reveal] {
+    opacity: 1;
+  }
 }
 
 @media (max-width: 767px) {
-  :root {
-    --font-sans: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  }
-
   html {
     scroll-padding-top: 4.5rem;
   }
 
   .mobile-dock {
-    box-shadow: 0 -8px 24px rgba(15, 23, 42, 0.07);
+    box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.07);
   }
 
   .mobile-dock-dark {
     box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.18);
+  }
+
+  .portfolio-grid {
+    background-size: 8rem 8rem;
+  }
+
+  .hero-orbit::before {
+    width: 42rem;
   }
 }

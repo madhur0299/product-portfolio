@@ -69,6 +69,7 @@ export default function Home() {
                   src={profile.portrait}
                   alt={profile.portraitAlt}
                   fill
+                  loading="eager"
                   quality={85}
                   sizes="(min-width: 1024px) 24rem, 22rem"
                   className="object-cover object-top"

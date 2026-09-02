@@ -6,12 +6,6 @@ import { SiteHeader } from "@/components/site-header";
 import { type CaseStudy, coachScreens, getCaseStudy, professionalExperience, profile, skillGroups } from "@/data/portfolio";
 import { pageMetadata } from "@/lib/metadata";
 
-const headlineResults = [
-  { value: "+10%", label: "Booking conversion, ~10K a day", context: "US hotels" },
-  { value: "+15%", label: "Trial-to-paid, +800 subs a month", context: "Learning app" },
-  { value: "~$21M", label: "Run rate on a site I owned", context: "D2C beauty" },
-];
-
 function experienceHref(company: string) {
   if (company.startsWith("PRISM")) return "/experience#prism";
   if (company.startsWith("SplashLearn")) return "/experience#splashlearn";
@@ -77,20 +71,11 @@ export default function Home() {
               </div>
             </figure>
           </div>
-          <dl className="relative mx-auto grid max-w-[90rem] grid-cols-1 divide-y divide-white/15 border-t border-white/15 bg-white/[0.05] px-5 sm:grid-cols-3 sm:divide-y-0 md:px-10 xl:px-16" data-reveal-group>
-            {headlineResults.map((result, index) => (
-              <div key={result.label} data-reveal className={`flex flex-wrap items-baseline gap-x-4 gap-y-1 py-4 sm:block sm:py-6 md:py-7 ${index > 0 ? "sm:border-l sm:border-white/15 sm:pl-4 md:pl-8" : "sm:pr-4"}`}>
-                <dt className="w-full font-mono text-[0.7rem] uppercase text-white/55 sm:w-auto">{result.context}</dt>
-                <dd className="text-2xl font-semibold sm:mt-2 md:text-3xl">{result.value}</dd>
-                <dd className="flex-1 text-sm leading-5 text-white/70 sm:mt-1 sm:text-xs md:text-sm">{result.label}</dd>
-              </div>
-            ))}
-          </dl>
         </section>
 
         <section className="mx-auto max-w-[90rem] px-5 py-12 md:px-10 md:py-28 xl:px-16">
           <div data-reveal className="grid gap-8 border-b border-line pb-10 md:grid-cols-[minmax(0,0.8fr)_minmax(20rem,0.55fr)] md:items-end">
-            <h2 className="max-w-3xl text-[1.75rem] font-medium leading-[1.15] text-balance md:text-6xl">From D2C growth to subscriptions, pricing, and AI.</h2>
+            <h2 className="max-w-3xl text-[1.75rem] font-medium leading-[1.15] text-balance md:text-6xl">From D2C to subscriptions, pricing, and AI.</h2>
             <p className="max-w-xl text-base leading-7 text-muted">{profile.summary}</p>
           </div>
           <div className="divide-y divide-line" data-reveal-group>

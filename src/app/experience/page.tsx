@@ -17,8 +17,8 @@ export default function ExperiencePage() {
     <><a className="skip-link" href="#experience-content">Skip to experience</a><SiteHeader />
       <main id="experience-content" className="bg-background text-foreground">
         <section className="mx-auto max-w-[90rem] px-5 pb-8 pt-10 md:px-10 md:pb-14 md:pt-20 xl:px-16">
-          <h1 className="max-w-4xl text-[1.9rem] font-medium leading-[1.12] text-balance md:text-6xl">Experience across growth, monetization, and AI products.</h1>
-          <p className="mt-6 max-w-3xl text-[0.95rem] leading-6 text-muted md:text-lg md:leading-8">I progressed from D2C product operations and growth at Honasa, to Android subscriptions at SplashLearn, to pricing, conversion, and AI product ownership for OYO US and G6 Hospitality (Motel 6 and Studio 6).</p>
+          <h1 className="max-w-4xl text-[1.9rem] font-medium leading-[1.12] text-balance md:text-6xl">Experience across growth, conversion, monetization, and AI products.</h1>
+          <p className="mt-6 max-w-3xl text-[0.95rem] leading-6 text-muted md:text-lg md:leading-8">I progressed from D2C product management and growth at Honasa, to Android subscriptions at SplashLearn, to pricing, conversion, and AI product ownership for OYO US and G6 Hospitality (Motel 6 and Studio 6).</p>
         </section>
         <section className="mx-auto max-w-[90rem] px-5 pb-10 md:px-10 md:pb-20 xl:px-16"><ExperienceTimeline experiences={professionalExperience} /></section>
         <section className="mx-auto max-w-[90rem] px-5 py-12 md:px-10 md:py-20 xl:px-16" data-reveal>

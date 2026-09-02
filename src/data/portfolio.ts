@@ -125,7 +125,7 @@ export const profile: Profile = {
   githubUrl: "https://github.com/madhur0299",
   resumePath: "/resume.pdf",
   headlineLead: "I ship AI products and define how they get judged.",
-  headlineTrail: "Five years in growth taught me which ones matter.",
+  headlineTrail: "Five years owning revenue taught me which ones matter.",
   summary:
     "I started in D2C ecommerce operations and ended up building agents. The through-line is a computer science degree I never stopped using: I can specify a system, decide how it gets evaluated, and stay with it through release.",
   availability:
@@ -254,14 +254,14 @@ export const professionalExperience: ProfessionalExperience[] = [
     company: "SplashLearn",
     timeframe: "May 2024 - November 2025",
     overview:
-      "Led subscriber growth and retention for the Android app at an elementary-learning platform, covering launch quality, activation, web-to-app migration, and content operations.",
+      "Owned subscriber acquisition, conversion, and retention for the Android app at an elementary-learning platform, covering launch quality, activation, web-to-app migration, and content operations.",
     storyHref: "/work/android-subscriber-growth",
     storyLabel: "Open the mobile growth case study",
     stages: [
       {
         role: "Product Manager",
         timeframe: "May 2024 - November 2025",
-        summary: "Subscriber growth and retention for the Android app.",
+        summary: "Subscriber acquisition, conversion, and retention for the Android app.",
         achievements: [
           "Launched the Android app and grew it to 1,000 monthly subscribers within six months.",
           "Diagnosed engagement drop-off and shipped fixes that raised the Play Store rating from 2.3 to 4.0, Day-0 engagement 25%, and playable starts 30%.",
@@ -578,13 +578,13 @@ export const caseStudies: CaseStudy[] = [
     timeframe: "March 2021 - May 2024",
     role: "Product Management Intern to Product Manager",
     mandate:
-      "Progress from product operations into end-to-end product ownership across Aqualogica growth, Mamaearth acquisition, new brand launches, and shared platform systems.",
+      "Progress from product management into end-to-end product ownership across Aqualogica growth, Mamaearth acquisition, new brand launches, and shared platform systems.",
     keyDecision:
       "Treat brand growth, customer acquisition, launch readiness, and platform scale as connected product systems rather than isolated website changes.",
     evidence:
       "Every number here is one I owned and measured. Brand dashboards, referral cohorts, and launch documentation are confidential.",
     summary:
-      "Progressed from product operations into sole ownership of Aqualogica's D2C website, alongside Mamaearth acquisition, brand launches, referral systems, and scalable ecommerce infrastructure.",
+      "Progressed from product management into sole ownership of Aqualogica's D2C website, alongside Mamaearth acquisition, brand launches, referral systems, and scalable ecommerce infrastructure.",
     tags: ["Ecommerce", "Referral", "Conversion", "Funnels", "API Events"],
     metrics: [
       {

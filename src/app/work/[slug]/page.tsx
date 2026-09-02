@@ -1,9 +1,10 @@
-import { ArrowLeft, ArrowRight, Download, Mail } from "lucide-react";
+import { ArrowLeft, ArrowRight, ArrowUpRight, Download, Mail } from "lucide-react";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { CoachDemoVideo } from "@/components/coach-demo-video";
+import { PortfolioFooter } from "@/components/portfolio-footer";
 import { SiteHeader } from "@/components/site-header";
 import { caseStudies, coachScreens, getCaseStudy, profile } from "@/data/portfolio";
 
@@ -60,8 +61,8 @@ export default async function WorkDetailPage({ params }: CasePageProps) {
   const isCoach = caseStudy.slug === "coach-cross-platform";
   const currentIndex = caseStudies.findIndex((item) => item.slug === slug);
   const nextCase = caseStudies[(currentIndex + 1) % caseStudies.length];
-  const backHref = isCoach ? "/#personal-projects" : "/#experience";
-  const backLabel = isCoach ? "Back to personal builds" : "Back to professional experience";
+  const backHref = isCoach ? "/coach" : "/experience";
+  const backLabel = isCoach ? "Back to Coach" : "Back to professional experience";
 
   return (
     <>
@@ -70,17 +71,20 @@ export default async function WorkDetailPage({ params }: CasePageProps) {
       <main id="work-content" className="min-h-screen bg-background text-foreground">
 
       <section className="border-b border-line bg-surface">
-        <div className="mx-auto max-w-7xl px-5 py-10 sm:px-8 sm:py-14 lg:px-10 lg:py-20">
-          <Link href={backHref} className="inline-flex min-h-11 items-center gap-2 text-sm font-medium text-muted transition-colors hover:text-accent">
+        <div className="mx-auto max-w-[90rem] px-5 py-10 md:px-10 md:py-14 xl:px-16 xl:py-20">
+          <Link href={backHref} className="inline-flex min-h-11 items-center gap-2 text-sm font-medium text-muted transition-colors hover:text-foreground">
             <ArrowLeft className="h-4 w-4" aria-hidden="true" />
             {backLabel}
           </Link>
 
           <div className="mt-10 grid gap-10 lg:grid-cols-[minmax(0,1.18fr)_minmax(18rem,0.52fr)] lg:items-end lg:gap-16">
             <div>
-              <h1 className="max-w-4xl text-4xl font-semibold leading-[1.06] text-balance sm:text-5xl lg:text-6xl">{caseStudy.title}</h1>
-              <p className="mt-5 text-base font-semibold text-accent">{caseStudy.company}</p>
+              <h1 className="max-w-4xl text-[1.9rem] font-semibold leading-[1.12] text-balance sm:text-5xl lg:text-6xl">{caseStudy.title}</h1>
+              <p className="mt-5 text-base font-semibold text-foreground">{caseStudy.company}</p>
               <p className="mt-6 max-w-3xl text-base leading-8 text-muted sm:text-lg">{caseStudy.summary}</p>
+              {caseStudy.liveUrl ? (
+                <a href={caseStudy.liveUrl} target="_blank" rel="noopener noreferrer" className="mt-6 inline-flex min-h-11 items-center gap-2 border-b border-foreground text-sm font-semibold">Open {caseStudy.liveLabel} <ArrowUpRight className="h-4 w-4" aria-hidden="true" /></a>
+              ) : null}
             </div>
             <dl className="border-t border-line text-sm">
               <div className="border-b border-line py-4">
@@ -100,11 +104,11 @@ export default async function WorkDetailPage({ params }: CasePageProps) {
         </div>
       </section>
 
-      <section className="border-b border-line bg-surface-muted py-12 sm:py-16">
-        <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
+      <section className="border-b border-line bg-surface-muted py-10 sm:py-16">
+        <div className="mx-auto max-w-[90rem] px-5 md:px-10 xl:px-16">
           <div className="grid gap-6 border-b border-line pb-8 lg:grid-cols-[minmax(0,0.9fr)_minmax(18rem,0.6fr)] lg:items-end">
             <div>
-              <h2 className="max-w-3xl text-3xl font-semibold leading-tight text-balance sm:text-4xl">The business situation.</h2>
+              <h2 className="max-w-3xl text-2xl font-semibold leading-tight text-balance sm:text-4xl">The business situation.</h2>
             </div>
             <p className="text-base leading-7 text-muted">{caseStudy.mandate}</p>
           </div>
@@ -117,29 +121,29 @@ export default async function WorkDetailPage({ params }: CasePageProps) {
               </div>
             ))}
           </div>
-          <p className="mt-7 max-w-3xl border-l border-accent pl-4 text-sm leading-6 text-muted">{caseStudy.evidence}</p>
+          <p className="mt-7 max-w-3xl border-l border-foreground pl-4 text-sm leading-6 text-muted">{caseStudy.evidence}</p>
         </div>
       </section>
 
       {isCoach ? (
-        <section className="border-b border-line bg-surface py-12 sm:py-16">
-          <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10" data-reveal>
+        <section className="border-b border-line bg-surface py-10 sm:py-16">
+          <div className="mx-auto max-w-[90rem] px-5 md:px-10 xl:px-16" data-reveal>
             <div className="grid gap-8 border-t-2 border-foreground pt-5 lg:grid-cols-[minmax(16rem,0.7fr)_minmax(18rem,0.5fr)] lg:items-start lg:gap-16">
               <div>
-              <h2 className="max-w-xl text-3xl font-semibold leading-tight text-balance sm:text-4xl">A training product designed around the next useful action.</h2>
+              <h2 className="max-w-xl text-2xl font-semibold leading-tight text-balance sm:text-4xl">A training product designed around the next useful action.</h2>
               <p className="mt-5 max-w-xl text-base leading-7 text-muted">Start with the active workout, log the set in the moment, then move into health context, progress, and coaching. This walkthrough puts the interaction model ahead of static concept screens.</p>
               </div>
               <ol className="mt-8 max-w-xl divide-y divide-line border-y border-line text-sm">
                 <li className="grid gap-2 py-4 sm:grid-cols-[6rem_minmax(0,1fr)] sm:gap-5">
-                  <span className="font-semibold text-accent">Plan</span>
+                  <span className="font-semibold text-foreground">Plan</span>
                   <p className="leading-6 text-muted">Bring today&apos;s workout and the next meaningful action into a single starting point.</p>
                 </li>
                 <li className="grid gap-2 py-4 sm:grid-cols-[6rem_minmax(0,1fr)] sm:gap-5">
-                  <span className="font-semibold text-accent">Train</span>
+                  <span className="font-semibold text-foreground">Train</span>
                   <p className="leading-6 text-muted">Log weight, reps, effort, and sets without losing focus on the exercise in front of you.</p>
                 </li>
                 <li className="grid gap-2 py-4 sm:grid-cols-[6rem_minmax(0,1fr)] sm:gap-5">
-                  <span className="font-semibold text-accent">Review</span>
+                  <span className="font-semibold text-foreground">Review</span>
                   <p className="leading-6 text-muted">Connect workout history with health, progress, and trainer context once the session is complete.</p>
                 </li>
               </ol>
@@ -162,8 +166,8 @@ export default async function WorkDetailPage({ params }: CasePageProps) {
         </section>
       ) : null}
 
-      <section className="bg-background py-16 sm:py-24">
-        <div className="mx-auto grid max-w-7xl gap-10 px-5 sm:px-8 lg:grid-cols-[minmax(14rem,0.42fr)_minmax(0,1fr)] lg:gap-20 lg:px-10">
+      <section className="bg-background py-12 sm:py-24">
+        <div className="mx-auto grid max-w-[90rem] gap-10 px-5 md:px-10 lg:grid-cols-[minmax(14rem,0.42fr)_minmax(0,1fr)] lg:gap-20 xl:px-16">
           <aside className="lg:sticky lg:top-24 lg:self-start">
             <h2 className="text-2xl font-semibold leading-tight">The product decision I owned.</h2>
             <p className="mt-5 text-sm leading-6 text-muted">{caseStudy.keyDecision}</p>
@@ -183,11 +187,11 @@ export default async function WorkDetailPage({ params }: CasePageProps) {
       </section>
 
       {caseStudy.platforms ? (
-        <section className="border-y border-line bg-surface-muted py-16 sm:py-24">
-          <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
+        <section className="border-y border-line bg-surface-muted py-12 sm:py-24">
+          <div className="mx-auto max-w-[90rem] px-5 md:px-10 xl:px-16">
             <div className="grid gap-6 border-b border-line pb-8 lg:grid-cols-[minmax(0,0.8fr)_minmax(18rem,0.55fr)] lg:items-end">
               <div>
-                <h2 className="text-3xl font-semibold leading-tight text-balance sm:text-4xl">Designed for the strengths of each platform.</h2>
+                <h2 className="text-2xl font-semibold leading-tight text-balance sm:text-4xl">Designed for the strengths of each platform.</h2>
               </div>
               <p className="text-base leading-7 text-muted">Coach is one product with platform-specific experiences across web, iOS, and Android.</p>
             </div>
@@ -195,8 +199,8 @@ export default async function WorkDetailPage({ params }: CasePageProps) {
               {caseStudy.platforms.map((platform) => {
                 const Icon = platform.icon;
                 return <article key={platform.platform} className="border-b border-line py-7 md:border-b-0 md:px-6 md:first:pl-0 md:not-last:border-r md:last:pr-0">
-                  <Icon className="h-5 w-5 text-accent" aria-hidden="true" />
-                  <p className="mt-6 text-sm font-semibold text-accent">{platform.platform}</p>
+                  <Icon className="h-5 w-5 text-foreground" aria-hidden="true" />
+                  <p className="mt-6 text-sm font-semibold text-foreground">{platform.platform}</p>
                   <h3 className="mt-3 text-xl font-semibold leading-tight">{platform.title}</h3>
                   <p className="mt-3 text-sm leading-6 text-muted">{platform.description}</p>
                 </article>;
@@ -206,14 +210,19 @@ export default async function WorkDetailPage({ params }: CasePageProps) {
         </section>
       ) : null}
 
-      <section className="on-dark bg-foreground py-12 sm:py-16">
-        <div className="mx-auto grid max-w-7xl gap-8 px-5 sm:px-8 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end lg:px-10">
+      <section className="on-dark bg-foreground py-10 sm:py-16">
+        <div className="mx-auto grid max-w-[90rem] gap-8 px-5 md:px-10 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end xl:px-16">
           <div>
             <p className="accent-soft text-sm font-semibold">Next work story</p>
             <Link href={`/work/${nextCase.slug}`} className="mt-3 inline-flex items-center gap-3 text-2xl font-semibold leading-tight transition-opacity hover:opacity-80 sm:text-3xl">
               {nextCase.title}
               <ArrowRight className="h-5 w-5 shrink-0" aria-hidden="true" />
             </Link>
+            <div className="mt-5">
+              <Link href="/work" className="inline-flex min-h-11 items-center border-b border-white/40 text-sm font-semibold transition-colors hover:border-white">
+                All work stories
+              </Link>
+            </div>
           </div>
           <div className="flex flex-col gap-3 sm:flex-row">
             <a href={`mailto:${profile.email}`} className="on-light inline-flex min-h-11 items-center justify-center gap-2 rounded-md bg-surface px-4 text-sm font-semibold transition-colors hover:bg-accent-surface">
@@ -228,6 +237,7 @@ export default async function WorkDetailPage({ params }: CasePageProps) {
         </div>
       </section>
       </main>
+      <PortfolioFooter />
     </>
   );
 }

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Hanken_Grotesk, JetBrains_Mono, Manrope } from "next/font/google";
 import "./globals.css";
+import { HashScroll } from "@/components/hash-scroll";
 import { MotionProvider } from "@/components/motion-provider";
 import { profile } from "@/data/portfolio";
 
@@ -92,6 +93,7 @@ export default function RootLayout({
     <html lang="en" className={`${manrope.variable} ${hankenGrotesk.variable} ${jetBrainsMono.variable}`}>
       <body>
         <MotionProvider />
+        <HashScroll />
         {children}
         <script
           type="application/ld+json"
@@ -113,7 +115,7 @@ export default function RootLayout({
                   "@id": `${siteUrl}/#person`,
                   name: profile.name,
                   url: siteUrl,
-                  jobTitle: "Product Manager III",
+                  jobTitle: "Product Manager",
                   description,
                   homeLocation: {
                     "@type": "Place",

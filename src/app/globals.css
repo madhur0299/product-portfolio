@@ -7,7 +7,6 @@
   --line: #dedede;
   --surface: #ffffff;
   --surface-muted: #f0f0f0;
-  --accent: #050505;
   --accent-strong: #262626;
   --accent-soft: #d4d4d4;
   --accent-surface: #ededed;
@@ -21,7 +20,6 @@
   --color-line: var(--line);
   --color-surface: var(--surface);
   --color-surface-muted: var(--surface-muted);
-  --color-accent: var(--accent);
   --color-accent-strong: var(--accent-strong);
   --color-accent-soft: var(--accent-soft);
   --color-accent-surface: var(--accent-surface);
@@ -29,7 +27,6 @@
   --font-sans: var(--font-hanken-grotesk), "Helvetica Neue", "Segoe UI", ui-sans-serif, system-ui, sans-serif;
   --font-display: var(--font-manrope), "Avenir Next", "Helvetica Neue", "Segoe UI", ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-jetbrains-mono), "SFMono-Regular", "Cascadia Code", ui-monospace, monospace;
-  --shadow-card: 0 12px 30px rgba(0, 0, 0, 0.08);
 }
 
 * {
@@ -38,7 +35,7 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 4.5rem;
+  scroll-padding-top: 4rem;
   background: var(--background);
 }
 
@@ -78,10 +75,11 @@ main {
 
 html[data-reveal-ready="true"] [data-reveal] {
   opacity: 0;
-  transform: translateY(0.65rem);
+  transform: translateY(0.5rem);
   transition:
-    opacity 520ms cubic-bezier(0.22, 1, 0.36, 1),
-    transform 520ms cubic-bezier(0.22, 1, 0.36, 1);
+    opacity 300ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 380ms cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--reveal-delay, 0ms);
 }
 
 html[data-reveal-ready="true"] [data-reveal][data-reveal-visible="true"] {
@@ -89,12 +87,16 @@ html[data-reveal-ready="true"] [data-reveal][data-reveal-visible="true"] {
   transform: translateY(0);
 }
 
-html[data-reveal-ready="true"] [data-reveal-delay="1"] {
-  transition-delay: 70ms;
+/* Parallax layers are moved from JS; keep them off the main paint path. */
+[data-parallax] {
+  will-change: transform;
 }
 
-html[data-reveal-ready="true"] [data-reveal-delay="2"] {
-  transition-delay: 140ms;
+@media (prefers-reduced-motion: reduce) {
+  [data-parallax] {
+    will-change: auto;
+    transform: none !important;
+  }
 }
 
 a {
@@ -103,7 +105,7 @@ a {
 }
 
 :focus-visible {
-  outline: 2px solid var(--accent);
+  outline: 2px solid var(--foreground);
   outline-offset: 3px;
 }
 
@@ -183,71 +185,9 @@ a {
   border-color: rgba(255, 255, 255, 0.15);
 }
 
-.social-link {
-  display: inline-flex;
-  min-width: 2.75rem;
-  min-height: 2.75rem;
-  align-items: center;
-  justify-content: center;
-  border-radius: 0.375rem;
-  color: var(--on-dark);
-  transition: transform 160ms ease-out, filter 160ms ease-out;
-}
-
-.social-link:active {
-  transform: scale(0.96);
-}
-
-.social-linkedin {
-  background: #0a66c2;
-}
-
-.social-linkgithub {
-  background: #111827;
-}
-
-.profile-linkedin {
-  background: #0a66c2;
-}
-
-.profile-github {
-  background: #111827;
-}
-
-@media (hover: hover) {
-  .social-link:hover {
-    filter: brightness(0.9);
-  }
-}
-
-.timeline-trigger {
-  cursor: pointer;
-  transition:
-    background-color 180ms ease-out,
-    color 180ms ease-out,
-    transform 160ms ease-out;
-  touch-action: manipulation;
-}
-
-.timeline-trigger:hover {
-  background: rgba(0, 0, 0, 0.035);
-}
-
-.timeline-trigger:active {
-  transform: scale(0.995);
-}
-
-.experience-entry > summary::-webkit-details-marker {
-  display: none;
-}
-
-.experience-entry-content {
-  transform-origin: top;
-  animation: experience-reveal 260ms cubic-bezier(0.22, 1, 0.36, 1) both;
-}
-
 .experience-accordion-item {
-  scroll-margin-top: 6rem;
+  /* `scroll-padding-top` already clears the sticky header; this is breathing room. */
+  scroll-margin-top: 1.5rem;
 }
 
 .experience-accordion-panel {
@@ -295,131 +235,9 @@ a {
   color: var(--on-dark);
 }
 
-@keyframes experience-reveal {
-  from {
-    opacity: 0;
-    transform: translateY(-0.4rem);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.timeline-chevron {
-  transition:
-    transform 240ms cubic-bezier(0.22, 1, 0.36, 1),
-    border-color 180ms ease-out,
-    background-color 180ms ease-out;
-}
-
-.timeline-trigger:hover .timeline-chevron {
-  border-color: var(--foreground);
-  background: var(--surface-muted);
-}
-
-.timeline-detail {
-  display: grid;
-  grid-template-rows: 0fr;
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  transform: translateY(-0.35rem);
-  transition:
-    grid-template-rows 340ms cubic-bezier(0.22, 1, 0.36, 1),
-    opacity 180ms ease-out,
-    transform 280ms cubic-bezier(0.22, 1, 0.36, 1),
-    visibility 0s linear 340ms;
-}
-
-.timeline-detail[data-open="true"] {
-  grid-template-rows: 1fr;
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
-  transform: translateY(0);
-  transition:
-    grid-template-rows 340ms cubic-bezier(0.22, 1, 0.36, 1),
-    opacity 220ms ease-out,
-    transform 280ms cubic-bezier(0.22, 1, 0.36, 1),
-    visibility 0s linear 0s;
-}
-
-@keyframes mobile-panel-enter {
-  from {
-    opacity: 0;
-    transform: translateY(0.75rem);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.mobile-story-panel {
-  animation: mobile-panel-enter 280ms cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.mobile-portfolio {
-  overscroll-behavior-y: contain;
-}
-
-@keyframes case-opening-enter {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes case-opening-panel-enter {
-  from { opacity: 0; transform: translateY(0.75rem); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.case-opening-overlay {
-  position: fixed;
-  inset: 0;
-  z-index: 100;
-  display: grid;
-  place-items: end start;
-  padding: 1.25rem;
-  background: color-mix(in srgb, var(--surface) 88%, transparent);
-  backdrop-filter: blur(7px);
-  animation: case-opening-enter 160ms ease-out both;
-}
-
-.case-opening-panel {
-  width: min(100%, 26rem);
-  border: 1px solid var(--line);
-  background: var(--surface);
-  padding: 1.15rem;
-  box-shadow: 0 14px 42px rgba(0, 0, 0, 0.13);
-  animation: case-opening-panel-enter 220ms cubic-bezier(0.22, 1, 0.36, 1) both;
-}
-
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
-  }
-
-  .timeline-trigger,
-  .timeline-chevron,
-  .timeline-detail,
-  .social-link,
-  .mobile-story-panel,
-  .mobile-portfolio button,
-  .mobile-portfolio a {
-    animation: none !important;
-    transition: none !important;
-  }
-
-  .case-opening-overlay,
-  .case-opening-panel {
-    animation: none !important;
-  }
-
-  .experience-entry-content {
-    animation: none !important;
   }
 
   main,
@@ -437,17 +255,15 @@ a {
   }
 }
 
-@media (max-width: 767px) {
+@media (min-width: 768px) {
   html {
-    scroll-padding-top: 4.5rem;
+    scroll-padding-top: 5rem;
   }
+}
 
+@media (max-width: 767px) {
   .mobile-dock {
     box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.07);
-  }
-
-  .mobile-dock-dark {
-    box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.18);
   }
 
   .portfolio-grid {

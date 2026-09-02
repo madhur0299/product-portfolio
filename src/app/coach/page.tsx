@@ -1,10 +1,10 @@
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { CoachDemoVideo } from "@/components/coach-demo-video";
 import { PortfolioFooter } from "@/components/portfolio-footer";
 import { SiteHeader } from "@/components/site-header";
-import { coachCapabilities, coachScreens } from "@/data/portfolio";
+import { coachCapabilities, coachScreens, getCaseStudy } from "@/data/portfolio";
 import { pageMetadata } from "@/lib/metadata";
 
 const siteUrl = "https://www.madhurjain.in";
@@ -32,6 +32,8 @@ const platforms = [
     detail: "Material 3 flows, local persistence, background work, secure storage, and Health Connect.",
   },
 ];
+
+const coachCase = getCaseStudy("coach-cross-platform");
 
 export default function CoachPage() {
   const structuredData = {
@@ -66,24 +68,27 @@ export default function CoachPage() {
       <a className="skip-link" href="#coach-content">Skip to Coach</a>
       <SiteHeader />
       <main id="coach-content" className="bg-background text-foreground">
-        <section className="mx-auto max-w-[90rem] px-5 pb-12 pt-14 md:px-10 md:pb-20 md:pt-24 xl:px-16">
-          <p className="font-mono text-[0.68rem] uppercase text-muted">Independent product build</p>
-          <h1 className="mt-4 max-w-5xl text-5xl font-medium leading-none text-balance md:text-7xl">Coach: a cross-platform fitness product.</h1>
-          <p className="mt-6 max-w-3xl text-base leading-7 text-muted md:text-lg md:leading-8">Coach is a personal fitness product I am building across web, iOS, and Android. It connects workout planning, active logging, progress, health data, and trainer workflows.</p>
-          <p className="mt-5 max-w-3xl text-sm leading-6">I define the product model, interaction decisions, platform approach, data model, and implementation. The evidence here is the working build: native interfaces, shared data, platform integrations, and end-to-end flows.</p>
+        <section className="mx-auto max-w-[90rem] px-5 pb-8 pt-10 md:px-10 md:pb-16 md:pt-20 xl:px-16">
+          <p className="font-mono text-[0.7rem] uppercase text-muted">Independent product build</p>
+          <h1 className="mt-4 max-w-5xl text-[1.9rem] font-medium leading-[1.12] text-balance md:text-6xl">Coach: a cross-platform fitness product.</h1>
+          <p className="mt-6 max-w-3xl text-[0.95rem] leading-6 text-muted md:text-lg md:leading-8">Coach is a personal fitness product I am building across web, iOS, and Android. It connects workout planning, active logging, progress, health data, and trainer workflows.</p>
+          <p className="mt-5 max-w-3xl text-sm leading-6">I built it solo, through an AI-native workflow, and it is live in invite-only beta with internal users. I define the product model, the interaction decisions, the platform approach, the data model, the implementation, and the criteria the personalized programs are evaluated against. The evidence here is the working build.</p>
+          {coachCase?.liveUrl ? (
+            <a href={coachCase.liveUrl} target="_blank" rel="noopener noreferrer" className="mt-7 inline-flex min-h-12 items-center gap-2 border-b border-foreground text-sm font-semibold">Open {coachCase.liveLabel} <ArrowUpRight className="h-4 w-4" aria-hidden="true" /></a>
+          ) : null}
         </section>
 
         <section className="mx-auto grid max-w-[90rem] gap-12 px-5 pb-20 md:px-10 md:pb-28 lg:grid-cols-[minmax(18rem,0.58fr)_minmax(0,1fr)] lg:items-start xl:px-16" data-reveal>
           <figure className="mx-auto w-full max-w-sm border border-line bg-surface p-4 md:p-6 lg:sticky lg:top-28">
             <Image src={coachScreens[0].src} alt={coachScreens[0].alt} width={1206} height={2622} priority quality={90} sizes="(min-width: 1024px) 23rem, 85vw" className="h-auto w-full" />
-            <figcaption className="border-t border-line pt-4 text-sm text-muted">Current iOS home screen</figcaption>
+            <figcaption className="border-t border-line pt-4 text-sm text-muted">{coachScreens[0].label} in the current iOS build</figcaption>
           </figure>
           <div className="divide-y divide-line border-y border-line">
             {platforms.map((platform) => (
               <article key={platform.name} className="grid gap-4 py-8 md:grid-cols-[11rem_minmax(0,1fr)] md:py-10">
                 <div>
                   <h2 className="text-2xl font-medium">{platform.name}</h2>
-                  <p className="mt-2 font-mono text-[0.65rem] uppercase text-muted">{platform.stack}</p>
+                  <p className="mt-2 font-mono text-[0.7rem] uppercase text-muted">{platform.stack}</p>
                 </div>
                 <p className="max-w-2xl text-base leading-7 text-muted">{platform.detail}</p>
               </article>
@@ -94,10 +99,10 @@ export default function CoachPage() {
         <section className="bg-foreground py-16 text-on-dark md:py-24">
           <div className="mx-auto max-w-[90rem] px-5 md:px-10 xl:px-16" data-reveal>
             <div className="grid gap-5 border-b border-white/20 pb-8 lg:grid-cols-[minmax(0,0.8fr)_minmax(20rem,0.5fr)] lg:items-end">
-              <h2 className="max-w-3xl text-4xl font-medium leading-tight text-balance md:text-6xl">A working workout flow.</h2>
+              <h2 className="max-w-3xl text-[1.75rem] font-medium leading-[1.15] text-balance md:text-6xl">A working workout flow.</h2>
               <p className="max-w-xl text-base leading-7 text-white/70">The walkthrough shows active set logging, rest, and progress. The adjacent screens show how health context and trainer workflows extend the same product.</p>
             </div>
-            <div className="mt-10 grid gap-5 lg:grid-cols-3">
+            <div className="mt-10 grid gap-5 lg:grid-cols-3" data-reveal-group>
               <figure className="flex min-w-0 flex-col border border-white/20 bg-[#0c0d0d]">
                 <div className="aspect-[9/16] min-h-0 bg-black"><CoachDemoVideo className="h-full w-full" /></div>
                 <figcaption className="border-t border-white/15 p-4">
@@ -120,13 +125,13 @@ export default function CoachPage() {
           </div>
         </section>
 
-        <section className="mx-auto max-w-[90rem] px-5 py-16 md:px-10 md:py-24 xl:px-16" data-reveal>
-          <h2 className="max-w-3xl text-4xl font-medium leading-tight md:text-6xl">What Coach currently covers.</h2>
-          <div className="mt-10 grid border-l border-t border-line sm:grid-cols-2 lg:grid-cols-3">
+        <section className="mx-auto max-w-[90rem] px-5 py-12 md:px-10 md:py-24 xl:px-16" data-reveal>
+          <h2 className="max-w-3xl text-[1.75rem] font-medium leading-[1.15] md:text-6xl">What Coach currently covers.</h2>
+          <div className="mt-10 grid border-l border-t border-line sm:grid-cols-2 lg:grid-cols-3" data-reveal-group>
             {coachCapabilities.map((capability) => {
               const Icon = capability.icon;
               return (
-                <article key={capability.title} className="border-b border-r border-line p-6 md:p-8">
+                <article key={capability.title} data-reveal className="border-b border-r border-line p-5 md:p-8">
                   <Icon className="h-5 w-5" aria-hidden="true" />
                   <h3 className="mt-7 text-xl font-semibold">{capability.title}</h3>
                   <p className="mt-4 text-sm leading-6 text-muted">{capability.description}</p>

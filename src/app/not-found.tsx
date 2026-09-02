@@ -4,16 +4,16 @@ export default function NotFound() {
   return (
     <main className="flex min-h-screen items-center justify-center bg-background px-5">
       <div className="max-w-md text-center">
-        <p className="font-mono text-xs font-semibold uppercase text-accent">
+        <p className="font-mono text-xs font-semibold uppercase text-foreground">
           Not found
         </p>
         <h1 className="mt-3 text-4xl font-semibold">This page is not here.</h1>
         <p className="mt-4 leading-7 text-muted">
-          The portfolio case you opened may have moved or has not been added yet.
+          The page you opened may have moved or has not been written yet.
         </p>
         <Link
           href="/"
-          className="mt-6 inline-flex h-11 items-center justify-center rounded-lg bg-foreground px-4 text-sm font-semibold text-background"
+          className="mt-6 inline-flex h-11 items-center justify-center rounded-md bg-foreground px-4 text-sm font-semibold text-on-dark"
         >
           Back to portfolio
         </Link>

@@ -1,23 +1,11 @@
 import {
   Apple,
   BadgeCheck,
-  BarChart3,
-  Bot,
-  BrainCircuit,
-  Braces,
   ChartNoAxesCombined,
-  Code2,
-  Compass,
   CreditCard,
-  Database,
   Dumbbell,
-  FileSpreadsheet,
-  FlaskConical,
   Globe,
   HeartPulse,
-  Layers,
-  LineChart,
-  MonitorSmartphone,
   Rocket,
   Route,
   ServerCog,
@@ -32,14 +20,17 @@ import {
 
 export type Profile = {
   name: string;
-  role: string;
   location: string;
+  relocation: string;
   email: string;
   phone: string;
+  portrait: string;
+  portraitAlt: string;
   linkedinUrl: string;
   githubUrl: string;
   resumePath: string;
-  headline: string;
+  headlineLead: string;
+  headlineTrail: string;
   summary: string;
   availability: string;
 };
@@ -54,21 +45,6 @@ export type OutcomeMetric = {
   metric: string;
   value: string;
   context: string;
-};
-
-export type Artifact = {
-  title: string;
-  type:
-    | "PRD"
-    | "Dashboard"
-    | "Research"
-    | "Prototype"
-    | "Experiment"
-    | "Launch Doc"
-    | "Architecture"
-    | "Build";
-  status: "Resume-backed" | "Needs redaction" | "Draftable from resume" | "Local proof";
-  description: string;
 };
 
 export type CaseSection = {
@@ -95,42 +71,12 @@ export type CaseStudy = {
   keyDecision: string;
   evidence: string;
   summary: string;
-  image: string;
-  featured?: boolean;
+  liveUrl?: string;
+  liveLabel?: string;
   tags: string[];
   metrics: CaseMetric[];
-  artifacts: Artifact[];
   sections: CaseSection[];
   platforms?: PlatformProof[];
-};
-
-export type ProofItem = {
-  title: string;
-  description: string;
-  type: Artifact["type"];
-  icon: LucideIcon;
-  status: Artifact["status"];
-};
-
-export type ProfileSignal = {
-  label: string;
-  title: string;
-  description: string;
-};
-
-export type ProjectBuild = {
-  slug: string;
-  title: string;
-  eyebrow: string;
-  description: string;
-  impact: string;
-  stack: string[];
-  platforms: string[];
-  source: "Resume-backed" | "Local build" | "GitHub profile" | "Internal build";
-  status: string;
-  href?: string;
-  featured?: boolean;
-  icon: LucideIcon;
 };
 
 export type ProfessionalExperience = {
@@ -155,6 +101,11 @@ export type SkillGroup = {
   skills: string[];
 };
 
+export type ToolGroup = {
+  title: string;
+  tools: string[];
+};
+
 export type CoachScreen = {
   src: string;
   alt: string;
@@ -162,52 +113,38 @@ export type CoachScreen = {
   detail: string;
 };
 
-export type ImpactHighlight = {
-  company: string;
-  description: string;
-  metrics: OutcomeMetric[];
-};
-
 export const profile: Profile = {
   name: "Madhur Jain",
-  role: "AI, data & growth products",
   location: "Gurugram, India",
+  relocation: "Open to relocation",
   email: "madhur.jain02@gmail.com",
   phone: "+91 95301 74692",
+  portrait: "/images/madhur-jain-portrait.jpg",
+  portraitAlt: "Madhur Jain drinking coffee at an outdoor table under a tree",
   linkedinUrl: "https://www.linkedin.com/in/madhurj021199/",
   githubUrl: "https://github.com/madhur0299",
   resumePath: "/resume.pdf",
-  headline:
-    "I turn ambiguity into product decisions teams can build and businesses can measure.",
+  headlineLead: "I ship AI products and define how they get judged.",
+  headlineTrail: "Five years in growth taught me which ones matter.",
   summary:
-    "I combine customer insight, commercial judgment, data fluency, and hands-on AI depth to find the right problem, align the tradeoffs, and carry the work through delivery.",
+    "I started in D2C ecommerce operations and ended up building agents. The through-line is a computer science degree I never stopped using: I can specify a system, decide how it gets evaluated, and stay with it through release.",
   availability:
-    "Open to Senior Product Manager roles focused on growth, monetization, or AI and data products.",
+    "Open to senior product roles in growth, monetization, or AI and data products.",
 };
 
-export const resumeSkills = [
-  "AI Product Management",
-  "AI Workflow Automation",
-  "SQL and Data Analytics",
-  "SQL Validation",
-  "LLM Evaluation",
-  "Evaluation Criteria",
-  "Prompt Evaluation",
-  "LLM Benchmarking",
-  "LLM Prompt Design",
-  "LangChain",
-  "LangGraph",
-  "Retrieval-Augmented Generation (RAG)",
-  "Vector Databases",
-  "Agentic Workflows",
-  "Python",
-  "Data Visualization",
-  "Funnel Analytics",
-  "APIs and Events",
-  "Experimentation",
-  "Product Roadmapping",
-  "Product Analytics",
-  "Data Pipelines",
+export const toolStack: ToolGroup[] = [
+  {
+    title: "AI and data",
+    tools: ["LangChain", "LangGraph", "RAG", "Vector databases", "SQL", "Python", "Golden-dataset evaluation"],
+  },
+  {
+    title: "Analytics and BI",
+    tools: ["GA4", "Mixpanel", "CleverTap", "MoEngage", "Looker", "Power BI", "Metabase"],
+  },
+  {
+    title: "Build and design",
+    tools: ["Figma", "JIRA", "Cursor", "Claude", "Codex", "Lovable", "Xcode", "Android Studio"],
+  },
 ];
 
 export const skillGroups: SkillGroup[] = [
@@ -215,41 +152,59 @@ export const skillGroups: SkillGroup[] = [
     title: "AI products and workflow automation",
     outcome: "Turn business questions and repetitive operating work into evaluated AI workflows.",
     evidence:
-      "At PRISM, I built a two-agent natural-language-to-SQL workflow that reached 85% accuracy against a gold-standard set of business queries. I also lead AI workflow automation for research, reporting, and product documentation.",
+      "At PRISM I shipped a two-agent natural-language-to-SQL workflow that reaches 85% accuracy on a golden dataset of business queries, now used by six teams. I am building a general-manager operations agent across five functions, in pilot at 40 UK and Europe properties, against efficiency and accuracy criteria I defined.",
     skills: [
-      "AI Product Management",
-      "AI Workflow Automation",
-      "LangChain",
-      "LangGraph",
+      "Agentic workflows",
+      "LLM evaluation and benchmarking",
+      "Golden-dataset evaluation",
+      "Text-to-SQL",
       "RAG",
-      "Vector Databases",
-      "Agentic Workflows",
-      "LLM Evaluation",
-      "LLM Benchmarking",
-      "Prompt Evaluation",
-      "LLM Prompt Design",
+      "Prompt design",
+      "Release validation",
     ],
   },
   {
     title: "Growth, monetization, and conversion",
     outcome: "Find leverage in customer journeys and turn it into conversion, subscribers, and revenue.",
     evidence:
-      "Across PRISM, SplashLearn, and Honasa, I have used pricing transparency, web-to-app migration, and D2C funnel work to improve hotel-detail-page-to-booking success, trial-to-paid, and ecommerce conversion.",
-    skills: ["Funnel Analytics", "Experimentation"],
+      "Pricing transparency and a dynamic fee module at PRISM, Android subscriber growth and web-to-app migration at SplashLearn, and homepage, search, and referral funnels at Honasa. The levers differ; the method of finding them does not.",
+    skills: [
+      "Pricing and fees",
+      "Subscription growth",
+      "Funnel analytics",
+      "Experimentation",
+      "Referral and acquisition systems",
+      "Retention and activation",
+      "D2C ecommerce",
+    ],
   },
   {
     title: "Product strategy and delivery",
     outcome: "Move ambiguous opportunities from a decision to a launch with teams aligned around the customer and business.",
     evidence:
-      "Across US consumer pricing and conversion, Android subscriber growth, and multi-brand ecommerce systems, I have set roadmap, tradeoffs, launch conditions, and stakeholder alignment.",
-    skills: ["Product Roadmapping", "Product Judgment", "Stakeholder Leadership"],
+      "Across US consumer pricing and conversion, Android subscriber growth, and multi-brand ecommerce systems, I have set roadmap, tradeoffs, launch conditions, and stakeholder alignment, and owned deployment and release validation for the AI systems I ship.",
+    skills: [
+      "Roadmapping",
+      "GTM and launch",
+      "PRDs and specs",
+      "Release ownership",
+      "Regulatory delivery",
+      "Stakeholder alignment",
+    ],
   },
   {
     title: "Data fluency and technical collaboration",
     outcome: "Work fluently with the systems, instrumentation, and analysis that make product decisions defensible.",
     evidence:
-      "Across PRISM analytics, growth funnels, and Coach, I use SQL, validation, telemetry, APIs, and event architecture to move from a question to a working product decision.",
-    skills: ["SQL and Data Analytics", "SQL Validation", "Product Analytics", "Python", "Data Visualization", "Data Pipelines", "APIs and Events"],
+      "A computer science degree, SQL and Python in daily use, and API and event architecture designed with engineering to support one million transactions a day at Honasa. In Coach I write the product myself across three platforms.",
+    skills: [
+      "SQL",
+      "Python",
+      "Product analytics",
+      "Data pipelines",
+      "APIs and event architecture",
+      "Instrumentation",
+    ],
   },
 ];
 
@@ -257,59 +212,63 @@ export const professionalExperience: ProfessionalExperience[] = [
   {
     company: "PRISM (Parent Company of OYO)",
     timeframe: "November 2025 - Present",
-    overview: "Lead pricing and conversion work for OYO US and G6. I also build AI and data workflows that reduce manual analysis and improve operating decisions.",
+    overview:
+      "Pricing and conversion for the OYO and Motel 6 US portfolio, around 10,000 bookings a day, plus the AI systems behind its analysis and daily property operations.",
     storyHref: "/work/ai-analytics-nl-to-sql",
     storyLabel: "Open the AI workflow case study",
     stages: [
       {
         role: "Product Manager III",
         timeframe: "November 2025 - Present",
-        summary: "Lead pricing and conversion initiatives for OYO US and G6, alongside AI product work that improves team efficiency and operational decision-making.",
+        summary:
+          "US consumer platform, call centre, and G6 platform. Pricing and conversion ownership alongside AI product work for analysis and property operations.",
         achievements: [
-          "Built a dynamic fee module for OYO and G6 with up to $2M in annual cost-margin increase.",
-          "Led FTC pricing-transparency implementation with a 28% reduction in prepaid-page views, 10% better Google Hotel Ads Center price accuracy, and 10% higher hotel-detail-page-to-booking success.",
-          "Lead AI PM initiatives that automate research, marketing benchmarks, daily Teams reporting, and PRD workflows with Cowork to reduce manual synthesis.",
-          "Built a two-agent natural-language-to-SQL workflow with 85% accuracy on gold-standard business queries.",
-          "Made product and operational data easier for business teams to query without analyst translation.",
+          "Shipped a natural-language-to-SQL analytics agent at 85% accuracy against a golden dataset of business queries, using a two-agent architecture that generates SQL, executes queries, and visualizes outputs.",
+          "Rolled the agent out across six teams, moving day-to-day analysis ownership from analysts to product and business owners.",
+          "Building a general-manager operations agent for daily property operations, in pilot across 40 UK and Europe properties and five functions: finance, ground operations, vendor, compliance, and revenue, against efficiency and accuracy criteria I defined.",
+          "Own deployment and release validation for both systems, and automated internal PM workflows for research, benchmarking, Teams reporting, and PRDs.",
+          "Built a data-backed dynamic fee module across the OYO and G6 brands, adding $2M in annual margin.",
+          "Led FTC pricing-transparency compliance without losing conversion: simplified the prepaid funnel to cut page views 28%, improved Google Hotel Ads Center price accuracy 10%, and lifted hotel-detail-page-to-booking conversion 10%.",
         ],
       },
     ],
     outcomes: [
       {
-        metric: "Conversion",
+        metric: "Booking conversion",
         value: "+10%",
-        context: "Hotel-detail-page-to-booking success after FTC pricing-transparency work.",
+        context: "Hotel-detail-page-to-booking on a US portfolio running ~10,000 bookings a day.",
       },
       {
-        metric: "Commercial scope",
-        value: "Pricing and fees",
-        context: "Led pricing-transparency work and built a dynamic fee module across OYO and G6.",
+        metric: "Annual margin",
+        value: "+$2M",
+        context: "From the dynamic fee module built across the OYO and G6 brands.",
       },
       {
-        metric: "Annual cost-margin increase",
-        value: "Up to $2M",
-        context: "Annual cost-margin increase from the dynamic fee module.",
+        metric: "AI adoption",
+        value: "6 teams",
+        context: "Running their own analysis through the NL-to-SQL agent instead of routing through analysts.",
       },
     ],
   },
   {
     company: "SplashLearn",
     timeframe: "May 2024 - November 2025",
-    overview: "Led subscriber growth and retention for the Android app, including activation and web-to-app migration at an elementary-learning platform.",
+    overview:
+      "Led subscriber growth and retention for the Android app at an elementary-learning platform, covering launch quality, activation, web-to-app migration, and content operations.",
     storyHref: "/work/android-subscriber-growth",
     storyLabel: "Open the mobile growth case study",
     stages: [
       {
         role: "Product Manager",
         timeframe: "May 2024 - November 2025",
-        summary: "Led Android launch, activation, migration, retention, and content-operations initiatives.",
+        summary: "Subscriber growth and retention for the Android app.",
         achievements: [
-          "Launched the Android app to 1,000 monthly subscribers within six months and $5K in recurring revenue growth.",
-          "Improved Play Store rating from 2.3 to 4.0, Day-0 engagement by 25%, and playable-start rate by 30%.",
-          "Diagnosed a Day-0 engagement gap between iPhone and iPad users and led a dashboard redesign that improved early engagement by 10%.",
-          "Launched web-to-app migration that converted 70% of mobile-web users, lifted trial-to-paid by 15%, and added 800 incremental subscribers each month.",
-          "Developed a first-time-user game-download algorithm that reduced Day-1 cancellations by 15% and improved trial-to-paid by 8%; subscriber LTV was $55.",
-          "Designed a GPT-4o mini transcript workflow that reduced the content cycle from six weeks to two weeks.",
+          "Launched the Android app and grew it to 1,000 monthly subscribers within six months.",
+          "Diagnosed engagement drop-off and shipped fixes that raised the Play Store rating from 2.3 to 4.0, Day-0 engagement 25%, and playable starts 30%.",
+          "Traced a Day-0 gap between iPhone and iPad users to dashboard layout and redesigned it for 10% higher early engagement.",
+          "Launched web-to-app migration, converting 70% of mobile-web users and lifting trial-to-paid 15%, adding 800 incremental subscribers a month.",
+          "Built a first-time game-download algorithm that cut Day-1 cancellations 15% and raised trial-to-paid 8%, at $55 LTV per subscriber.",
+          "Designed a GPT-4o mini transcript workflow that reduced the content cycle from six weeks to two.",
         ],
       },
     ],
@@ -317,7 +276,7 @@ export const professionalExperience: ProfessionalExperience[] = [
       {
         metric: "Trial-to-paid",
         value: "+15%",
-        context: "Lift from the web-to-app migration flow.",
+        context: "Lift from the web-to-app migration flow, plus 800 incremental subscribers a month.",
       },
       {
         metric: "Subscribers",
@@ -325,72 +284,67 @@ export const professionalExperience: ProfessionalExperience[] = [
         context: "Android subscribers within six months of launch.",
       },
       {
-        metric: "Revenue",
-        value: "+$5K recurring",
-        context: "Recurring revenue growth associated with the Android app launch.",
+        metric: "Subscriber LTV",
+        value: "$55",
+        context: "Lifetime value per subscriber on the plans this work grew.",
       },
     ],
   },
   {
     company: "Honasa Consumer Limited (Mamaearth)",
     timeframe: "March 2021 - May 2024",
-    overview: "Progressed from Product Management Intern to Product Manager across Mamaearth, Aqualogica, BBlunt, Yotobox, referral systems, and house-of-brands product infrastructure.",
+    overview:
+      "Intern to Product Manager across Mamaearth, Aqualogica, BBlunt, and Yotobox, owning the Aqualogica website, referral systems, and shared ecommerce infrastructure.",
     storyHref: "/work/d2c-referral-conversion",
     storyLabel: "Open the D2C conversion case study",
     stages: [
       {
         role: "Product Manager",
         timeframe: "April 2023 - May 2024",
-        summary: "Led Aqualogica growth and website analytics, the end-to-end website lifecycle, and referral and acquisition work across Honasa brands.",
+        summary: "Aqualogica, the referral system, and house-of-brands product work.",
         achievements: [
-          "Spearheaded Aqualogica product initiatives contributing to an INR 175 Cr revenue run rate.",
-          "Led strategy, roadmap, UX, data analysis, QA, copywriting, and operational setup across the website lifecycle.",
-          "Improved homepage conversion by 15% and search conversion by 17% through funnel analysis and iteration.",
-          "Owned referrals across web, Android, iOS, and Yotobox; targeted cohort visibility lifted referral signups to 8% of organic daily acquisition and referral users converted at 40% versus 20% for signup users.",
-          "Reduced first-order discount percentage for Yotobox-acquired users by 25% across Honasa brands.",
+          "Sole product owner of aqualogica.in, the D2C website behind Aqualogica's INR 175 Cr (~$21M) annual revenue run rate; led GTM launch, strategy, roadmap, UX, analytics, QA, copy, and operations.",
+          "Rebuilt the homepage and search funnels off conversion analysis, improving homepage conversion 15% and search conversion 17%.",
+          "Owned the referral system across web, Android, iOS, and Yotobox; its MamaCash wallet-credit incentive drove 40% conversion for referral signups versus 20% for organic, and cohort-targeted visibility grew daily referral signups to 8% of organic daily acquisition.",
+          "Reduced first-order discounts for Yotobox-acquired users 25% across Honasa brands.",
         ],
       },
       {
         role: "Associate Product Manager",
         timeframe: "September 2021 - March 2023",
-        summary: "Built acquisition systems, supported new brand launches, and partnered on scalable platform foundations.",
+        summary: "Acquisition systems, new brand launches, and scalable platform foundations.",
         achievements: [
-          "Benchmarked Aqualogica as the fastest Honasa brand to reach an INR 100 Cr annual run rate.",
-          "Implemented referral systems on the Mamaearth website and app to reduce new-user CPC.",
-          "Launched the Aqualogica platform in under 50 days and the BBlunt devices site on Shopify with an AOV above INR 2,500.",
-          "Partnered with engineering on API contracts and event architecture supporting one million transactions per day.",
+          "Scaled Aqualogica to Honasa's fastest 0-to-100 Cr annual run rate.",
+          "Shipped the referral system on the Mamaearth website and app, cutting acquisition cost per new order from Rs. 620 to Rs. 580.",
+          "Launched the BBlunt devices site on Shopify at Rs. 2,500+ AOV, and the Aqualogica platform in under 50 days.",
+          "Partnered with engineering on scalable API contracts and event architecture supporting one million transactions per day.",
         ],
       },
       {
         role: "Product Management Intern",
         timeframe: "March 2021 - September 2021",
-        summary: "Worked on fraud and post-purchase operations for the Mamaearth customer journey.",
+        summary: "Fraud and post-purchase operations for the Mamaearth customer journey.",
         achievements: [
-          "Automated fraud detection and cancellation, eliminating manual review effort.",
-          "Improved Magento, Unicommerce, and Shiprocket integrations to reduce non-serviceable orders to zero.",
+          "Automated fraud detection and order cancellation, eliminating manual review effort.",
+          "Streamlined the post-purchase flow across Magento, Unicommerce, and Shiprocket, cutting non-serviceable orders to near-zero.",
         ],
       },
     ],
     outcomes: [
       {
-        metric: "Conversion",
-        value: "+15% / +17%",
-        context: "Homepage and search conversion improvements through funnel iteration.",
-      },
-      {
         metric: "Brand run rate",
         value: "INR 175 Cr",
-        context: "Aqualogica revenue run rate; product initiatives contributed to the brand's growth.",
+        context: "Roughly $21M annual revenue on Aqualogica's D2C website, which I owned end to end.",
       },
       {
-        metric: "First-order discount",
-        value: "-25% discount",
-        context: "Reduction for Yotobox-acquired users across Honasa brands.",
+        metric: "Conversion",
+        value: "+15% / +17%",
+        context: "Homepage and search conversion, rebuilt off funnel analysis.",
       },
       {
-        metric: "AOV",
-        value: "> INR 2,500",
-        context: "Average order value on the BBlunt devices Shopify launch.",
+        metric: "Platform scale",
+        value: "1M/day",
+        context: "Transactions supported by the API contracts and event architecture built with engineering.",
       },
     ],
   },
@@ -398,16 +352,16 @@ export const professionalExperience: ProfessionalExperience[] = [
 
 export const coachScreens: CoachScreen[] = [
   {
+    src: "/images/coach/ios/health-insights.png",
+    alt: "Coach iOS app showing Health insights with 8,462 steps, 486 active kcal, 7.6 hours of sleep, resting heart rate, HRV, weight, and recent workouts",
+    label: "Health insights",
+    detail: "Apple Health context",
+  },
+  {
     src: "/images/coach/ios/home-dashboard.png",
     alt: "Coach iOS home dashboard showing a Tuesday Back workout, steps, streak, weekly progress, and five primary navigation areas",
     label: "Home dashboard",
     detail: "Daily training plan",
-  },
-  {
-    src: "/images/coach/ios/health-insights.png",
-    alt: "Coach iOS app showing Health insights with steps, active calories, sleep, recovery, and body data",
-    label: "Health insights",
-    detail: "Health data",
   },
   {
     src: "/images/coach/ios/personal-training.png",
@@ -417,241 +371,7 @@ export const coachScreens: CoachScreen[] = [
   },
 ];
 
-export const strengths = [
-  {
-    title: "Product Judgment",
-    description:
-      "Turns ambiguous business goals into clear product bets, decision criteria, tradeoffs, and measurable outcomes.",
-    icon: Compass,
-  },
-  {
-    title: "Cross-platform Builder",
-    description:
-      "Can reason across web, iOS, Android, data, integrations, and user experience instead of stopping at a roadmap.",
-    icon: MonitorSmartphone,
-  },
-  {
-    title: "AI and Data Products",
-    description:
-      "Builds analytics workflows, SQL-backed insights, LLM evaluation loops, automation systems, and PM tools for faster decisions.",
-    icon: BrainCircuit,
-  },
-  {
-    title: "Growth and Monetization",
-    description:
-      "Improves conversion, retention, pricing, acquisition, and subscription economics across consumer app and web surfaces.",
-    icon: LineChart,
-  },
-];
-
-export const profileSignals: ProfileSignal[] = [
-  {
-    label: "Current lane",
-    title: "PM3 with senior PM and AI/Data PM positioning",
-    description:
-      "The latest resume positions you for Product Manager III, Senior Product Manager, AI Product Manager, Data PM, Growth PM, and product-builder roles.",
-  },
-  {
-    label: "Builder proof",
-    title: "Coach spans web, iOS, and Android",
-    description:
-      "Coach is a self-built fitness product suite across Next.js web, SwiftUI iOS, and Kotlin/Jetpack Compose Android surfaces.",
-  },
-  {
-    label: "Commercial PM range",
-    title: "Growth, monetization, ecommerce, subscriptions, and analytics",
-    description:
-      "Your professional work spans US consumer products and AI PM initiatives at PRISM, OYO pricing and conversion, SplashLearn app subscriptions, and Mamaearth/Aqualogica D2C growth.",
-  },
-  {
-    label: "Operating style",
-    title: "Strategy through hands-on execution",
-    description:
-      "The strongest through-line is funnel analysis, UX decisions, QA, instrumentation, launch readiness, automation, and measurable iteration.",
-  },
-];
-
-export const projectBuilds: ProjectBuild[] = [
-  {
-    slug: "coach-cross-platform",
-    title: "Coach across web, iOS, and Android",
-    eyebrow: "Independent product build",
-    description:
-      "A self-built workout planning, logging, progress, health, and trainer product across web, iOS, and Android.",
-    impact:
-      "Shows product judgment, technical depth, platform thinking, Supabase-backed architecture, HealthKit/Health Connect integrations, and end-to-end execution.",
-    stack: ["Next.js", "SwiftUI", "Kotlin", "Supabase", "HealthKit", "Health Connect"],
-    platforms: ["Web", "iOS", "Android"],
-    source: "Local build",
-    status: "Built from scratch",
-    href: "/work/coach-cross-platform",
-    featured: true,
-    icon: Dumbbell,
-  },
-  {
-    slug: "ai-analytics-nl-to-sql",
-    title: "Two-agent NL-to-SQL analytics workflow",
-    eyebrow: "AI analytics system",
-    description:
-      "A natural-language analytics workflow that generates SQL, executes queries, and visualizes results for business users.",
-    impact:
-      "85% SQL accuracy against a gold-standard set of business queries, with the evaluation method ready to document.",
-    stack: ["LLMs", "SQL", "Evaluation", "Dashboards"],
-    platforms: ["Internal product"],
-    source: "Resume-backed",
-    status: "Professional work",
-    href: "/work/ai-analytics-nl-to-sql",
-    icon: Bot,
-  },
-  {
-    slug: "gpt-content-automation",
-    title: "GPT-4o mini transcript automation",
-    eyebrow: "Workflow automation",
-    description:
-      "An LLM-assisted workflow that reduced the content production cycle for learning-game transcripts.",
-    impact:
-      "Compressed a 6-week workflow into 2 weeks while supporting faster app iteration and content freshness.",
-    stack: ["GPT-4o mini", "Workflow design", "QA", "Ops"],
-    platforms: ["Internal workflow"],
-    source: "Resume-backed",
-    status: "Professional work",
-    icon: Braces,
-  },
-  {
-    slug: "github-profile",
-    title: "GitHub profile",
-    eyebrow: "Public builder identity",
-    description:
-      "Public GitHub profile for open-source and future Coach publishing. Sparse legacy repos are not featured as portfolio proof.",
-    impact:
-      "Keeps the portfolio honest while still giving technical hiring teams a direct profile link.",
-    stack: ["GitHub", "Portfolio proof", "Builder signal"],
-    platforms: ["Profile"],
-    source: "GitHub profile",
-    status: "Profile link",
-    href: profile.githubUrl,
-    icon: Code2,
-  },
-];
-
 export const caseStudies: CaseStudy[] = [
-  {
-    slug: "coach-cross-platform",
-    eyebrow: "Independent product build",
-    title: "Coach: one fitness product across web, iOS, and Android",
-    company: "Personal product build",
-    timeframe: "2026",
-    role: "Product Manager and Builder",
-    mandate:
-      "Create a real workout product that can plan routines, guide active sessions, track progress, connect health data, and support trainer workflows across web, iOS, and Android.",
-    keyDecision:
-      "Designed Coach as one product system with platform-native surfaces instead of a single prototype: Next.js web for hosted workflows, SwiftUI for Apple-native training, and Kotlin/Compose for Android.",
-    evidence:
-      "This is an active personal build. The screenshots on this page show the product in use across its web and mobile surfaces.",
-    image: "/images/coach-product-system.png",
-    featured: true,
-    summary:
-      "Built Coach from scratch: a cross-platform fitness product for planning workouts, logging sessions, tracking progress, connecting health data, and supporting personal training workflows.",
-    tags: ["Cross-platform", "Next.js", "SwiftUI", "Kotlin", "Supabase", "Health data"],
-    metrics: [
-      {
-        label: "My role",
-        value: "End to end",
-        context: "Product definition, interaction design, and build execution",
-      },
-      {
-        label: "Platforms",
-        value: "3",
-        context: "Web, iOS, and Android with platform-specific experiences",
-      },
-      {
-        label: "Product scope",
-        value: "Full journey",
-        context: "Planning, active logging, progress review, health context, and trainer workflows",
-      },
-    ],
-    platforms: [
-      {
-        platform: "Web",
-        title: "Next.js hosted training product",
-        description:
-          "Mobile-first web/PWA with invite auth, onboarding, workout logging, templates, library, calendar, progress, friends, profile, admin, and trainer workflows.",
-        stack: ["Next.js App Router", "Vercel", "Supabase Auth", "Postgres RLS", "TypeScript"],
-        icon: Globe,
-      },
-      {
-        platform: "iOS",
-        title: "SwiftUI native Coach app",
-        description:
-          "Native iOS surface with onboarding, workout logging, HealthKit steps and insights, progress dashboard, widgets, Live Activities, Dynamic Island, and personal training entry points.",
-        stack: ["SwiftUI", "Supabase", "HealthKit", "ActivityKit", "WidgetKit"],
-        icon: Apple,
-      },
-      {
-        platform: "Android",
-        title: "Kotlin/Compose Android app",
-        description:
-          "Android app configured with Material 3, Room, WorkManager, secure storage, Health Connect/Fitness, Supabase auth/postgrest, and web bridge URL.",
-        stack: ["Kotlin", "Jetpack Compose", "Room", "WorkManager", "Health Connect"],
-        icon: Smartphone,
-      },
-    ],
-    artifacts: [
-      {
-        title: "Cross-platform architecture map",
-        type: "Architecture",
-        status: "Local proof",
-        description:
-          "Map web, iOS, Android, Supabase, health integrations, trainer flows, and app-specific responsibilities.",
-      },
-      {
-        title: "Coach product teardown",
-        type: "PRD",
-        status: "Draftable from resume",
-        description:
-          "Document target users, core jobs, workflows, platform choices, onboarding, workout logging, and trainer expansion.",
-      },
-      {
-        title: "Platform screenshots and demo states",
-        type: "Prototype",
-        status: "Local proof",
-        description:
-          "Use redacted/local screenshots for dashboard, workout logger, progress, trainer, Live Activity, and Android surfaces.",
-      },
-    ],
-    sections: [
-      {
-        title: "The user problem",
-        body:
-          "Workout products often split planning, active logging, progress review, trainer support, and health context across separate tools. Coach explores what a single cross-platform product system can look like when those jobs are connected.",
-      },
-      {
-        title: "The product decision",
-        body:
-          "The web app handles hosted workflows such as onboarding, templates, workout sessions, calendar, progress, friends, profile, admin, and trainer flows. Native apps bring the experience closer to the workout with Apple Health, Health Connect, widgets, Live Activities, and device-specific interaction patterns.",
-      },
-      {
-        title: "What I built for web",
-        body:
-          "The Next.js app uses App Router, Vercel, Supabase Auth, Supabase Postgres with Row Level Security, mobile web/PWA behavior, demo mode, trainer directory, bookings, chat, packages, and owner/admin workflows.",
-      },
-      {
-        title: "What I built for iOS",
-        body:
-          "The SwiftUI app includes auth/session restore, onboarding, tabbed navigation, workout start/resume, set logging, progress dashboard, Apple Health steps and insights, Live Activities, Dynamic Island surfaces, widgets, and personal training discovery.",
-      },
-      {
-        title: "What I built for Android",
-        body:
-          "The Android surface uses Kotlin, Jetpack Compose, Material 3, Room, WorkManager, secure crypto storage, Health Connect/Fitness libraries, Supabase auth/postgrest, and a configurable Coach web URL.",
-      },
-      {
-        title: "Why this matters to my product practice",
-        body:
-          "Coach is where I test product decisions end to end: from the user workflow and platform choice to implementation details and the experience in someone’s hand.",
-      },
-    ],
-  },
   {
     slug: "ai-analytics-nl-to-sql",
     eyebrow: "AI analytics product",
@@ -664,49 +384,25 @@ export const caseStudies: CaseStudy[] = [
     keyDecision:
       "Separated SQL generation from execution and visualization so answer quality could be measured, debugged, and trusted.",
     evidence:
-      "The resume reports 85% SQL accuracy against a gold-standard set of business queries. It does not disclose benchmark size, usage, or adoption.",
-    image: "/images/ai-analytics-case.png",
+      "Evaluated at 85% accuracy against a golden dataset of business queries, and now used by six teams. The query set, the underlying tables, and internal usage data are confidential.",
     summary:
       "Built a two-agent natural-language-to-SQL workflow that helps product and operations teams query business data, execute SQL, and inspect visual outputs without analyst translation.",
-    tags: ["AI PM", "Data Products", "SQL", "Automation", "Dashboards"],
+    tags: ["AI PM", "Data Products", "SQL", "Evaluation", "Automation"],
     metrics: [
       {
         label: "Evaluation result",
         value: "85%",
-        context: "Accuracy against gold-standard natural-language business queries",
+        context: "Accuracy against a golden dataset of business queries",
+      },
+      {
+        label: "Teams using it",
+        value: "6",
+        context: "Running their own analysis instead of routing through analysts",
       },
       {
         label: "Workflow design",
-        value: "Two-agent system",
-        context: "Separated SQL generation from query execution and visualization",
-      },
-      {
-        label: "Primary users",
-        value: "Business teams",
-        context: "Product and operations teams exploring data through natural language",
-      },
-    ],
-    artifacts: [
-      {
-        title: "NL-to-SQL evaluation brief",
-        type: "Research",
-        status: "Draftable from resume",
-        description:
-          "Document the evaluation method, known-good comparisons, and accuracy result without exposing internal queries.",
-      },
-      {
-        title: "Analytics workflow PRD",
-        type: "PRD",
-        status: "Draftable from resume",
-        description:
-          "Document user jobs, data access assumptions, query execution rules, and visualization expectations.",
-      },
-      {
-        title: "Evaluation scorecard",
-        type: "Dashboard",
-        status: "Draftable from resume",
-        description:
-          "Show how generated SQL was compared with known-good answers and how the 85% accuracy result was assessed.",
+        value: "Two agents",
+        context: "SQL generation separated from execution and visualization",
       },
     ],
     sections: [
@@ -723,27 +419,83 @@ export const caseStudies: CaseStudy[] = [
       {
         title: "How I made the workflow trustworthy",
         body:
-          "Discovery centered on repeated business queries, common SQL patterns, data-table ambiguity, and the moments where teams waited for analyst support.",
-      },
-      {
-        title: "The delivery tradeoff",
-        body:
-          "The product bet was to make analytics conversational while still measurable: evaluate generated SQL against known-good answers, separate generation from execution, and make output quality visible.",
+          "Discovery centered on repeated business queries, common SQL patterns, data-table ambiguity, and the moments where teams waited for analyst support. I built a golden dataset of those queries with known-good answers, and made accuracy against it the release gate rather than a review step afterwards.",
       },
       {
         title: "What shipped",
         body:
-          "The workflow used a two-agent architecture to generate SQL, execute queries, and return visual outputs, with quality measured against known-good answers. In parallel, I automated PM workflows for research, marketing benchmarks, daily Teams reporting, and PRD creation using Cowork.",
+          "A two-agent architecture generates SQL, executes queries, and returns visual outputs, with quality measured against the golden dataset. I own deployment and release validation. In parallel, I automated PM workflows for research, marketing benchmarks, daily Teams reporting, and PRD creation.",
       },
       {
         title: "What changed",
         body:
-          "The natural-language-to-SQL workflow reached 85% accuracy against gold-standard business queries and gave business users a route to explore product and operational data with less analyst dependency.",
+          "The workflow reached 85% accuracy on the golden dataset and rolled out across six teams, moving day-to-day analysis ownership from analysts to the product and business owners who ask the questions.",
       },
       {
         title: "What I would carry forward",
         body:
-          "For AI products, a useful answer is not enough. The evaluation loop, known-good comparisons, and a legible path to inspect output are part of the product itself.",
+          "For AI products, a useful answer is not enough. The evaluation loop, the known-good comparisons, and a legible path to inspect output are part of the product itself.",
+      },
+    ],
+  },
+  {
+    slug: "gm-operations-agent",
+    eyebrow: "Agentic operations product",
+    title: "An operations agent for property general managers",
+    company: "PRISM (Parent Company of OYO)",
+    timeframe: "In pilot",
+    role: "Product Manager III",
+    mandate:
+      "Give property general managers one daily operating assistant across finance, ground operations, vendor management, compliance, and revenue, instead of five separate workflows.",
+    keyDecision:
+      "Scope the agent by operating function, and define the efficiency and accuracy criteria it has to meet before it scales past the pilot.",
+    evidence:
+      "In pilot across 40 UK and Europe properties. Pilot results, the acceptance criteria themselves, and property-level data are confidential.",
+    summary:
+      "Building a general-manager operations agent for daily property operations, scoped across five operating functions and piloting at 40 UK and Europe properties against efficiency and accuracy criteria I defined.",
+    tags: ["AI PM", "Agentic Workflows", "Operations", "Evaluation"],
+    metrics: [
+      {
+        label: "Pilot footprint",
+        value: "40",
+        context: "UK and Europe properties running the agent",
+      },
+      {
+        label: "Operating functions",
+        value: "5",
+        context: "Finance, ground operations, vendor, compliance, and revenue",
+      },
+      {
+        label: "Status",
+        value: "In pilot",
+        context: "Measured against efficiency and accuracy criteria I defined",
+      },
+    ],
+    sections: [
+      {
+        title: "The business situation",
+        body:
+          "A property general manager's day spans finance, ground operations, vendor management, compliance, and revenue. Each has its own systems, reporting, and escalation path, and the work of holding them together lands on one person.",
+      },
+      {
+        title: "The decision I owned",
+        body:
+          "Rather than one general assistant, I scoped the agent by operating function. Each function can then be specified, evaluated, and released on its own timeline, and a weak function does not hold back the rest.",
+      },
+      {
+        title: "How I made it measurable",
+        body:
+          "I defined the efficiency and accuracy criteria the agent is held to before the pilot started. It is the same principle as the NL-to-SQL workflow: the evaluation is part of the product, not a review after it.",
+      },
+      {
+        title: "Where it is now",
+        body:
+          "The agent is in pilot across 40 properties in the UK and Europe, covering all five functions. I own deployment and release validation for it alongside the analytics agent.",
+      },
+      {
+        title: "What the pilot is testing",
+        body:
+          "Whether function-scoped agents hold their accuracy in daily operating use, and where a general manager still needs to be in the loop rather than reviewing after the fact.",
       },
     ],
   },
@@ -759,8 +511,7 @@ export const caseStudies: CaseStudy[] = [
     keyDecision:
       "Treated growth as a system across app launch quality, engagement instrumentation, web-to-app migration, and LLM-assisted content velocity.",
     evidence:
-      "The outcomes are resume-backed. Detailed cohorts, experimentation dashboards, and proprietary product screens are confidential.",
-    image: "/images/app-growth-case.png",
+      "Every number here is one I owned and measured. Cohort detail, experiment dashboards, and product screens are confidential.",
     summary:
       "Launched and improved the Android app, pairing engagement analytics, onboarding improvements, web-to-app migration, and content automation to grow subscribers and early retention.",
     tags: ["Mobile Growth", "Retention", "Subscription", "Analytics", "LLM Workflow"],
@@ -773,35 +524,12 @@ export const caseStudies: CaseStudy[] = [
       {
         label: "Trial-to-paid",
         value: "+15%",
-        context: "From seamless web-to-app migration",
+        context: "From web-to-app migration, plus 800 incremental subscribers a month",
       },
       {
         label: "Content cycle",
         value: "6w to 2w",
-        context: "Using GPT-4o mini transcript workflow",
-      },
-    ],
-    artifacts: [
-      {
-        title: "App growth dashboard",
-        type: "Dashboard",
-        status: "Draftable from resume",
-        description:
-          "Add anonymized Day-0 engagement, playable start rate, cancellation, and trial-to-paid views.",
-      },
-      {
-        title: "Migration flow prototype",
-        type: "Prototype",
-        status: "Draftable from resume",
-        description:
-          "Show the decision flow from mobile web intent to app install, activation, and payment.",
-      },
-      {
-        title: "Retention experiment log",
-        type: "Experiment",
-        status: "Draftable from resume",
-        description:
-          "Capture hypotheses, cohorts, release dates, measurement windows, and results.",
+        context: "Using a GPT-4o mini transcript workflow",
       },
     ],
     sections: [
@@ -833,7 +561,7 @@ export const caseStudies: CaseStudy[] = [
       {
         title: "What changed",
         body:
-          "The app reached 1,000 monthly subscribers within six months and $5K in recurring revenue growth. The work also lifted Day-0 engagement by 25%, playable-start rate by 30%, web-to-app trial-to-paid by 15%, and reduced Day-1 cancellations by 15%. Subscriber LTV was $55.",
+          "The app reached 1,000 monthly subscribers within six months. The work lifted the Play Store rating from 2.3 to 4.0, Day-0 engagement 25%, playable starts 30%, and web-to-app trial-to-paid 15%, added 800 incremental subscribers a month, and cut Day-1 cancellations 15%, at $55 LTV per subscriber.",
       },
       {
         title: "What I would carry forward",
@@ -854,21 +582,20 @@ export const caseStudies: CaseStudy[] = [
     keyDecision:
       "Treat brand growth, customer acquisition, launch readiness, and platform scale as connected product systems rather than isolated website changes.",
     evidence:
-      "The outcomes are resume-backed. Brand dashboards, referral cohorts, and launch documentation are confidential.",
-    image: "/images/ecommerce-growth-case.png",
+      "Every number here is one I owned and measured. Brand dashboards, referral cohorts, and launch documentation are confidential.",
     summary:
-      "Progressed from product operations into product ownership across Aqualogica growth, Mamaearth acquisition, brand launches, referral systems, and scalable ecommerce infrastructure.",
+      "Progressed from product operations into sole ownership of Aqualogica's D2C website, alongside Mamaearth acquisition, brand launches, referral systems, and scalable ecommerce infrastructure.",
     tags: ["Ecommerce", "Referral", "Conversion", "Funnels", "API Events"],
     metrics: [
       {
-        label: "Aqualogica revenue run rate",
+        label: "Aqualogica run rate",
         value: "INR 175 Cr",
-        context: "Aqualogica revenue run rate; product initiatives contributed to the brand's growth",
+        context: "Roughly $21M a year on the D2C website I owned end to end",
       },
       {
         label: "Homepage and search conversion",
         value: "+15% / +17%",
-        context: "Improvement through funnel analysis and website iteration",
+        context: "Rebuilt off funnel and conversion analysis",
       },
       {
         label: "Platform scale",
@@ -876,34 +603,11 @@ export const caseStudies: CaseStudy[] = [
         context: "Transactions supported by API contracts and event architecture",
       },
     ],
-    artifacts: [
-      {
-        title: "Referral system PRD",
-        type: "PRD",
-        status: "Draftable from resume",
-        description:
-          "Add goals, cohort rules, visibility changes, incentive logic, abuse checks, and launch criteria.",
-      },
-      {
-        title: "Funnel diagnostics board",
-        type: "Dashboard",
-        status: "Draftable from resume",
-        description:
-          "Show homepage, search, signup, referral, acquisition, and discount-rate diagnostics.",
-      },
-      {
-        title: "Launch readiness checklist",
-        type: "Launch Doc",
-        status: "Draftable from resume",
-        description:
-          "Capture QA, copy, analytics, operational setup, and go-live dependencies.",
-      },
-    ],
     sections: [
       {
         title: "How my scope grew",
         body:
-          "Joined Honasa as a Product Management Intern, moved to Associate Product Manager, and then Product Manager. The scope grew from fraud and post-purchase operations into acquisition systems, launches, Aqualogica growth, and shared ecommerce infrastructure.",
+          "I joined Honasa as a Product Management Intern, moved to Associate Product Manager, and then Product Manager. The scope grew from fraud and post-purchase operations into acquisition systems, launches, sole ownership of Aqualogica's website, and shared ecommerce infrastructure.",
       },
       {
         title: "The business situation",
@@ -918,17 +622,17 @@ export const caseStudies: CaseStudy[] = [
       {
         title: "How I worked through the tradeoffs",
         body:
-          "The strategy was to treat acquisition and conversion as a connected system: improve visibility for targeted cohorts, measure drip-funnel contribution, reduce inefficient discounting, and strengthen scalable instrumentation.",
+          "The strategy was to treat acquisition and conversion as a connected system: improve visibility for targeted cohorts, measure funnel contribution, reduce inefficient discounting, and strengthen scalable instrumentation.",
       },
       {
         title: "What I shipped",
         body:
-          "Execution included end-to-end website lifecycle ownership, referral systems across websites and apps, the Mamaearth web-and-app referral launch to reduce new-user CPC, Aqualogica and BBlunt launches, Shopify rollout, and API/event architecture with engineering.",
+          "End-to-end ownership of aqualogica.in, referral systems across web, Android, iOS, and Yotobox with a MamaCash wallet-credit incentive, the Mamaearth referral launch, the Aqualogica and BBlunt launches, the Shopify rollout, and API and event architecture built with engineering.",
       },
       {
         title: "What changed",
         body:
-          "Aqualogica product initiatives contributed to an INR 175 Cr revenue run rate, while homepage and search conversion improved by 15% and 17%. Referral signups reached 8% of organic daily acquisition, referral users converted at 40% versus 20% for signup users, Yotobox-acquired users required 25% lower first-order discounts, and API/event architecture supported one million daily transactions.",
+          "Aqualogica reached an INR 175 Cr (~$21M) annual run rate and was Honasa's fastest brand to 100 Cr. Homepage and search conversion improved 15% and 17%. Referral signups reached 8% of organic daily acquisition and converted at 40% against 20% for organic, acquisition cost per new order fell from Rs. 620 to Rs. 580, Yotobox-acquired users needed 25% lower first-order discounts, and the event architecture supported one million daily transactions.",
       },
       {
         title: "What I would carry forward",
@@ -937,125 +641,102 @@ export const caseStudies: CaseStudy[] = [
       },
     ],
   },
-];
-
-export const proofItems: ProofItem[] = [
   {
-    title: "Coach cross-platform architecture",
-    type: "Architecture",
-    status: "Local proof",
-    description:
-      "Next.js web, SwiftUI iOS, Kotlin Android, Supabase, health integrations, widgets, trainer workflows, and platform-specific surfaces.",
-    icon: Layers,
-  },
-  {
-    title: "AI analytics PRD",
-    type: "PRD",
-    status: "Draftable from resume",
-    description:
-      "A product brief for business-user analytics, query quality, model trust, evaluation, and SQL validation.",
-    icon: FileSpreadsheet,
-  },
-  {
-    title: "Funnel diagnostics dashboards",
-    type: "Dashboard",
-    status: "Draftable from resume",
-    description:
-      "Views for conversion, engagement, retention, trial-to-paid, referral quality, and pricing recovery.",
-    icon: BarChart3,
-  },
-  {
-    title: "Experiment register",
-    type: "Experiment",
-    status: "Draftable from resume",
-    description:
-      "Hypotheses, success metrics, cohorts, guardrails, decision logs, and launch learnings.",
-    icon: FlaskConical,
-  },
-  {
-    title: "Launch readiness system",
-    type: "Launch Doc",
-    status: "Draftable from resume",
-    description:
-      "QA, analytics, copy, support, operations, and rollout sequencing across product surfaces.",
-    icon: Rocket,
-  },
-  {
-    title: "Data and event architecture",
-    type: "Prototype",
-    status: "Resume-backed",
-    description:
-      "API contracts and event architecture supporting scaled ecommerce transaction flows.",
-    icon: Database,
-  },
-];
-
-export const impactHighlights: ImpactHighlight[] = [
-  {
-    company: "PRISM (Parent Company of OYO)",
-    description: "US consumer products: conversion, commercial scope, and cost margin.",
+    slug: "coach-cross-platform",
+    eyebrow: "Independent product build",
+    title: "Coach: one fitness product across web, iOS, and Android",
+    company: "Personal product build",
+    timeframe: "Ongoing, in invite-only beta",
+    role: "Product Manager and Builder",
+    mandate:
+      "Create a real workout product that can plan routines, guide active sessions, track progress, connect health data, and support trainer workflows across web, iOS, and Android.",
+    keyDecision:
+      "Designed Coach as one product system with platform-native surfaces instead of a single prototype: Next.js web for hosted workflows, SwiftUI for Apple-native training, and Kotlin/Compose for Android.",
+    evidence:
+      "Coach is live at coachfitness.co.in in invite-only beta with internal users. Built solo through an AI-native workflow. The screenshots on this page are real captures from the current build; there is no market traction to claim yet.",
+    summary:
+      "Built Coach from scratch: a cross-platform fitness product for planning workouts, logging sessions, tracking progress, connecting health data, and supporting personal training workflows.",
+    liveUrl: "https://www.coachfitness.co.in",
+    liveLabel: "coachfitness.co.in",
+    tags: ["Cross-platform", "Next.js", "SwiftUI", "Kotlin", "Supabase", "Health data"],
     metrics: [
       {
-        metric: "Conversion",
-        value: "+10%",
-        context: "Hotel-detail-page-to-booking success after FTC pricing-transparency work.",
+        label: "Platforms shipped",
+        value: "3",
+        context: "Web, iOS, and Android, each with platform-native surfaces",
       },
       {
-        metric: "Commercial scope",
-        value: "Pricing and fees",
-        context: "Led pricing-transparency work and built a dynamic fee module across OYO and G6.",
+        label: "Health integrations",
+        value: "2",
+        context: "Apple HealthKit and Android Health Connect, feeding one data model",
       },
       {
-        metric: "Annual cost-margin increase",
-        value: "Up to $2M",
-        context: "Annual cost-margin increase from the dynamic fee module.",
+        label: "Stage",
+        value: "Invite-only beta",
+        context: "Live at coachfitness.co.in with internal users",
       },
     ],
-  },
-  {
-    company: "SplashLearn",
-    description: "Android subscriber growth: trial-to-paid, subscribers, and revenue.",
-    metrics: [
+    platforms: [
       {
-        metric: "Trial-to-paid",
-        value: "+15%",
-        context: "Lift from the web-to-app migration flow.",
+        platform: "Web",
+        title: "Next.js hosted training product",
+        description:
+          "Mobile-first web/PWA with invite auth, onboarding, workout logging, templates, library, calendar, progress, friends, profile, admin, and trainer workflows.",
+        stack: ["Next.js App Router", "Vercel", "Supabase Auth", "Postgres RLS", "TypeScript"],
+        icon: Globe,
       },
       {
-        metric: "Subscribers",
-        value: "1,000 monthly",
-        context: "Android subscribers within six months of launch.",
+        platform: "iOS",
+        title: "SwiftUI native Coach app",
+        description:
+          "Native iOS surface with onboarding, workout logging, HealthKit steps and insights, progress dashboard, widgets, Live Activities, Dynamic Island, and personal training entry points.",
+        stack: ["SwiftUI", "Supabase", "HealthKit", "ActivityKit", "WidgetKit"],
+        icon: Apple,
       },
       {
-        metric: "Revenue",
-        value: "+$5K recurring",
-        context: "Recurring revenue growth associated with the Android app launch.",
+        platform: "Android",
+        title: "Kotlin/Compose Android app",
+        description:
+          "Android app configured with Material 3, Room, WorkManager, secure storage, Health Connect/Fitness, Supabase auth/postgrest, and web bridge URL.",
+        stack: ["Kotlin", "Jetpack Compose", "Room", "WorkManager", "Health Connect"],
+        icon: Smartphone,
       },
     ],
-  },
-  {
-    company: "Honasa / Aqualogica",
-    description: "Role-specific metrics across conversion, brand growth, acquisition efficiency, and AOV.",
-    metrics: [
+    sections: [
       {
-        metric: "Conversion",
-        value: "+15% / +17%",
-        context: "Homepage and search conversion improvements through funnel iteration.",
+        title: "The user problem",
+        body:
+          "Workout products often split planning, active logging, progress review, trainer support, and health context across separate tools. Coach explores what a single cross-platform product system can look like when those jobs are connected.",
       },
       {
-        metric: "Brand run rate",
-        value: "INR 175 Cr",
-        context: "Aqualogica revenue run rate; product initiatives contributed to the brand's growth.",
+        title: "The product decision",
+        body:
+          "The web app handles hosted workflows such as onboarding, templates, workout sessions, calendar, progress, friends, profile, admin, and trainer flows. Native apps bring the experience closer to the workout with Apple Health, Health Connect, widgets, Live Activities, and device-specific interaction patterns.",
       },
       {
-        metric: "First-order discount",
-        value: "-25% discount",
-        context: "Reduction for Yotobox-acquired users across Honasa brands.",
+        title: "Where the product judgment lives",
+        body:
+          "The part I would put in front of a hiring team is not the app, it is the criteria: I defined how program-allocation accuracy is evaluated for personalized plans, the same way I define acceptance criteria for the AI systems I ship at work.",
       },
       {
-        metric: "AOV",
-        value: "> INR 2,500",
-        context: "Average order value on the BBlunt devices Shopify launch.",
+        title: "What I built for web",
+        body:
+          "The Next.js app uses App Router, Vercel, Supabase Auth, Supabase Postgres with Row Level Security, mobile web/PWA behavior, demo mode, trainer directory, bookings, chat, packages, and owner/admin workflows.",
+      },
+      {
+        title: "What I built for iOS",
+        body:
+          "The SwiftUI app includes auth/session restore, onboarding, tabbed navigation, workout start/resume, set logging, progress dashboard, Apple Health steps and insights, Live Activities, Dynamic Island surfaces, widgets, and personal training discovery.",
+      },
+      {
+        title: "What I built for Android",
+        body:
+          "The Android surface uses Kotlin, Jetpack Compose, Material 3, Room, WorkManager, secure crypto storage, Health Connect/Fitness libraries, Supabase auth/postgrest, and a configurable Coach web URL.",
+      },
+      {
+        title: "Why this matters to my product practice",
+        body:
+          "Coach is where I test product decisions end to end: from the user workflow and platform choice to implementation details and the experience in someone's hand. It is also why I can hold a technical conversation about the systems I spec at work.",
       },
     ],
   },

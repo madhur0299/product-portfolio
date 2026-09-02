@@ -1,8 +1,8 @@
 "use client";
 
-import { ChevronDown } from "lucide-react";
+import { ArrowRight, ChevronDown } from "lucide-react";
+import Link from "next/link";
 import { useState } from "react";
-import { WorkStoryLink } from "@/components/work-story-link";
 import type { ProfessionalExperience as ProfessionalExperienceType } from "@/data/portfolio";
 
 type ExperienceTimelineProps = {
@@ -31,7 +31,8 @@ function experienceId(company: string) {
 }
 
 export function ExperienceTimeline({ experiences }: ExperienceTimelineProps) {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  // The current role opens by default; this page's substance is the detail.
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
     <div className="relative border-l border-line md:ml-6">
@@ -67,12 +68,12 @@ export function ExperienceTimeline({ experiences }: ExperienceTimelineProps) {
               </span>
               <span>
                 <span className="block max-w-3xl text-base leading-7 text-muted">{experience.overview}</span>
-                <span className="mt-6 grid gap-4 sm:grid-cols-3">
+                <span className="mt-5 grid grid-cols-3 gap-3 sm:mt-6 sm:gap-4">
                   {experience.outcomes.slice(0, 3).map((outcome) => (
                     <span key={outcome.metric} className="block border-t border-line pt-3">
-                      <span className="block font-mono text-[0.65rem] uppercase text-muted">{outcome.metric}</span>
-                      <span className="mt-2 block text-xl font-semibold">{outcome.value}</span>
-                      <span className="mt-2 block text-xs leading-5 text-muted">{outcome.context}</span>
+                      <span className="block min-h-8 font-mono text-[0.7rem] uppercase leading-4 text-muted sm:min-h-0">{outcome.metric}</span>
+                      <span className="mt-1.5 block text-base font-semibold leading-tight sm:mt-2 sm:text-xl">{outcome.value}</span>
+                      <span className="mt-2 hidden text-xs leading-5 text-muted sm:block">{outcome.context}</span>
                     </span>
                   ))}
                 </span>
@@ -102,7 +103,7 @@ export function ExperienceTimeline({ experiences }: ExperienceTimelineProps) {
                     <section key={`${experience.company}-${stage.role}-${stage.timeframe}`} className="border-t border-line pt-6">
                       <div className="flex flex-col gap-2 sm:flex-row sm:items-baseline sm:justify-between">
                         <h3 className="text-lg font-semibold">{stage.role}</h3>
-                        <p className="font-mono text-[0.68rem] uppercase text-muted">{shortTimeframe(stage.timeframe)}</p>
+                        <p className="font-mono text-[0.7rem] uppercase text-muted">{shortTimeframe(stage.timeframe)}</p>
                       </div>
                       <p className="mt-3 text-sm leading-6 text-muted">{stage.summary}</p>
                       <ul className="mt-5 space-y-3 text-sm leading-6">
@@ -115,13 +116,13 @@ export function ExperienceTimeline({ experiences }: ExperienceTimelineProps) {
                       </ul>
                     </section>
                   ))}
-                  <WorkStoryLink
+                  <Link
                     href={experience.storyHref}
-                    title={`${experience.company} case study`}
-                    className="inline-flex min-h-11 w-fit items-center border-b border-foreground text-sm font-semibold"
+                    className="inline-flex min-h-11 w-fit items-center gap-2 border-b border-foreground text-sm font-semibold"
                   >
                     {experience.storyLabel}
-                  </WorkStoryLink>
+                    <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                  </Link>
                 </div>
               </div>
             </div>

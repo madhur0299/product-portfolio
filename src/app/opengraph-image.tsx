@@ -7,35 +7,50 @@ export const size = {
 };
 export const contentType = "image/png";
 
+const proof = [
+  ["85%", "NL-to-SQL accuracy"],
+  ["+10%", "Booking conversion"],
+  ["~$21M", "D2C run rate owned"],
+];
+
 export default function OpenGraphImage() {
   return new ImageResponse(
     (
       <div
         style={{
-          alignItems: "flex-start",
           background: "#050505",
           color: "#ffffff",
           display: "flex",
           flexDirection: "column",
           height: "100%",
           justifyContent: "space-between",
-          padding: "72px",
+          padding: "64px 72px",
           width: "100%",
         }}
       >
-        <div style={{ color: "#d4d4d4", display: "flex", fontSize: 28, fontWeight: 700 }}>
-          Madhur Jain · Product / Growth / AI
-        </div>
-        <div style={{ display: "flex", flexDirection: "column", gap: "28px", maxWidth: "980px" }}>
-          <div style={{ display: "flex", fontSize: 70, fontWeight: 700, letterSpacing: "-0.03em", lineHeight: 1.05 }}>
-            Product decisions teams can build and businesses can measure.
+        <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
+          <div style={{ color: "#ffffff", display: "flex", fontSize: 40, fontWeight: 700, letterSpacing: "-0.01em" }}>
+            Madhur Jain
           </div>
-          <div style={{ color: "#a1a1aa", display: "flex", fontSize: 30, lineHeight: 1.35 }}>
-            Customer insight, commercial judgment, data fluency, and hands-on AI depth.
+          <div style={{ color: "#a1a1aa", display: "flex", fontSize: 24, letterSpacing: "0.06em" }}>
+            PRODUCT / GROWTH / AI
           </div>
         </div>
-        <div style={{ borderTop: "2px solid #52525b", display: "flex", paddingTop: "20px", width: "100%" }}>
-          www.madhurjain.in
+
+        <div style={{ display: "flex", fontSize: 58, fontWeight: 700, letterSpacing: "-0.03em", lineHeight: 1.08, maxWidth: "1000px" }}>
+          I ship AI products and define how they get judged.
+        </div>
+
+        <div style={{ borderTop: "1px solid #3f3f46", display: "flex", gap: "72px", paddingTop: "26px", width: "100%" }}>
+          {proof.map(([value, label]) => (
+            <div key={label} style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
+              <div style={{ color: "#ffffff", display: "flex", fontSize: 40, fontWeight: 700 }}>{value}</div>
+              <div style={{ color: "#a1a1aa", display: "flex", fontSize: 21 }}>{label}</div>
+            </div>
+          ))}
+          <div style={{ color: "#71717a", display: "flex", fontSize: 21, marginLeft: "auto", alignItems: "flex-end" }}>
+            madhurjain.in
+          </div>
         </div>
       </div>
     ),

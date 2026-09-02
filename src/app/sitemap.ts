@@ -4,7 +4,7 @@ import { caseStudies } from "@/data/portfolio";
 const siteUrl = "https://www.madhurjain.in";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const portfolioRoutes = ["experience", "coach", "skills", "how-i-work", "resume"];
+  const portfolioRoutes = ["work", "experience", "coach", "skills", "how-i-work", "resume"];
 
   return [
     {

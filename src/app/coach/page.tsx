@@ -79,8 +79,8 @@ export default function CoachPage() {
         </section>
 
         <section className="mx-auto grid max-w-[90rem] gap-12 px-5 pb-20 md:px-10 md:pb-28 lg:grid-cols-[minmax(18rem,0.58fr)_minmax(0,1fr)] lg:items-start xl:px-16" data-reveal>
-          <figure className="mx-auto w-full max-w-sm border border-line bg-surface p-4 md:p-6 lg:sticky lg:top-28">
-            <Image src={coachScreens[0].src} alt={coachScreens[0].alt} width={1206} height={2622} priority quality={90} sizes="(min-width: 1024px) 23rem, 85vw" className="h-auto w-full" />
+          <figure className="mx-auto w-full max-w-[11rem] border border-line bg-surface p-3 sm:max-w-[14rem] md:max-w-sm md:p-6 lg:sticky lg:top-28">
+            <Image src={coachScreens[0].src} alt={coachScreens[0].alt} width={1206} height={2622} priority quality={90} sizes="(min-width: 1024px) 23rem, (min-width: 768px) 22rem, 11rem" className="h-auto w-full" />
             <figcaption className="border-t border-line pt-4 text-sm text-muted">{coachScreens[0].label} in the current iOS build</figcaption>
           </figure>
           <div className="divide-y divide-line border-y border-line">
@@ -102,8 +102,14 @@ export default function CoachPage() {
               <h2 className="max-w-3xl text-[1.75rem] font-medium leading-[1.15] text-balance md:text-6xl">A working workout flow.</h2>
               <p className="max-w-xl text-base leading-7 text-white/70">The walkthrough shows active set logging, rest, and progress. The adjacent screens show how health context and trainer workflows extend the same product.</p>
             </div>
-            <div className="mt-10 grid gap-5 lg:grid-cols-3" data-reveal-group>
-              <figure className="flex min-w-0 flex-col border border-white/20 bg-[#0c0d0d]">
+            <div
+              className="-mx-5 mt-8 flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 pb-2 md:-mx-10 md:px-10 lg:mx-0 lg:mt-10 lg:grid lg:grid-cols-3 lg:gap-5 lg:overflow-visible lg:px-0 lg:pb-0"
+              data-reveal-group
+              tabIndex={0}
+              role="group"
+              aria-label="Coach screens, scrollable"
+            >
+              <figure className="flex w-[72vw] min-w-0 shrink-0 snap-start flex-col border border-white/20 bg-[#0c0d0d] sm:w-[46vw] lg:w-auto lg:shrink">
                 <div className="aspect-[9/16] min-h-0 bg-black"><CoachDemoVideo className="h-full w-full" /></div>
                 <figcaption className="border-t border-white/15 p-4">
                   <span className="block text-sm font-semibold">Active workout</span>
@@ -111,9 +117,9 @@ export default function CoachPage() {
                 </figcaption>
               </figure>
               {coachScreens.slice(1).map((screen) => (
-                <figure key={screen.src} className="flex min-w-0 flex-col border border-white/20 bg-[#0c0d0d]">
+                <figure key={screen.src} className="flex w-[72vw] min-w-0 shrink-0 snap-start flex-col border border-white/20 bg-[#0c0d0d] sm:w-[46vw] lg:w-auto lg:shrink">
                   <div className="relative aspect-[9/16] min-h-0 bg-black">
-                    <Image src={screen.src} alt={screen.alt} fill quality={90} sizes="(min-width: 1024px) 30vw, 90vw" className="object-contain" />
+                    <Image src={screen.src} alt={screen.alt} fill quality={90} sizes="(min-width: 1024px) 30vw, (min-width: 640px) 46vw, 72vw" className="object-contain" />
                   </div>
                   <figcaption className="border-t border-white/15 p-4">
                     <span className="block text-sm font-semibold">{screen.label}</span>
@@ -131,7 +137,7 @@ export default function CoachPage() {
             {coachCapabilities.map((capability) => {
               const Icon = capability.icon;
               return (
-                <article key={capability.title} data-reveal className="border-b border-r border-line p-5 md:p-8">
+                <article key={capability.title} data-reveal className="border-b border-r border-line p-4 md:p-8">
                   <Icon className="h-5 w-5" aria-hidden="true" />
                   <h3 className="mt-7 text-xl font-semibold">{capability.title}</h3>
                   <p className="mt-4 text-sm leading-6 text-muted">{capability.description}</p>
